@@ -1,0 +1,21 @@
+{
+  "name": "fludio/doctrine-filter",
+  "require": {
+    "doctrine/orm": "^2.5"
+  },
+  "authors": [
+    {
+      "name": "Thomas Uhlmann",
+      "email": "tho.uhlmann@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Fludio\\DoctrineFilter\\": "src/",
+      "Fludio\\DoctrineFilter\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8"
+  }
+}
