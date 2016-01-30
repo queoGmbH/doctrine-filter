@@ -19,6 +19,9 @@ class PostFilter implements FilterInterface
     {
         $builder
             ->add('title', EqualFilterType::class)
+            ->add('content', EqualFilterType::class, [
+                'filterName' => 'content_same'
+            ])
             ->add('content', LikeFilterType::class)
             ->add('createdAt', RangeFilterType::class)
             ->add('createdAt', GreaterThanEqualFilterType::class, [
@@ -33,5 +36,10 @@ class PostFilter implements FilterInterface
             ->add('createdAt', LessThanFilterType::class, [
                 'filterName' => 'createdAt_lt'
             ]);
+    }
+
+    public function set()
+    {
+
     }
 }

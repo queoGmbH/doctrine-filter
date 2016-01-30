@@ -11,11 +11,15 @@ class FilterBuilder
     /**
      * @var QueryBuilder
      */
-    private $qb;
+    protected $qb;
     /**
      * @var ArrayCollection|AbstractType[]
      */
     protected $filters;
+    /**
+     * @var array
+     */
+    protected $parametersMap = [];
 
     /**
      * FilterBuilder constructor.
@@ -47,9 +51,37 @@ class FilterBuilder
         foreach ($searchParams as $filterName => $value) {
             /** @var AbstractFilterType $filter */
             $filter = $this->filters->get($filterName);
-            $filter->expand($this->qb, $value);
+            $filter->expand($this, $value);
         }
 
+        $this->qb->setParameters($this->parametersMap);
+
         return $this->qb->getQuery()->getResult();
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    public function getQueryBuilder()
+    {
+        return $this->qb;
+    }
+
+    /**
+     * @param $value
+     * @return string
+     */
+    public function addValue($value)
+    {
+        $nextNumericPlaceholder = $this->getNextNumericPlaceholder();
+
+        $this->parametersMap[$nextNumericPlaceholder] = $value;
+
+        return '?' . $nextNumericPlaceholder;
+    }
+
+    protected function getNextNumericPlaceholder()
+    {
+        return count($this->parametersMap) + 1;
     }
 }

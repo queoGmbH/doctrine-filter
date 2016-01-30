@@ -2,15 +2,18 @@
 
 namespace Fludio\DoctrineFilter\Filter\Type;
 
-use Doctrine\ORM\QueryBuilder;
+use Fludio\DoctrineFilter\Filter\FilterBuilder;
 
 class LikeFilterType extends AbstractFilterType
 {
-    public function expand(QueryBuilder $qb, $value)
+    public function expand(FilterBuilder $filterBuilder, $value)
     {
+        $qb = $filterBuilder->getQueryBuilder();
+
         return $qb
-            ->andWhere($qb->expr()->like('x.' . $this->field, ':value2'))
-            ->setParameter('value2', '%' . $value . '%');
+            ->andWhere(
+                $qb->expr()->like('x.' . $this->field, $filterBuilder->addValue('%' . $value . '%'))
+            );
     }
 
 }

@@ -4,6 +4,7 @@ namespace Fludio\DoctrineFilter\Filter\Type;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
+use Fludio\DoctrineFilter\Filter\FilterBuilder;
 
 abstract class AbstractFilterType
 {
@@ -23,11 +24,12 @@ abstract class AbstractFilterType
     }
 
     /**
-     * @param QueryBuilder $qb
+     * @param FilterBuilder $filterBuilder
      * @param $value
      * @return QueryBuilder
+     * @internal param QueryBuilder $qb
      */
-    abstract public function expand(QueryBuilder $qb, $value);
+    abstract public function expand(FilterBuilder $filterBuilder, $value);
 
     /**
      * @param ArrayCollection $filters

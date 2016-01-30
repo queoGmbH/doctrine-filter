@@ -2,14 +2,15 @@
 
 namespace Fludio\DoctrineFilter\Filter\Type;
 
-use Doctrine\ORM\QueryBuilder;
+use Fludio\DoctrineFilter\Filter\FilterBuilder;
 
 class GreaterThanFilterType extends AbstractFilterType
 {
-    public function expand(QueryBuilder $qb, $value)
+    public function expand(FilterBuilder $filterBuilder, $value)
     {
+        $qb = $filterBuilder->getQueryBuilder();
+
         return $qb
-            ->andWhere($qb->expr()->gt('x.' . $this->field, ':value3'))
-            ->setParameter('value3', $value);
+            ->andWhere($qb->expr()->gt('x.' . $this->field, $filterBuilder->addValue($value)));
     }
 }
