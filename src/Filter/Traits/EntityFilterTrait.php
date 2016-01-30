@@ -2,6 +2,9 @@
 
 namespace Fludio\DoctrineFilter\Filter\Traits;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Fludio\DoctrineFilter\Filter\FilterBuilder;
 use Fludio\DoctrineFilter\Filter\FilterInterface;
 
@@ -15,5 +18,25 @@ trait EntityFilterTrait
         $filter->buildFilter($filterBuilder);
 
         return $filterBuilder->getResult($searchParams);
+    }
+
+    public function paginate(FilterInterface $filter, $searchParams, $offset, $limit)
+    {
+        /** @var QueryBuilder $qb */
+        $qb = $this->createQueryBuilder('x');
+        $filterBuilder = new FilterBuilder($qb);
+
+        $filter->buildFilter($filterBuilder);
+
+        $filterBuilder->build($searchParams);
+
+        $qb
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getQuery();
+
+        $paginator = new Paginator($qb);
+
+        return new ArrayCollection(iterator_to_array($paginator->getIterator()));
     }
 }
