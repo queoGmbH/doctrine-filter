@@ -1,10 +1,10 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Filter\Condition;
+namespace Fludio\DoctrineFilter\Filter\Type;
 
 use Doctrine\ORM\QueryBuilder;
 
-class LikeCondition extends AbstractCondition
+class LikeFilterType extends AbstractFilterType
 {
     public function expand(QueryBuilder $qb, $value)
     {
