@@ -3,7 +3,8 @@
   "require": {
     "doctrine/orm": "^2.5",
     "doctrine/data-fixtures": "^1.1",
-    "satooshi/php-coveralls": "^1.0"
+    "satooshi/php-coveralls": "^1.0",
+    "symfony/options-resolver": "^3.0"
   },
   "authors": [
     {
