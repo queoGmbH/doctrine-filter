@@ -16,6 +16,6 @@ class PostRepo extends EntityRepository
 
         $filter->buildFilter($filterBuilder);
 
-        return $filterBuilder->build($searchParams);
+        return $filterBuilder->getResult($searchParams);
     }
 }

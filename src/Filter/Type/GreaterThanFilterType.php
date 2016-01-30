@@ -11,6 +11,6 @@ class GreaterThanFilterType extends AbstractFilterType
         $qb = $filterBuilder->getQueryBuilder();
 
         return $qb
-            ->andWhere($qb->expr()->gt('x.' . $this->field, $filterBuilder->addValue($value)));
+            ->andWhere($qb->expr()->gt('x.' . $this->field, $filterBuilder->placeValue($value)));
     }
 }

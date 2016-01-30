@@ -12,11 +12,15 @@ class FilterBuilder
      * @var QueryBuilder
      */
     protected $qb;
+
     /**
      * @var ArrayCollection|AbstractType[]
      */
     protected $filters;
+
     /**
+     * Keeps track of numeric placeholderand their values
+     *
      * @var array
      */
     protected $parametersMap = [];
@@ -46,6 +50,10 @@ class FilterBuilder
         return $this;
     }
 
+    /**
+     * @param $searchParams
+     * @return QueryBuilder
+     */
     public function build($searchParams)
     {
         foreach ($searchParams as $filterName => $value) {
@@ -56,7 +64,19 @@ class FilterBuilder
 
         $this->qb->setParameters($this->parametersMap);
 
-        return $this->qb->getQuery()->getResult();
+        return $this->qb;
+    }
+
+    /**
+     * @param $searchParams
+     * @return array
+     */
+    public function getResult($searchParams)
+    {
+        return $this
+            ->build($searchParams)
+            ->getQuery()
+            ->getResult();
     }
 
     /**
@@ -71,7 +91,7 @@ class FilterBuilder
      * @param $value
      * @return string
      */
-    public function addValue($value)
+    public function placeValue($value)
     {
         $nextNumericPlaceholder = $this->getNextNumericPlaceholder();
 
@@ -80,6 +100,11 @@ class FilterBuilder
         return '?' . $nextNumericPlaceholder;
     }
 
+    /**
+     * Return the next numeric placeholder for a parameter
+     *
+     * @return int
+     */
     protected function getNextNumericPlaceholder()
     {
         return count($this->parametersMap) + 1;
