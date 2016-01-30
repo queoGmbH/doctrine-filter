@@ -4,7 +4,7 @@ namespace Fludio\DoctrineFilter\Filter;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
-use Fludio\DoctrineFilter\Filter\Condition\AbstractCondition;
+use Fludio\DoctrineFilter\Filter\Type\AbstractFilterType;
 
 class FilterBuilder
 {
@@ -35,11 +35,9 @@ class FilterBuilder
      */
     public function add($field, $filterClass, $options = [])
     {
-        $filterName = isset($options['filterName']) ? $options['filterName'] : $field;
-
-        /** @var AbstractCondition $filter */
-        $filter = new $filterClass($field);
-        $this->filters->set($filterName, $filter);
+        /** @var AbstractFilterType $filter */
+        $filter = new $filterClass($field, $options);
+        $filter->addToFilters($this->filters);
 
         return $this;
     }
@@ -47,7 +45,7 @@ class FilterBuilder
     public function build($searchParams)
     {
         foreach ($searchParams as $filterName => $value) {
-            /** @var AbstractCondition $filter */
+            /** @var AbstractFilterType $filter */
             $filter = $this->filters->get($filterName);
             $filter->expand($this->qb, $value);
         }
