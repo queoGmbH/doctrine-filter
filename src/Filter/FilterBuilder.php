@@ -4,6 +4,7 @@ namespace Fludio\DoctrineFilter\Filter;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
+use Fludio\DoctrineFilter\Filter\OrderBy\OrderByType;
 use Fludio\DoctrineFilter\Filter\Type\AbstractFilterType;
 
 class FilterBuilder
@@ -17,6 +18,11 @@ class FilterBuilder
      * @var ArrayCollection|AbstractType[]
      */
     protected $filters;
+
+    /**
+     * @var array
+     */
+    protected $orderBy = [];
 
     /**
      * Keeps track of numeric placeholderand their values
@@ -50,6 +56,12 @@ class FilterBuilder
         return $this;
     }
 
+    public function orderBy($field, $sortOrder)
+    {
+        $filter = new OrderByType($field, $sortOrder);
+        $this->orderBy[] = $filter;
+    }
+
     /**
      * @param $searchParams
      * @return QueryBuilder
@@ -60,6 +72,10 @@ class FilterBuilder
             /** @var AbstractFilterType $filter */
             $filter = $this->filters->get($filterName);
             $filter->expand($this, $value);
+        }
+
+        foreach ($this->orderBy as $orderBy) {
+            $orderBy->expand($this);
         }
 
         $this->qb->setParameters($this->parametersMap);
