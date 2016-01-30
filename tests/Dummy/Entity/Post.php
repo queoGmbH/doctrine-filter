@@ -29,6 +29,11 @@ class Post
     protected $content;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $createdAt;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -66,5 +71,21 @@ class Post
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
     }
 }
