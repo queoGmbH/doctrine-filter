@@ -3,21 +3,21 @@
 namespace Fludio\DoctrineFilter\Tests\Filter\Type;
 
 use Fludio\DoctrineFilter\Filter\FilterBuilder;
-use Fludio\DoctrineFilter\Filter\Type\RangeFilterType;
+use Fludio\DoctrineFilter\Filter\Type\BetweenFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
 use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use Fludio\DoctrineFilter\Tests\Dummy\TestCase;
 use Fludio\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 
-class RangeFilterTypeTest extends TestCase
+class BetweenFilterTypeTest extends TestCase
 {
     use LoadFixtures, TestFilterTrait;
 
     public function getFilterDefinition()
     {
         return function (FilterBuilder $builder) {
-            $builder->add('createdAt', RangeFilterType::class);
+            $builder->add('createdAt', BetweenFilterType::class);
         };
     }
 

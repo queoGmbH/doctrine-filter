@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Fludio\DoctrineFilter\Filter\FilterBuilder;
 
 
-class RangeFilterType extends AbstractFilterType
+class BetweenFilterType extends AbstractFilterType
 {
     public function expand(FilterBuilder $filterBuilder, $value)
     {
