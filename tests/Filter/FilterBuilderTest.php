@@ -4,6 +4,7 @@ namespace Fludio\DoctrineFilter\Tests;
 
 use Fludio\DoctrineFilter\Filter\FilterBuilder;
 use Fludio\DoctrineFilter\Filter\Type\EqualFilterType;
+use Fludio\DoctrineFilter\Filter\Type\LikeFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;
@@ -31,7 +32,7 @@ class FilterBuilderTest extends TestCase
     {
         return function (FilterBuilder $builder) {
             $builder
-                ->add('title', EqualFilterType::class)
+                ->add('title', LikeFilterType::class)
                 ->add('content', EqualFilterType::class)
                 ->add('tags.name', EqualFilterType::class, [
                     'filterName' => 'tags'

@@ -11,6 +11,6 @@ class LessThanEqualFilterType extends AbstractFilterType
         $qb = $filterBuilder->getQueryBuilder();
 
         return $qb
-            ->andWhere($qb->expr()->lte($table . '.' . $this->field, $filterBuilder->placeValue($value)));
+            ->andWhere($qb->expr()->lte($table . '.' . $this->getFieldOnTable(), $filterBuilder->placeValue($value)));
     }
 }

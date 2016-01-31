@@ -12,7 +12,7 @@ class LikeFilterType extends AbstractFilterType
 
         return $qb
             ->andWhere(
-                $qb->expr()->like($table . '.' . $this->field, $filterBuilder->placeValue('%' . $value . '%'))
+                $qb->expr()->like($table . '.' . $this->getFieldOnTable(), $filterBuilder->placeValue('%' . $value . '%'))
             );
     }
 
