@@ -218,6 +218,8 @@ class FilterBuilder
             $this->joinAliases[$joinRelationship] = $joinAlias; // [x.tags => join1]
             $this->qb
                 ->leftJoin($joinRelationship, $joinAlias);
+        } else {
+            $joinAlias = $this->joinAliases[$joinRelationship];
         }
 
         return $joinAlias;

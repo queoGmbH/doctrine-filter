@@ -95,4 +95,16 @@ class FilterBuilderTest extends TestCase
 
         $this->assertCount(0, $posts);
     }
+
+    /** @test */
+    public function it_can_handle_multiple_relationship_queries()
+    {
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'title' => 'Post title',
+            'tags' => 'Tag 2',
+            'category' => 'Category 1'
+        ]);
+
+        $this->assertCount(1, $posts);
+    }
 }
