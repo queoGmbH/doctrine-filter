@@ -19,6 +19,7 @@ class EqualFilterType extends AbstractFilterType
      */
     protected function fieldOnTable()
     {
-        return array_pop(preg_split('/\./', $this->field));
+        $fields = preg_split('/\./', $this->field);
+        return array_pop($fields);
     }
 }
