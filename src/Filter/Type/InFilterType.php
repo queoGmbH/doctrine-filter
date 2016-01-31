@@ -9,6 +9,9 @@ class InFilterType extends AbstractFilterType
 {
     public function expand(FilterBuilder $filterBuilder, $value, $table)
     {
-        // TODO: Implement expand() method.
+        $qb = $filterBuilder->getQueryBuilder();
+
+        return $qb
+            ->andWhere($qb->expr()->in($table . '.' . $this->getFieldOnTable(), $filterBuilder->placeValue($value)));
     }
 }
