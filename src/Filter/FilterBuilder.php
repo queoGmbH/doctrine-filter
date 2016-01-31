@@ -174,7 +174,7 @@ class FilterBuilder
         if ($this->isRelationship($filterName)) {
             $table = $this->addAllJoins($filterName);
         } else {
-            $table = array_shift($this->qb->getRootAliases());
+            $table = $this->getRootAlias();
         }
         /** @var AbstractFilterType $filter */
         $filter = $this->filters->get($filterName);
@@ -194,7 +194,7 @@ class FilterBuilder
         $field = $this->getFieldFromFilterName($searchFilter);
         $fieldParts = preg_split('/\./', $field);
 
-        $joinAlias = array_shift($this->qb->getRootAliases());
+        $joinAlias = $this->getRootAlias();
         while ($part = array_shift($fieldParts)) {
             if (!empty($fieldParts)) {
                 $joinAlias = $this->addJoin($part, $joinAlias);
@@ -265,5 +265,14 @@ class FilterBuilder
         $filter = $this->filters->get($searchFilter);
 
         return $filter->getField();
+    }
+
+    /**
+     * @return string
+     */
+    protected function getRootAlias()
+    {
+        $rootAlias = $this->qb->getRootAliases();
+        return array_shift($rootAlias);
     }
 }
