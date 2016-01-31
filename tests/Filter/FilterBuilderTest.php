@@ -57,5 +57,16 @@ class FilterBuilderTest extends TestCase
         ]);
 
         $this->assertCount(1, $posts);
+        $this->assertEquals('Tag 1', $posts[0]->getTags()->first()->getName());
+    }
+
+    /** @test */
+    public function it_returns_no_results_if_relation_ship_query_is_not_fullfilled()
+    {
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'tags' => 'Tag 4',
+        ]);
+
+        $this->assertCount(0, $posts);
     }
 }
