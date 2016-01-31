@@ -6,6 +6,8 @@ use Fludio\DoctrineFilter\Filter\FilterBuilder;
 use Fludio\DoctrineFilter\Filter\Type\EqualFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
+use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
+use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
 use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use Fludio\DoctrineFilter\Tests\Dummy\TestCase;
 use Fludio\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
@@ -14,12 +16,24 @@ class FilterBuilderTest extends TestCase
 {
     use LoadFixtures, TestFilterTrait;
 
+    public function loadFixtures()
+    {
+        return [
+            new LoadTagData(),
+            new LoadPostData()
+        ];
+    }
+
+
     public function getFilterDefinition()
     {
         return function (FilterBuilder $builder) {
             $builder
                 ->add('title', EqualFilterType::class)
-                ->add('content', EqualFilterType::class);
+                ->add('content', EqualFilterType::class)
+                ->add('tags.name', EqualFilterType::class, [
+                    'filterName' => 'tags'
+                ]);
         };
     }
 
@@ -33,5 +47,15 @@ class FilterBuilderTest extends TestCase
 
         $this->assertCount(1, $posts);
         $this->assertEquals('Post title', $posts[0]->getTitle());
+    }
+
+    /** @test */
+    public function it_queries_relationships()
+    {
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'tags' => 'Tag 1',
+        ]);
+
+        $this->assertCount(1, $posts);
     }
 }

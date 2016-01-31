@@ -25,11 +25,16 @@ class FilterBuilder
     protected $orderBy = [];
 
     /**
-     * Keeps track of numeric placeholderand their values
+     * Keeps track of numeric placeholder and their values
      *
      * @var array
      */
     protected $parametersMap = [];
+
+    /**
+     * @var array
+     */
+    protected $joinAliases = [];
 
     /**
      * FilterBuilder constructor.
@@ -42,6 +47,21 @@ class FilterBuilder
     }
 
     /**
+     * @param $searchParams
+     * @return QueryBuilder
+     */
+    public function build($searchParams)
+    {
+        $this->addFiltersToQuery($searchParams);
+        $this->addOrderByToQuery();
+        $this->setParametersToQuery();
+
+        return $this->qb;
+    }
+
+    /**
+     * Add a filter to the builder
+     *
      * @param $field
      * @param $filterClass
      * @param $options
@@ -56,31 +76,19 @@ class FilterBuilder
         return $this;
     }
 
+    /**
+     * Add a orderBy to the filter
+     *
+     * @param $field
+     * @param $sortOrder
+     * @return $this
+     */
     public function orderBy($field, $sortOrder)
     {
         $filter = new OrderByType($field, $sortOrder);
         $this->orderBy[] = $filter;
-    }
 
-    /**
-     * @param $searchParams
-     * @return QueryBuilder
-     */
-    public function build($searchParams)
-    {
-        foreach ($searchParams as $filterName => $value) {
-            /** @var AbstractFilterType $filter */
-            $filter = $this->filters->get($filterName);
-            $filter->expand($this, $value);
-        }
-
-        foreach ($this->orderBy as $orderBy) {
-            $orderBy->expand($this);
-        }
-
-        $this->qb->setParameters($this->parametersMap);
-
-        return $this->qb;
+        return $this;
     }
 
     /**
@@ -96,6 +104,8 @@ class FilterBuilder
     }
 
     /**
+     * Returns the QueryBuilder
+     *
      * @return QueryBuilder
      */
     public function getQueryBuilder()
@@ -104,6 +114,9 @@ class FilterBuilder
     }
 
     /**
+     * Will return a string for the numeric placeholder
+     * and add the value to the parameter map
+     *
      * @param $value
      * @return string
      */
@@ -117,6 +130,105 @@ class FilterBuilder
     }
 
     /**
+     * @param $searchParams
+     */
+    protected function addFiltersToQuery($searchParams)
+    {
+        foreach ($searchParams as $filterName => $value) {
+            $this->addFilterToQuery($filterName, $value);
+        }
+    }
+
+    /**
+     * Add OrderBy statements
+     */
+    protected function addOrderByToQuery()
+    {
+        foreach ($this->orderBy as $orderBy) {
+            $orderBy->expand($this);
+        }
+    }
+
+    /**
+     * Set Parameters to Query
+     */
+    protected function setParametersToQuery()
+    {
+        $this->qb->setParameters($this->parametersMap);
+    }
+
+    /**
+     * @param $filterName
+     * @param $value
+     */
+    protected function addFilterToQuery($filterName, $value)
+    {
+        if ($this->isRelationship($filterName)) {
+            $table = $this->addAllJoins($filterName);
+        } else {
+            $table = array_shift($this->qb->getRootAliases());
+        }
+        /** @var AbstractFilterType $filter */
+        $filter = $this->filters->get($filterName);
+        $filter->expand($this, $value, $table);
+    }
+
+    /**
+     * Will add all necessary joins and it will
+     * return the name of the table for the field
+     * to be queried
+     *
+     * @param $searchFilter
+     * @return string
+     */
+    protected function addAllJoins($searchFilter)
+    {
+        $field = $this->getFieldFromFilterName($searchFilter);
+        $fieldParts = preg_split('/\./', $field);
+
+        $joinAlias = array_shift($this->qb->getRootAliases());
+        while ($part = array_shift($fieldParts)) {
+            if (!empty($fieldParts)) {
+                $joinAlias = $this->addJoin($part, $joinAlias);
+            }
+        }
+
+        return $joinAlias;
+    }
+
+    /**
+     * @param $field
+     * @param null $rootAlias
+     * @return mixed|null
+     */
+    protected function addJoin($field, $rootAlias = null)
+    {
+        $joinRelationship = $rootAlias . '.' . $field; // x.tags
+
+        if (!isset($this->joinAliases[$joinRelationship])) {
+            $joinAlias = 'join' . $this->getNextNumericJoinCount(); // join1
+            $this->joinAliases[$joinRelationship] = $joinAlias; // [x.tags => join1]
+            $this->qb
+                ->leftJoin($joinRelationship, $joinAlias);
+        }
+
+        return $joinAlias;
+    }
+
+    /**
+     * @param $searchFilter
+     * @return bool
+     */
+    protected function isRelationship($searchFilter)
+    {
+        $field = $this->getFieldFromFilterName($searchFilter);
+
+        $fieldParts = preg_split('/\./', $field);
+
+        return count($fieldParts) > 1;
+    }
+
+    /**
      * Return the next numeric placeholder for a parameter
      *
      * @return int
@@ -124,5 +236,26 @@ class FilterBuilder
     protected function getNextNumericPlaceholder()
     {
         return count($this->parametersMap) + 1;
+    }
+
+    /**
+     * Return the next numeric join count
+     *
+     * @return int
+     */
+    protected function getNextNumericJoinCount()
+    {
+        return count($this->joinAliases) + 1;
+    }
+
+    /**
+     * @param $searchFilter
+     * @return mixed
+     */
+    protected function getFieldFromFilterName($searchFilter)
+    {
+        $filter = $this->filters->get($searchFilter);
+
+        return $filter->getField();
     }
 }
