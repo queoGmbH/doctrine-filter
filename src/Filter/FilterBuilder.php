@@ -20,6 +20,8 @@ class FilterBuilder
     protected $filters;
 
     /**
+     * The registered orderBy statements
+     *
      * @var array
      */
     protected $orderBy = [];
@@ -32,6 +34,8 @@ class FilterBuilder
     protected $parametersMap = [];
 
     /**
+     * Keeps track of the registered joins
+     *
      * @var array
      */
     protected $joinAliases = [];
@@ -47,6 +51,8 @@ class FilterBuilder
     }
 
     /**
+     * Get QueryBuilder after search filters are attached to query
+     *
      * @param $searchParams
      * @return QueryBuilder
      */
@@ -57,6 +63,20 @@ class FilterBuilder
         $this->setParametersToQuery();
 
         return $this->qb;
+    }
+
+    /**
+     * Get search filter result
+     *
+     * @param $searchParams
+     * @return array
+     */
+    public function getResult($searchParams)
+    {
+        return $this
+            ->build($searchParams)
+            ->getQuery()
+            ->getResult();
     }
 
     /**
@@ -89,18 +109,6 @@ class FilterBuilder
         $this->orderBy[] = $filter;
 
         return $this;
-    }
-
-    /**
-     * @param $searchParams
-     * @return array
-     */
-    public function getResult($searchParams)
-    {
-        return $this
-            ->build($searchParams)
-            ->getQuery()
-            ->getResult();
     }
 
     /**
