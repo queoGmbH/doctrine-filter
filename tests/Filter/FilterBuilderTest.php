@@ -6,6 +6,7 @@ use Fludio\DoctrineFilter\Filter\FilterBuilder;
 use Fludio\DoctrineFilter\Filter\Type\EqualFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
+use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
 use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
@@ -19,6 +20,7 @@ class FilterBuilderTest extends TestCase
     public function loadFixtures()
     {
         return [
+            new LoadCategoryData(),
             new LoadTagData(),
             new LoadPostData()
         ];
@@ -33,6 +35,9 @@ class FilterBuilderTest extends TestCase
                 ->add('content', EqualFilterType::class)
                 ->add('tags.name', EqualFilterType::class, [
                     'filterName' => 'tags'
+                ])
+                ->add('tags.category.name', EqualFilterType::class, [
+                    'filterName' => 'category'
                 ]);
         };
     }
@@ -65,6 +70,27 @@ class FilterBuilderTest extends TestCase
     {
         $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
             'tags' => 'Tag 4',
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
+
+    /** @test */
+    public function it_queries_deeply_nested_relationships()
+    {
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'category' => 'Category 1',
+        ]);
+
+        $this->assertCount(1, $posts);
+        $this->assertEquals('Category 1', $posts[0]->getTags()->first()->getCategory()->getName());
+    }
+
+    /** @test */
+    public function it_returns_no_result_if_deeply_nested_relationship_query_is_not_fullfilled()
+    {
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'category' => 'Category 2000',
         ]);
 
         $this->assertCount(0, $posts);

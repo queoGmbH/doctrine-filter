@@ -20,6 +20,12 @@ class LoadTagData extends AbstractFixture implements OrderedFixtureInterface
         $tag3 = new Tag();
         $tag3->setName('Tag 3');
 
+        if ($this->hasReference('category2')) {
+            $tag1->setCategory($this->getReference('category1'));
+            $tag2->setCategory($this->getReference('category1'));
+            $tag3->setCategory($this->getReference('category2'));
+        }
+
         $manager->persist($tag1);
         $manager->persist($tag2);
         $manager->persist($tag3);
@@ -32,6 +38,6 @@ class LoadTagData extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 1;
+        return 5;
     }
 }

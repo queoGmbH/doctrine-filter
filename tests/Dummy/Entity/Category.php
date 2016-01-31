@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class Tag
+class Category
 {
     /**
      * @ORM\Column(type="integer")
@@ -23,19 +23,13 @@ class Tag
     protected $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Post", mappedBy="tags")
+     * @ORM\OneToMany(targetEntity="Tag", mappedBy="category")
      */
-    protected $posts;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="tags")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     */
-    protected $category;
+    protected $tags;
 
     public function __construct()
     {
-        $this->posts = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     /**
@@ -63,48 +57,32 @@ class Tag
     }
 
     /**
-     * @param Post $post
+     * @param Tag $tag
      * @return $this
      */
-    public function addPost(Post $post)
+    public function addTag(Tag $tag)
     {
-        $this->posts->add($post);
+        $this->tags->add($tag);
 
         return $this;
     }
 
     /**
-     * @param Post $post
+     * @param Tag $tag
      * @return $this
      */
-    public function removePost(Post $post)
+    public function removeTag(Tag $tag)
     {
-        $this->posts->removeElement($post);
+        $this->tags->removeElement($tag);
 
         return $this;
     }
 
     /**
-     * @return ArrayCollection|Posts[]
+     * @return ArrayCollection|Tags[]
      */
-    public function getPosts()
+    public function getTags()
     {
-        return $this->posts;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * @param mixed $category
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
+        return $this->tags;
     }
 }
