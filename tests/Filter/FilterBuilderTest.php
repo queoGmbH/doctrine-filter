@@ -106,5 +106,13 @@ class FilterBuilderTest extends TestCase
         ]);
 
         $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'title' => 'Post title',
+            'tags' => 'Tag 2',
+            'category' => 'Category 2'
+        ]);
+
+        $this->assertCount(0, $posts);
     }
 }
