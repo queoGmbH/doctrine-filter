@@ -1,8 +1,8 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Filter\OrderBy;
+namespace Fludio\DoctrineFilter\OrderBy;
 
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
+use Fludio\DoctrineFilter\FilterBuilder;
 
 class OrderByType
 {

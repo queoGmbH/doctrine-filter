@@ -1,11 +1,11 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Filter;
+namespace Fludio\DoctrineFilter;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
-use Fludio\DoctrineFilter\Filter\OrderBy\OrderByType;
-use Fludio\DoctrineFilter\Filter\Type\AbstractFilterType;
+use Fludio\DoctrineFilter\OrderBy\OrderByType;
+use Fludio\DoctrineFilter\Type\AbstractFilterType;
 
 class FilterBuilder
 {

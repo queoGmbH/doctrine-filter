@@ -2,8 +2,8 @@
 
 namespace Fludio\DoctrineFilter\Tests\Filter\Type;
 
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
-use Fludio\DoctrineFilter\Filter\Type\EqualFilterType;
+use Fludio\DoctrineFilter\FilterBuilder;
+use Fludio\DoctrineFilter\Type\EqualFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use Fludio\DoctrineFilter\Tests\Dummy\TestCase;

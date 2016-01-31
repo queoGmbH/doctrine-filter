@@ -1,10 +1,9 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Filter\Type;
+namespace Fludio\DoctrineFilter\Type;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
-
+use Fludio\DoctrineFilter\FilterBuilder;
 
 class BetweenFilterType extends AbstractFilterType
 {

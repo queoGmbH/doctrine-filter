@@ -2,8 +2,8 @@
 
 namespace Fludio\DoctrineFilter\Tests\Filter\Type;
 
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
-use Fludio\DoctrineFilter\Filter\Type\InstanceOfFilterType;
+use Fludio\DoctrineFilter\FilterBuilder;
+use Fludio\DoctrineFilter\Type\InstanceOfFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Bike;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Transport;

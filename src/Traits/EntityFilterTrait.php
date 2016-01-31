@@ -1,12 +1,12 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Filter\Traits;
+namespace Fludio\DoctrineFilter\Traits;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Tools\Pagination\Paginator;
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
-use Fludio\DoctrineFilter\Filter\FilterInterface;
+use Fludio\DoctrineFilter\FilterBuilder;
+use Fludio\DoctrineFilter\FilterInterface;
 
 trait EntityFilterTrait
 {

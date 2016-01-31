@@ -2,7 +2,7 @@
 
 namespace Fludio\DoctrineFilter\Tests\Filter\Traits;
 
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
+use Fludio\DoctrineFilter\FilterBuilder;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
 use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;

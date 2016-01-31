@@ -2,9 +2,9 @@
 
 namespace Fludio\DoctrineFilter\Tests;
 
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
-use Fludio\DoctrineFilter\Filter\Type\EqualFilterType;
-use Fludio\DoctrineFilter\Filter\Type\LikeFilterType;
+use Fludio\DoctrineFilter\FilterBuilder;
+use Fludio\DoctrineFilter\Type\EqualFilterType;
+use Fludio\DoctrineFilter\Type\LikeFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Filter;
+namespace Fludio\DoctrineFilter;
 
 interface FilterInterface
 {

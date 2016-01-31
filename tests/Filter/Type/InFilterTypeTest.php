@@ -2,8 +2,8 @@
 
 namespace Fludio\DoctrineFilter\Tests\Filter\Type;
 
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
-use Fludio\DoctrineFilter\Filter\Type\InFilterType;
+use Fludio\DoctrineFilter\FilterBuilder;
+use Fludio\DoctrineFilter\Type\InFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;

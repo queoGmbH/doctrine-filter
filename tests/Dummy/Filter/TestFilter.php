@@ -2,8 +2,8 @@
 
 namespace Fludio\DoctrineFilter\Tests\Dummy\Filter;
 
-use Fludio\DoctrineFilter\Filter\FilterBuilder;
-use Fludio\DoctrineFilter\Filter\FilterInterface;
+use Fludio\DoctrineFilter\FilterBuilder;
+use Fludio\DoctrineFilter\FilterInterface;
 
 class TestFilter implements FilterInterface
 {
