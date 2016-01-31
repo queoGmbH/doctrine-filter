@@ -6,13 +6,13 @@ use Fludio\DoctrineFilter\Filter\FilterBuilder;
 
 class LikeFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value)
+    public function expand(FilterBuilder $filterBuilder, $value, $table)
     {
         $qb = $filterBuilder->getQueryBuilder();
 
         return $qb
             ->andWhere(
-                $qb->expr()->like('x.' . $this->field, $filterBuilder->placeValue('%' . $value . '%'))
+                $qb->expr()->like($table . '.' . $this->field, $filterBuilder->placeValue('%' . $value . '%'))
             );
     }
 

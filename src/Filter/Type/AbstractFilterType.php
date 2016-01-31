@@ -27,9 +27,8 @@ abstract class AbstractFilterType
      * @param FilterBuilder $filterBuilder
      * @param $value
      * @return QueryBuilder
-     * @internal param QueryBuilder $qb
      */
-    abstract public function expand(FilterBuilder $filterBuilder, $value);
+    abstract public function expand(FilterBuilder $filterBuilder, $value, $table);
 
     /**
      * @param ArrayCollection $filters
@@ -39,5 +38,10 @@ abstract class AbstractFilterType
         $filterName = isset($this->options['filterName']) ? $this->options['filterName'] : $this->field;
 
         $filters->set($filterName, $this);
+    }
+
+    public function getField()
+    {
+        return $this->field;
     }
 }

@@ -8,7 +8,7 @@ use Fludio\DoctrineFilter\Filter\FilterBuilder;
 
 class BetweenFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value)
+    public function expand(FilterBuilder $filterBuilder, $value, $table)
     {
     }
 

@@ -6,11 +6,11 @@ use Fludio\DoctrineFilter\Filter\FilterBuilder;
 
 class GreaterThanFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value)
+    public function expand(FilterBuilder $filterBuilder, $value, $table)
     {
         $qb = $filterBuilder->getQueryBuilder();
 
         return $qb
-            ->andWhere($qb->expr()->gt('x.' . $this->field, $filterBuilder->placeValue($value)));
+            ->andWhere($qb->expr()->gt($table . '.' . $this->field, $filterBuilder->placeValue($value)));
     }
 }
