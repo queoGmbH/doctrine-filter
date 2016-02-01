@@ -82,15 +82,15 @@ class FilterBuilder
     /**
      * Add a filter to the builder
      *
-     * @param $field
+     * @param $filterName
      * @param $filterClass
      * @param $options
      * @return FilterBuilder $this
      */
-    public function add($field, $filterClass, $options = [])
+    public function add($filterName, $filterClass, $options = [])
     {
         /** @var AbstractFilterType $filter */
-        $filter = new $filterClass($field, $options);
+        $filter = new $filterClass($filterName, $options);
         $filter->addToFilters($this->filters);
 
         return $this;
@@ -143,7 +143,9 @@ class FilterBuilder
     protected function addFiltersToQuery($searchParams)
     {
         foreach ($searchParams as $filterName => $value) {
-            $this->addFilterToQuery($filterName, $value);
+            if ($this->filters->containsKey($filterName)) {
+                $this->addFilterToQuery($filterName, $value);
+            }
         }
     }
 

@@ -27,7 +27,7 @@ class InstanceOfFilterTypeTest extends TestCase
     {
         return function (FilterBuilder $builder) {
             $builder
-                ->add('instance', InstanceOfFilterType::class);
+                ->add('type', InstanceOfFilterType::class);
         };
     }
 
@@ -35,14 +35,14 @@ class InstanceOfFilterTypeTest extends TestCase
     public function it_returns_only_instances_of_the_given_type()
     {
         $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
-            'instance' => 'bike'
+            'type' => 'bike'
         ]);
 
         $this->assertCount(1, $vehicles);
         $this->assertInstanceOf(Bike::class, $vehicles[0]);
 
         $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
-            'instance' => 'car'
+            'type' => 'car'
         ]);
 
         $this->assertCount(1, $vehicles);

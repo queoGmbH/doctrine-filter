@@ -27,8 +27,8 @@ class InFilterTypeTest extends TestCase
     {
         return function (FilterBuilder $builder) {
             $builder
-                ->add('tags.name', InFilterType::class, [
-                    'filterName' => 'tags'
+                ->add('tags', InFilterType::class, [
+                    'field' => 'tags.name'
                 ]);
         };
     }

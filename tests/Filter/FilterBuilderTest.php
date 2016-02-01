@@ -34,11 +34,14 @@ class FilterBuilderTest extends TestCase
             $builder
                 ->add('title', LikeFilterType::class)
                 ->add('content', EqualFilterType::class)
-                ->add('tags.name', EqualFilterType::class, [
-                    'filterName' => 'tags'
+                ->add('tags', EqualFilterType::class, [
+                    'field' => 'tags.name'
                 ])
-                ->add('tags.category.name', EqualFilterType::class, [
-                    'filterName' => 'category'
+                ->add('category', EqualFilterType::class, [
+                    'field' => 'tags.category.name'
+                ])
+                ->add('blog', EqualFilterType::class, [
+                    'field' => 'blog'
                 ]);
         };
     }
@@ -115,5 +118,16 @@ class FilterBuilderTest extends TestCase
         ]);
 
         $this->assertCount(0, $posts);
+    }
+
+    /**
+     * @test
+     * @expectedException Doctrine\ORM\Query\QueryException
+     */
+    public function it_does()
+    {
+        $this->em->getRepository(Post::class)->filter($this->filter, [
+            'blog' => 'Blog A'
+        ]);
     }
 }

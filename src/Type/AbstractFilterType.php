@@ -11,16 +11,21 @@ abstract class AbstractFilterType
     /**
      * @var string
      */
+    protected $name;
+    /**
+     * @var string
+     */
     protected $field;
     /**
      * @var array
      */
     protected $options;
 
-    public function __construct($field, array $options)
+    public function __construct($name, array $options)
     {
-        $this->field = $field;
+        $this->name = $name;
         $this->options = $options;
+        $this->field = isset($options['field']) ? $options['field'] : $name;
     }
 
     /**
@@ -35,9 +40,7 @@ abstract class AbstractFilterType
      */
     public function addToFilters(ArrayCollection $filters)
     {
-        $filterName = isset($this->options['filterName']) ? $this->options['filterName'] : $this->field;
-
-        $filters->set($filterName, $this);
+        $filters->set($this->name, $this);
     }
 
     public function getField()
