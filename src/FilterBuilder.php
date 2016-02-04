@@ -112,6 +112,14 @@ class FilterBuilder
     }
 
     /**
+     * @return array|AbstractFilterType[]
+     */
+    public function getFilters()
+    {
+        return $this->filters->toArray();
+    }
+
+    /**
      * Returns the QueryBuilder
      *
      * @return QueryBuilder

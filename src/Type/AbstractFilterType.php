@@ -43,6 +43,25 @@ abstract class AbstractFilterType
         $filters->set($this->name, $this);
     }
 
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * @return string
+     */
     public function getField()
     {
         return $this->field;
