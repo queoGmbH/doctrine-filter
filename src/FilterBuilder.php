@@ -42,11 +42,9 @@ class FilterBuilder
 
     /**
      * FilterBuilder constructor.
-     * @param QueryBuilder $qb
      */
-    public function __construct(QueryBuilder $qb)
+    public function __construct()
     {
-        $this->qb = $qb;
         $this->filters = new ArrayCollection();
     }
 
@@ -127,6 +125,17 @@ class FilterBuilder
     public function getQueryBuilder()
     {
         return $this->qb;
+    }
+
+    /**
+     * @param QueryBuilder $qb
+     * @return FilterBuilder
+     */
+    public function setQueryBuilder($qb)
+    {
+        $this->qb = $qb;
+
+        return $this;
     }
 
     /**

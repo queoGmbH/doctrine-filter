@@ -13,7 +13,8 @@ trait EntityFilterTrait
     public function filter(FilterInterface $filter, $searchParams)
     {
         $qb = $this->createQueryBuilder('x');
-        $filterBuilder = new FilterBuilder($qb);
+        $filterBuilder = new FilterBuilder();
+        $filterBuilder->setQueryBuilder($qb);
 
         $filter->buildFilter($filterBuilder);
 
@@ -24,7 +25,8 @@ trait EntityFilterTrait
     {
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('x');
-        $filterBuilder = new FilterBuilder($qb);
+        $filterBuilder = new FilterBuilder();
+        $filterBuilder->setQueryBuilder($qb);
 
         $filter->buildFilter($filterBuilder);
 
