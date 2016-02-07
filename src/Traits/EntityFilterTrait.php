@@ -2,7 +2,6 @@
 
 namespace Fludio\DoctrineFilter\Traits;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Fludio\DoctrineFilter\FilterBuilder;
