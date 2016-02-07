@@ -10,35 +10,43 @@ use Fludio\DoctrineFilter\FilterInterface;
 
 trait EntityFilterTrait
 {
+    /**
+     * @param FilterInterface $filter
+     * @param $searchParams
+     * @return array
+     */
     public function filter(FilterInterface $filter, $searchParams)
     {
         $qb = $this->createQueryBuilder('x');
-        $filterBuilder = new FilterBuilder();
-        $filterBuilder->setQueryBuilder($qb);
 
-        $filter->buildFilter($filterBuilder);
-
-        return $filterBuilder->getResult($searchParams);
+        return FilterBuilder::create()
+            ->setQueryBuilder($qb)
+            ->setFilter($filter)
+            ->getResult($searchParams);
     }
 
+    /**
+     * @param FilterInterface $filter
+     * @param $searchParams
+     * @param $offset
+     * @param $limit
+     * @return array
+     */
     public function paginate(FilterInterface $filter, $searchParams, $offset, $limit)
     {
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('x');
-        $filterBuilder = new FilterBuilder();
-        $filterBuilder->setQueryBuilder($qb);
 
-        $filter->buildFilter($filterBuilder);
-
-        $filterBuilder->build($searchParams);
-
-        $qb
+        $qb = FilterBuilder::create()
+            ->setQueryBuilder($qb)
+            ->setFilter($filter)
+            ->buildQuery($searchParams)
             ->setFirstResult($offset)
             ->setMaxResults($limit)
             ->getQuery();
 
         $paginator = new Paginator($qb);
 
-        return new ArrayCollection(iterator_to_array($paginator->getIterator()));
+        return iterator_to_array($paginator->getIterator());
     }
 }

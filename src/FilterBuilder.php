@@ -48,13 +48,18 @@ class FilterBuilder
         $this->filters = new ArrayCollection();
     }
 
+    public static function create()
+    {
+        return new self;
+    }
+
     /**
      * Get QueryBuilder after search filters are attached to query
      *
      * @param $searchParams
      * @return QueryBuilder
      */
-    public function build($searchParams)
+    public function buildQuery($searchParams)
     {
         $this->addFiltersToQuery($searchParams);
         $this->addOrderByToQuery();
@@ -72,7 +77,7 @@ class FilterBuilder
     public function getResult($searchParams)
     {
         return $this
-            ->build($searchParams)
+            ->buildQuery($searchParams)
             ->getQuery()
             ->getResult();
     }
@@ -134,6 +139,17 @@ class FilterBuilder
     public function setQueryBuilder($qb)
     {
         $this->qb = $qb;
+
+        return $this;
+    }
+
+    /**
+     * @param FilterInterface $filter
+     * @return $this
+     */
+    public function setFilter(FilterInterface $filter)
+    {
+        $filter->buildFilter($this);
 
         return $this;
     }
