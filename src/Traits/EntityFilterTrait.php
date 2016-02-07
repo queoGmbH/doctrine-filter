@@ -17,6 +17,7 @@ trait EntityFilterTrait
      */
     public function filter(FilterInterface $filter, $searchParams)
     {
+        /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('x');
 
         return FilterBuilder::create()
