@@ -206,14 +206,19 @@ class FilterBuilder
      */
     protected function addFilterToQuery($filterName, $value)
     {
-        if ($this->isRelationship($filterName)) {
+        $field = $this->getFieldFromFilterName($filterName);
+
+        if ($this->isEmbeddable($field, $this->getRootEntity())) {
+            $table = $this->getRootAlias();
+        } elseif ($this->isRelationship($filterName)) {
             $table = $this->addAllJoins($filterName);
+            $field = $this->getRelationshipField($field, $table);
         } else {
             $table = $this->getRootAlias();
         }
         /** @var AbstractFilterType $filter */
         $filter = $this->filters->get($filterName);
-        $filter->expand($this, $value, $table);
+        $filter->expand($this, $value, $table, $field);
     }
 
     /**
@@ -227,12 +232,17 @@ class FilterBuilder
     protected function addAllJoins($searchFilter)
     {
         $field = $this->getFieldFromFilterName($searchFilter);
-        $fieldParts = preg_split('/\./', $field);
+        $fieldParts = $this->getFieldParts($field);
 
         $joinAlias = $this->getRootAlias();
         while ($part = array_shift($fieldParts)) {
             if (!empty($fieldParts)) {
-                $joinAlias = $this->addJoin($part, $joinAlias);
+                $newAlias = $this->addJoin($part, $joinAlias);
+                if ($newAlias == $joinAlias) {
+                    return $joinAlias;
+                } else {
+                    $joinAlias = $newAlias;
+                }
             }
         }
 
@@ -244,8 +254,14 @@ class FilterBuilder
      * @param null $rootAlias
      * @return mixed|null
      */
-    protected function addJoin($field, $rootAlias = null)
+    protected function addJoin($field, $rootAlias)
     {
+        if ($class = $this->getEntityClass($rootAlias)) {
+            if ($this->isEmbeddable($field, $class)) {
+                return $rootAlias;
+            }
+        }
+
         $joinRelationship = $rootAlias . '.' . $field; // x.tags
 
         if (!isset($this->joinAliases[$joinRelationship])) {
@@ -268,7 +284,7 @@ class FilterBuilder
     {
         $field = $this->getFieldFromFilterName($searchFilter);
 
-        $fieldParts = preg_split('/\./', $field);
+        $fieldParts = $this->getFieldParts($field);
 
         return count($fieldParts) > 1;
     }
@@ -311,5 +327,79 @@ class FilterBuilder
     {
         $rootAlias = $this->qb->getRootAliases();
         return array_shift($rootAlias);
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getRootEntity()
+    {
+        $roots = $this->getQueryBuilder()->getRootEntities();
+        return array_shift($roots);
+    }
+
+    /**
+     * @param $field
+     * @param $entity
+     * @return bool
+     */
+    protected function isEmbeddable($field, $entity)
+    {
+        $meta = $this->getQueryBuilder()->getEntityManager()->getClassMetadata($entity);
+
+        if (property_exists($meta, 'embeddedClasses') && $embeddedClass = $meta->embeddedClasses) {
+            $fieldParts = $this->getFieldParts($field);
+            if (isset($embeddedClass[$fieldParts[0]])) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $field
+     * @return array
+     */
+    protected function getFieldParts($field)
+    {
+        return preg_split('/\./', $field);
+    }
+
+    protected function getEntityClass($rootAlias)
+    {
+        $meta = $this->getQueryBuilder()->getEntityManager()->getClassMetadata($this->getRootEntity());
+
+        if (!$joinRelationship = array_search($rootAlias, $this->joinAliases)) {
+            return false;
+        }
+
+        $parts = $this->getFieldParts($joinRelationship);
+        array_shift($parts);
+
+        foreach ($parts as $part) {
+            $class = $meta->associationMappings[$part]['targetEntity'];
+            $meta = $this->getQueryBuilder()->getEntityManager()->getClassMetadata($class);
+        }
+
+        if (!empty($class)) {
+            return $class;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @param $field
+     * @param $table
+     * @return mixed
+     */
+    protected function getRelationshipField($field, $table)
+    {
+        $joinRelationship = array_search($table, $this->joinAliases);
+
+        $fieldParts = $this->getFieldParts($joinRelationship);
+        $fieldStart = array_pop($fieldParts);
+        return substr($field, strpos($field, $fieldStart) + strlen($fieldStart) + 1, strlen($field));
     }
 }

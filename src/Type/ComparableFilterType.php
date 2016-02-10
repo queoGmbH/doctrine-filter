@@ -7,7 +7,7 @@ use Fludio\DoctrineFilter\FilterBuilder;
 
 class ComparableFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value, $table)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {
     }
 

@@ -31,9 +31,11 @@ abstract class AbstractFilterType
     /**
      * @param FilterBuilder $filterBuilder
      * @param $value
+     * @param $table
+     * @param $field
      * @return QueryBuilder
      */
-    abstract public function expand(FilterBuilder $filterBuilder, $value, $table);
+    abstract public function expand(FilterBuilder $filterBuilder, $value, $table, $field);
 
     /**
      * @param ArrayCollection $filters
@@ -72,6 +74,7 @@ abstract class AbstractFilterType
      */
     protected function getFieldOnTable()
     {
+        return $this->field;
         $fields = preg_split('/\./', $this->field);
         return array_pop($fields);
     }

@@ -6,7 +6,7 @@ use Fludio\DoctrineFilter\FilterBuilder;
 
 class InstanceOfFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value, $table)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {
         $qb = $filterBuilder->getQueryBuilder();
 

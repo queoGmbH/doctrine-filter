@@ -3,7 +3,13 @@
 namespace Fludio\DoctrineFilter\Tests;
 
 use Fludio\DoctrineFilter\FilterBuilder;
+use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
+use Fludio\DoctrineFilter\Tests\Dummy\Entity\Person;
+use Fludio\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
+use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
+use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
 use Fludio\DoctrineFilter\Type\EqualFilterType;
+use Fludio\DoctrineFilter\Type\GreaterThanEqualFilterType;
 use Fludio\DoctrineFilter\Type\LikeFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
@@ -23,7 +29,9 @@ class FilterBuilderTest extends TestCase
         return [
             new LoadCategoryData(),
             new LoadTagData(),
-            new LoadPostData()
+            new LoadPostData(),
+            new LoadTransportData(),
+            new LoadPersonData()
         ];
     }
 
@@ -124,10 +132,58 @@ class FilterBuilderTest extends TestCase
      * @test
      * @expectedException Doctrine\ORM\Query\QueryException
      */
-    public function it_does()
+    public function it_does_throw_an_exception_if_field_does_not_exist()
     {
         $this->em->getRepository(Post::class)->filter($this->filter, [
             'blog' => 'Blog A'
         ]);
+    }
+
+    /** @test */
+    public function it_can_filter_on_embeddables()
+    {
+        $filter = new TestFilter();
+        $filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('horsepower', GreaterThanEqualFilterType::class, [
+                    'field' => 'engine.horsepower'
+                ]);
+        });
+
+        $res1 = $this->em->getRepository(Car::class)->filter($filter, [
+            'horsepower' => 230
+        ]);
+
+        $this->assertEmpty($res1);
+
+        $res2 = $this->em->getRepository(Car::class)->filter($filter, [
+            'horsepower' => 210
+        ]);
+
+        $this->assertCount(1, $res2);
+    }
+
+    /** @test */
+    public function it_can_filter_on_embeddables_on_relationships()
+    {
+        $filter = new TestFilter();
+        $filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('horsepower', GreaterThanEqualFilterType::class, [
+                    'field' => 'cars.engine.horsepower'
+                ]);
+        });
+
+        $res1 = $this->em->getRepository(Person::class)->filter($filter, [
+            'horsepower' => 230
+        ]);
+
+        $this->assertEmpty($res1);
+
+        $res2 = $this->em->getRepository(Person::class)->filter($filter, [
+            'horsepower' => 210
+        ]);
+
+        $this->assertCount(1, $res2);
     }
 }
