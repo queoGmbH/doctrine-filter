@@ -208,10 +208,8 @@ class FilterBuilder
     {
         $field = $this->getFieldFromFilterName($filterName);
 
-        if ($this->isEmbeddable($field, $this->getRootEntity())) {
-            $table = $this->getRootAlias();
-        } elseif ($this->isRelationship($filterName)) {
-            $table = $this->addAllJoins($filterName);
+        if ($this->isRelationship($field)) {
+            $table = $this->addAllJoins($field);
             $field = $this->getRelationshipField($field, $table);
         } else {
             $table = $this->getRootAlias();
@@ -223,26 +221,27 @@ class FilterBuilder
 
     /**
      * Will add all necessary joins and it will
-     * return the name of the table for the field
+     * return the alias of the table for the field
      * to be queried
      *
-     * @param $searchFilter
+     * @param $field
      * @return string
      */
-    protected function addAllJoins($searchFilter)
+    protected function addAllJoins($field)
     {
-        $field = $this->getFieldFromFilterName($searchFilter);
-        $fieldParts = $this->getFieldParts($field);
+        $fieldParts = $this->splitOnDot($field);
 
         $joinAlias = $this->getRootAlias();
         while ($part = array_shift($fieldParts)) {
             if (!empty($fieldParts)) {
                 $newAlias = $this->addJoin($part, $joinAlias);
+                // If Embeddable, the new alias will be
+                // the same as the previous join alias
                 if ($newAlias == $joinAlias) {
-                    return $joinAlias;
-                } else {
-                    $joinAlias = $newAlias;
+                    break; // no more joins
                 }
+
+                $joinAlias = $newAlias;
             }
         }
 
@@ -251,18 +250,18 @@ class FilterBuilder
 
     /**
      * @param $field
-     * @param null $rootAlias
+     * @param null $alias
      * @return mixed|null
      */
-    protected function addJoin($field, $rootAlias)
+    protected function addJoin($field, $alias)
     {
-        if ($class = $this->getEntityClass($rootAlias)) {
+        if ($class = $this->getEntityClassFromAlias($alias)) {
             if ($this->isEmbeddable($field, $class)) {
-                return $rootAlias;
+                return $alias;
             }
         }
 
-        $joinRelationship = $rootAlias . '.' . $field; // x.tags
+        $joinRelationship = $alias . '.' . $field; // x.tags
 
         if (!isset($this->joinAliases[$joinRelationship])) {
             $joinAlias = 'join' . $this->getNextNumericJoinCount(); // join1
@@ -277,14 +276,16 @@ class FilterBuilder
     }
 
     /**
-     * @param $searchFilter
+     * @param $field
      * @return bool
      */
-    protected function isRelationship($searchFilter)
+    protected function isRelationship($field)
     {
-        $field = $this->getFieldFromFilterName($searchFilter);
+        if ($this->isEmbeddable($field, $this->getRootEntity())) {
+            return false;
+        }
 
-        $fieldParts = $this->getFieldParts($field);
+        $fieldParts = $this->splitOnDot($field);
 
         return count($fieldParts) > 1;
     }
@@ -315,9 +316,7 @@ class FilterBuilder
      */
     protected function getFieldFromFilterName($searchFilter)
     {
-        $filter = $this->filters->get($searchFilter);
-
-        return $filter->getField();
+        return $this->filters->get($searchFilter)->getField();
     }
 
     /**
@@ -348,7 +347,7 @@ class FilterBuilder
         $meta = $this->getQueryBuilder()->getEntityManager()->getClassMetadata($entity);
 
         if (property_exists($meta, 'embeddedClasses') && $embeddedClass = $meta->embeddedClasses) {
-            $fieldParts = $this->getFieldParts($field);
+            $fieldParts = $this->splitOnDot($field);
             if (isset($embeddedClass[$fieldParts[0]])) {
                 return true;
             }
@@ -358,38 +357,46 @@ class FilterBuilder
     }
 
     /**
-     * @param $field
+     * @param $string
+     * @param int $offset
      * @return array
      */
-    protected function getFieldParts($field)
+    protected function splitOnDot($string, $offset = 0)
     {
-        return preg_split('/\./', $field);
+        $parts = preg_split('/\./', $string);
+
+        return array_splice($parts, $offset, count($parts));
     }
 
-    protected function getEntityClass($rootAlias)
+    /**
+     * Return entity class for an alias
+     *
+     * @param $alias
+     * @return string
+     */
+    protected function getEntityClassFromAlias($alias)
     {
         $meta = $this->getQueryBuilder()->getEntityManager()->getClassMetadata($this->getRootEntity());
 
-        if (!$joinRelationship = array_search($rootAlias, $this->joinAliases)) {
+        // It is not registered
+        if (!$joinRelationship = array_search($alias, $this->joinAliases)) {
             return false;
         }
 
-        $parts = $this->getFieldParts($joinRelationship);
-        array_shift($parts);
+        $parts = $this->splitOnDot($joinRelationship, 1);
 
         foreach ($parts as $part) {
             $class = $meta->associationMappings[$part]['targetEntity'];
             $meta = $this->getQueryBuilder()->getEntityManager()->getClassMetadata($class);
         }
 
-        if (!empty($class)) {
-            return $class;
-        } else {
-            return false;
-        }
+        return !empty($class) ? $class : '';
     }
 
     /**
+     * Will return the field to query for a relationship
+     * Takes care of embeddables
+     *
      * @param $field
      * @param $table
      * @return mixed
@@ -398,8 +405,9 @@ class FilterBuilder
     {
         $joinRelationship = array_search($table, $this->joinAliases);
 
-        $fieldParts = $this->getFieldParts($joinRelationship);
+        $fieldParts = $this->splitOnDot($joinRelationship);
         $fieldStart = array_pop($fieldParts);
         return substr($field, strpos($field, $fieldStart) + strlen($fieldStart) + 1, strlen($field));
+
     }
 }
