@@ -346,14 +346,16 @@ class FilterBuilder
     {
         $meta = $this->getQueryBuilder()->getEntityManager()->getClassMetadata($entity);
 
-        if (property_exists($meta, 'embeddedClasses') && $embeddedClass = $meta->embeddedClasses) {
-            $fieldParts = $this->splitOnDot($field);
-            if (isset($embeddedClass[$fieldParts[0]])) {
-                return true;
-            }
+        if (!property_exists($meta, 'embeddedClasses') || !$embeddedClasses = $meta->embeddedClasses) {
+            return false;
         }
 
-        return false;
+        $fieldParts = $this->splitOnDot($field);
+        if (!isset($embeddedClasses[$fieldParts[0]])) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

@@ -32,6 +32,13 @@ class ComparableFilterTypeTest extends TestCase
     }
 
     /** @test */
+    public function it_expands()
+    {
+        $filter = new ComparableFilterType('horsepower', []);
+        $filter->expand(new FilterBuilder(), 'a', 'b', 'c');
+    }
+
+    /** @test */
     public function it_works_for_not_equal()
     {
         $posts = $this->em->getRepository(Post::class)->filter($this->filter, [

@@ -22,6 +22,13 @@ class BetweenFilterTypeTest extends TestCase
     }
 
     /** @test */
+    public function it_expands()
+    {
+        $filter = new BetweenFilterType('horsepower', []);
+        $filter->expand(new FilterBuilder(), 'a', 'b', 'c');
+    }
+
+    /** @test */
     public function it_returns_a_result_if_the_value_is_within_the_range()
     {
         $posts = $this->em->getRepository(Post::class)->filter($this->filter, [

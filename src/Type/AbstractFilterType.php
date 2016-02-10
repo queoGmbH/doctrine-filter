@@ -68,14 +68,4 @@ abstract class AbstractFilterType
     {
         return $this->field;
     }
-
-    /**
-     * @return string
-     */
-    protected function getFieldOnTable()
-    {
-        return $this->field;
-        $fields = preg_split('/\./', $this->field);
-        return array_pop($fields);
-    }
 }

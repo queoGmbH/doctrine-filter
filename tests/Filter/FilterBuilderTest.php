@@ -54,6 +54,16 @@ class FilterBuilderTest extends TestCase
         };
     }
 
+    public function it_returns_the_added_filters()
+    {
+        $builder = new FilterBuilder();
+        $builder
+            ->add('a', EqualFilterType::class)
+            ->add('b', EqualFilterType::class);
+
+        $this->assertCount(2, $builder->getFilters());
+    }
+
     /** @test */
     public function it_tracks_parameters_by_their_own_value()
     {
