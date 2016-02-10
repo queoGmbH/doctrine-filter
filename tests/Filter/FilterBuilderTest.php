@@ -54,6 +54,7 @@ class FilterBuilderTest extends TestCase
         };
     }
 
+    /** @test */
     public function it_returns_the_added_filters()
     {
         $builder = new FilterBuilder();
