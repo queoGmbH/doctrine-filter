@@ -52,6 +52,6 @@ trait EntityFilterTrait
             ->setMaxPerPage($maxPerPage)
             ->setCurrentPage($page);
 
-        return $pagerfanta->getCurrentPageResults();
+        return iterator_to_array($pagerfanta->getCurrentPageResults());
     }
 }

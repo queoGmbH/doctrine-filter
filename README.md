@@ -8,7 +8,7 @@
   - [ ] Between: LowerBound / UpperBound -> include bounds?
   - [ ] Description
 - [x] Query embeddables
-- [ ] Metadata: count
+- [x] Metadata: count (via Pagerfanta)
 - [ ] Query on multiple fields
 - [ ] Distinct
 - [ ] CustomFilterType (pass in callback function)
