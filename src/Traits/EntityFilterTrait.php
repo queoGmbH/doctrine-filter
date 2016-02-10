@@ -3,9 +3,10 @@
 namespace Fludio\DoctrineFilter\Traits;
 
 use Doctrine\ORM\QueryBuilder;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Fludio\DoctrineFilter\FilterBuilder;
 use Fludio\DoctrineFilter\FilterInterface;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 
 trait EntityFilterTrait
 {
@@ -28,25 +29,29 @@ trait EntityFilterTrait
     /**
      * @param FilterInterface $filter
      * @param $searchParams
-     * @param $offset
-     * @param $limit
+     * @param $page
+     * @param $maxPerPage
+     * @param Pagerfanta $pagerfanta
      * @return array
      */
-    public function paginate(FilterInterface $filter, $searchParams, $offset, $limit)
+    public function paginate(FilterInterface $filter, $searchParams, $page, $maxPerPage, &$pagerfanta = null)
     {
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('x');
 
-        $qb = FilterBuilder::create()
+        $query = FilterBuilder::create()
             ->setQueryBuilder($qb)
             ->setFilter($filter)
             ->buildQuery($searchParams)
-            ->setFirstResult($offset)
-            ->setMaxResults($limit)
             ->getQuery();
 
-        $paginator = new Paginator($qb);
+        $adapter = new DoctrineORMAdapter($query);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta
+            ->setAllowOutOfRangePages(true)
+            ->setMaxPerPage($maxPerPage)
+            ->setCurrentPage($page);
 
-        return iterator_to_array($paginator->getIterator());
+        return $pagerfanta->getCurrentPageResults();
     }
 }

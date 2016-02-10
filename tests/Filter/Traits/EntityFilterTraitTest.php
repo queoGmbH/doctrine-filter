@@ -8,6 +8,7 @@ use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
 use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use Fludio\DoctrineFilter\Tests\Dummy\TestCase;
 use Fludio\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Pagerfanta\Pagerfanta;
 
 class EntityFilterTraitTest extends TestCase
 {
@@ -32,7 +33,7 @@ class EntityFilterTraitTest extends TestCase
     /** @test */
     public function it_paginates_results()
     {
-        $results = $this->em->getRepository(Post::class)->paginate($this->filter, [], 0, 2);
+        $results = $this->em->getRepository(Post::class)->paginate($this->filter, [], 1, 2);
 
         $this->assertCount(2, $results);
         $this->assertEquals('Post 3', $results[0]->getTitle());
@@ -48,4 +49,18 @@ class EntityFilterTraitTest extends TestCase
         $this->assertCount(0, $results);
     }
 
+    /** @test */
+    public function it_exposes_the_paginator()
+    {
+        /** @var Pagerfanta $paginator */
+        $this->em->getRepository(Post::class)->paginate($this->filter, [], 1, 2, $paginator);
+
+        $this->assertInstanceOf(Pagerfanta::class, $paginator);
+        $this->assertCount(2, $paginator->getCurrentPageResults());
+        $this->assertEquals(2, $paginator->getMaxPerPage());
+        $this->assertEquals(2, $paginator->getNbPages());
+        $this->assertEquals(2, $paginator->getNextPage());
+        $this->assertEquals(3, $paginator->getNbResults());
+        $this->assertTrue($paginator->getAllowOutOfRangePages());
+    }
 }
