@@ -1,9 +1,8 @@
 <?php
 
-namespace Fludio\DoctrineFilter\OrderBy;
+namespace Fludio\DoctrineFilter\Type;
 
 use Fludio\DoctrineFilter\FilterBuilder;
-use Fludio\DoctrineFilter\Type\AbstractFilterType;
 
 class OrderByType extends AbstractFilterType
 {

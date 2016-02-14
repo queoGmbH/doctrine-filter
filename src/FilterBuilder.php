@@ -4,7 +4,7 @@ namespace Fludio\DoctrineFilter;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
-use Fludio\DoctrineFilter\OrderBy\OrderByType;
+use Fludio\DoctrineFilter\Type\OrderByType;
 use Fludio\DoctrineFilter\Type\AbstractFilterType;
 
 class FilterBuilder
