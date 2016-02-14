@@ -18,8 +18,7 @@ class NotEqualFilterTypeTest extends TestCase
     {
         return function (FilterBuilder $builder) {
             $builder
-                ->add('title', NotEqualFilterType::class)
-                ->orderBy('title', 'ASC');
+                ->add('title', NotEqualFilterType::class);
         };
     }
 

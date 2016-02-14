@@ -130,4 +130,24 @@ class OrderByTypeTest extends TestCase
         $this->assertEquals('Post 1', $result[1]->getTitle());
         $this->assertEquals('Post 3', $result[2]->getTitle());
     }
+
+    /** @test */
+    public function order_by_can_have_a_different_name()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
+            $filterBuilder
+                ->orderBy('date', null, [
+                    'field' => 'createdAt'
+                ]);
+        });
+
+        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'date' => 'DESC'
+        ]);
+
+        $this->assertCount(3, $result);
+        $this->assertEquals('Post 3', $result[0]->getTitle());
+        $this->assertEquals('Post 2', $result[1]->getTitle());
+        $this->assertEquals('Post 1', $result[2]->getTitle());
+    }
 }
