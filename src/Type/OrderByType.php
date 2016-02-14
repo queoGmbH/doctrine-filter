@@ -27,12 +27,9 @@ class OrderByType extends AbstractFilterType
 
     protected function configureOptions(OptionsResolver $resolver)
     {
-        $resolver
-            ->setDefaults([
-                'field' => null,
-                'sort_order' => null,
-                'only_with_param' => false
-            ]);
+        parent::configureOptions($resolver);
+        $resolver->setDefault('sort_order', null);
+        $resolver->setDefault('only_with_param', null);
     }
 
     /**

@@ -21,11 +21,9 @@ class LikeFilterType extends AbstractFilterType
 
     protected function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'field' => null,
-            'start_with' => false,
-            'end_with' => false
-        ]);
+        parent::configureOptions($resolver);
+        $resolver->setDefault('start_with', false);
+        $resolver->setDefault('end_with', false);
     }
 
     /**

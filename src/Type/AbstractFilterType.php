@@ -86,7 +86,10 @@ abstract class AbstractFilterType
 
     protected function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefault('field', null);
+        $resolver->setDefaults([
+            'field' => null,
+            'description' => ''
+        ]);
     }
 
     /**

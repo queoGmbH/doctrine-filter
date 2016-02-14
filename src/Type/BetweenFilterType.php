@@ -8,8 +8,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BetweenFilterType extends AbstractFilterType
 {
-
-
     public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {
     }
@@ -25,13 +23,11 @@ class BetweenFilterType extends AbstractFilterType
 
     protected function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'field' => null,
-            'upper_bound_suffix' => 'until',
-            'lower_bound_suffix' => 'since',
-            'include_upper_bound' => true,
-            'include_lower_bound' => true,
-        ]);
+        parent::configureOptions($resolver);
+        $resolver->setDefault('upper_bound_suffix', 'until');
+        $resolver->setDefault('lower_bound_suffix', 'since');
+        $resolver->setDefault('include_upper_bound', true);
+        $resolver->setDefault('include_lower_bound', true);
     }
 
     /**

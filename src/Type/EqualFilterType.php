@@ -23,11 +23,7 @@ class EqualFilterType extends AbstractFilterType
 
     protected function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'field' => null,
-            'case_sensitive' => true
-        ]);
+        parent::configureOptions($resolver);
+        $resolver->setDefault('case_sensitive', true);
     }
-
-
 }
