@@ -108,8 +108,8 @@ class FilterBuilder
      */
     public function orderBy($filterName, $sortOrder = null, $options = [])
     {
-        if (empty($options['sortOrder'])) {
-            $options['sortOrder'] = $sortOrder;
+        if (empty($options['sort_order'])) {
+            $options['sort_order'] = $sortOrder;
         }
 
         $this->add($filterName, OrderByType::class, $options);

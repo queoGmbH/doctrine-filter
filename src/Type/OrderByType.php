@@ -3,6 +3,7 @@
 namespace Fludio\DoctrineFilter\Type;
 
 use Fludio\DoctrineFilter\FilterBuilder;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class OrderByType extends AbstractFilterType
 {
@@ -16,12 +17,22 @@ class OrderByType extends AbstractFilterType
             return;
         }
 
-        $value = !empty($this->options['sortOrder']) ? $this->options['sortOrder'] : $value;
+        $value = !empty($this->options['sort_order']) ? $this->options['sort_order'] : $value;
 
         $qb = $filterBuilder->getQueryBuilder();
 
         return $qb
             ->orderBy($table . '.' . $field, $value);
+    }
+
+    protected function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver
+            ->setDefaults([
+                'field' => null,
+                'sort_order' => null,
+                'only_with_param' => false
+            ]);
     }
 
     /**
@@ -30,6 +41,6 @@ class OrderByType extends AbstractFilterType
      */
     protected function runOnlyWithParam($value)
     {
-        return !empty($this->options['only_on_call']) && is_null($value);
+        return !empty($this->options['only_with_param']) && is_null($value);
     }
 }

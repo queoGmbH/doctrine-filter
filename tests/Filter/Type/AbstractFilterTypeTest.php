@@ -11,7 +11,6 @@ class AbstractFilterTypeTest extends \PHPUnit_Framework_TestCase
     {
         $name = 'height';
         $options = [
-            'some' => 'options',
             'field' => 'person.height'
         ];
         /** @var AbstractFilterType $filterType */

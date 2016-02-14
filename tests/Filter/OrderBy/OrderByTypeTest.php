@@ -94,12 +94,12 @@ class OrderByTypeTest extends TestCase
     }
 
     /** @test */
-    public function filter_will_run_if_option_only_on_call_is_true_and_param_is_not_given()
+    public function filter_will_run_if_option_only_with_param_is_true_and_param_is_not_given()
     {
         $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
             $filterBuilder
                 ->orderBy('createdAt', null, [
-                    'only_on_call' => true
+                    'only_with_param' => true
                 ]);
         });
 
@@ -114,12 +114,12 @@ class OrderByTypeTest extends TestCase
     }
 
     /** @test */
-    public function filter_will_not_run_if_option_only_on_call_is_true_and_param_is_not_given()
+    public function filter_will_not_run_if_option_only_with_param_is_true_and_param_is_not_given()
     {
         $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
             $filterBuilder
                 ->orderBy('createdAt', null, [
-                    'only_on_call' => true
+                    'only_with_param' => true
                 ]);
         });
 

@@ -5,6 +5,7 @@ namespace Fludio\DoctrineFilter\Type;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
 use Fludio\DoctrineFilter\FilterBuilder;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 abstract class AbstractFilterType
 {
@@ -30,7 +31,7 @@ abstract class AbstractFilterType
     public function __construct($name, array $options)
     {
         $this->name = $name;
-        $this->options = $options;
+        $this->options = $this->getResolvedOptions($options);
         $this->field = isset($options['field']) ? $options['field'] : $name;
     }
 
@@ -81,5 +82,21 @@ abstract class AbstractFilterType
     public function doesAlwaysRun()
     {
         return $this->doesAlwaysRun;
+    }
+
+    protected function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefault('field', null);
+    }
+
+    /**
+     * @param array $options
+     * @return array
+     */
+    private function getResolvedOptions(array $options)
+    {
+        $resolver = new OptionsResolver();
+        $this->configureOptions($resolver);
+        return $resolver->resolve($options);
     }
 }
