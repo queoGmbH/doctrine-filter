@@ -2,11 +2,12 @@
 
 namespace Fludio\DoctrineFilter\Tests\Dummy\Fixtures;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 
-class LoadPostCollectionData implements FixtureInterface
+class LoadPostCollectionData extends AbstractFixture implements OrderedFixtureInterface
 {
     protected $manager;
 
@@ -14,19 +15,28 @@ class LoadPostCollectionData implements FixtureInterface
     {
         $this->manager = $manager;
 
-        $this->createNewPost('Post 2', 'Content 2', new \DateTime('2016-02-02 12:00:00'));
-        $this->createNewPost('Post 1', 'Content 1', new \DateTime('2016-01-01 12:00:00'));
-        $this->createNewPost('Post 3', 'Content 3', new \DateTime('2016-03-03 12:00:00'));
+        $this->createNewPost('Post 2', 'Content 2', new \DateTime('2016-02-02 12:00:00'), 'tag3');
+        $this->createNewPost('Post 1', 'Content 1', new \DateTime('2016-01-01 12:00:00'), 'tag1');
+        $this->createNewPost('Post 3', 'Content 3', new \DateTime('2016-03-03 12:00:00'), 'tag2');
     }
 
-    protected function createNewPost($title, $content, $createdAt)
+    protected function createNewPost($title, $content, $createdAt, $tag = null)
     {
         $post = new Post();
         $post->setTitle($title);
         $post->setContent($content);
         $post->setCreatedAt($createdAt);
 
+        if ($tag && $this->hasReference($tag)) {
+            $post->addTag($this->getReference($tag));
+        }
+
         $this->manager->persist($post);
         $this->manager->flush();
+    }
+
+    public function getOrder()
+    {
+        return 50;
     }
 }

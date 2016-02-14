@@ -1,10 +1,11 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Filter\OrderBy;
+namespace Fludio\DoctrineFilter\Tests\Filter\Type;
 
 use Fludio\DoctrineFilter\FilterBuilder;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
+use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
 use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use Fludio\DoctrineFilter\Tests\Dummy\TestCase;
 use Fludio\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
@@ -16,7 +17,8 @@ class OrderByTypeTest extends TestCase
     public function loadFixtures()
     {
         return [
-            new LoadPostCollectionData()
+            new LoadPostCollectionData(),
+            new LoadTagData()
         ];
     }
 
@@ -148,6 +150,24 @@ class OrderByTypeTest extends TestCase
         $this->assertCount(3, $result);
         $this->assertEquals('Post 3', $result[0]->getTitle());
         $this->assertEquals('Post 2', $result[1]->getTitle());
+        $this->assertEquals('Post 1', $result[2]->getTitle());
+    }
+
+    /** @test */
+    public function it_orders_by_fields_of_relationsships()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
+            $filterBuilder
+                ->orderBy('tagName', 'DESC', [
+                    'field' => 'tags.name'
+                ]);
+        });
+
+        $result = $this->em->getRepository(Post::class)->filter($this->filter);
+
+        $this->assertCount(3, $result);
+        $this->assertEquals('Post 2', $result[0]->getTitle());
+        $this->assertEquals('Post 3', $result[1]->getTitle());
         $this->assertEquals('Post 1', $result[2]->getTitle());
     }
 }
