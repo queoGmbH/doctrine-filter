@@ -50,4 +50,50 @@ class BetweenFilterTypeTest extends TestCase
 
         $this->assertCount(0, $posts);
     }
+
+    /** @test */
+    public function it_does_not_include_upper_bound_if_option_is_set()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
+            $filterBuilder
+                ->add('createdAt', BetweenFilterType::class, [
+                    'include_upper_bound' => false
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'createdAt_until' => '2016-01-01 13:00:00',
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'createdAt_until' => '2016-01-01 12:00:00',
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
+
+    /** @test */
+    public function it_does_not_include_lower_bound_if_option_is_set()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
+            $filterBuilder
+                ->add('createdAt', BetweenFilterType::class, [
+                    'include_lower_bound' => false
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'createdAt_since' => '2016-01-01 11:00:00',
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'createdAt_since' => '2016-01-01 12:00:00',
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
 }
