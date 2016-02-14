@@ -42,4 +42,20 @@ class EqualFilterTypeTest extends TestCase
 
         $this->assertCount(0, $posts);
     }
+
+    /** @test */
+    public function case_sensitivity_can_be_turned_off()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('title', EqualFilterType::class, ['case_sensitive' => false]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'title' => 'post title'
+        ]);
+
+        $this->assertCount(1, $posts);
+        $this->assertEquals('Post title', $posts[0]->getTitle());
+    }
 }
