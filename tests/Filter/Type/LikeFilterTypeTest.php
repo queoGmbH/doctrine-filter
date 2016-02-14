@@ -42,4 +42,50 @@ class LikeFilterTypeTest extends TestCase
 
         $this->assertCount(0, $posts);
     }
+
+    /** @test */
+    public function it_allows_for_like_query_that_start_with_a_value()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('content', LikeFilterType::class, [
+                    'start_with' => true
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'content' => 'My post'
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'content' => 'post'
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
+
+    /** @test */
+    public function it_allows_for_like_query_that_end_with_a_value()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('content', LikeFilterType::class, [
+                    'end_with' => true
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'content' => 'content!'
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'content' => 'My post'
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
 }

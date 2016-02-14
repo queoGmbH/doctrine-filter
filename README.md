@@ -4,7 +4,7 @@
 
 - [ ] Options
   - [ ] Case sensititvity
-  - [ ] Like: Starts with/ ends with
+  - [x] Like: Starts with/ ends with
   - [ ] Between: LowerBound / UpperBound -> include bounds?
   - [ ] Description
 - [x] Query embeddables
