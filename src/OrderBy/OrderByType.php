@@ -13,19 +13,24 @@ class OrderByType extends AbstractFilterType
 
     public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {
-        if (!empty($this->options['only_on_call'])) {
-            if (is_null($value)) {
-                return;
-            }
+        if ($this->runOnlyWithParam($value)) {
+            return;
         }
 
-        if (!empty($this->options['sortOrder'])) {
-            $value = $this->options['sortOrder'];
-        }
+        $value = !empty($this->options['sortOrder']) ? $this->options['sortOrder'] : $value;
 
         $qb = $filterBuilder->getQueryBuilder();
 
         return $qb
             ->orderBy($table . '.' . $field, $value);
+    }
+
+    /**
+     * @param $value
+     * @return bool
+     */
+    protected function runOnlyWithParam($value)
+    {
+        return !empty($this->options['only_on_call']) && is_null($value);
     }
 }
