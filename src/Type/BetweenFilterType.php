@@ -16,8 +16,8 @@ class BetweenFilterType extends AbstractFilterType
 
     public function addToFilters(ArrayCollection $filters)
     {
-        $lowerBound = $this->field . '_since';
-        $upperBound = $this->field . '_until';
+        $upperBound = $this->field . '_' . $this->options['upper_bound_suffix'];
+        $lowerBound = $this->field . '_' . $this->options['lower_bound_suffix'];
 
         $filters->set($lowerBound, $this->getGreaterThanFilter());
         $filters->set($upperBound, $this->getLessThanFilter());
@@ -27,6 +27,8 @@ class BetweenFilterType extends AbstractFilterType
     {
         $resolver->setDefaults([
             'field' => null,
+            'upper_bound_suffix' => 'until',
+            'lower_bound_suffix' => 'since',
             'include_upper_bound' => true,
             'include_lower_bound' => true,
         ]);
@@ -61,6 +63,8 @@ class BetweenFilterType extends AbstractFilterType
         $options = $this->options;
         unset($options['include_lower_bound']);
         unset($options['include_upper_bound']);
+        unset($options['upper_bound_suffix']);
+        unset($options['lower_bound_suffix']);
 
         return $options;
     }

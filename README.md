@@ -5,7 +5,7 @@
 - [ ] Options
   - [ ] Case sensititvity
   - [x] Like: Starts with/ ends with
-  - [ ] Between: LowerBound / UpperBound -> include bounds?
+  - [x] Between: LowerBound / UpperBound -> include bounds?
   - [ ] Description
 - [x] Query embeddables
 - [x] Metadata: count (via Pagerfanta)

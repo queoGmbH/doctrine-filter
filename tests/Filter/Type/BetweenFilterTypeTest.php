@@ -96,4 +96,30 @@ class BetweenFilterTypeTest extends TestCase
 
         $this->assertCount(0, $posts);
     }
+
+    /** @test */
+    public function suffixes_can_be_changed()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
+            $filterBuilder
+                ->add('createdAt', BetweenFilterType::class, [
+                    'lower_bound_suffix' => 'from',
+                    'upper_bound_suffix' => 'to',
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'createdAt_from' => '2016-01-01 11:00:00',
+            'createdAt_to' => '2016-01-01 13:00:00',
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'createdAt_from' => '2016-01-01 13:00:00',
+            'createdAt_to' => '2016-01-01 14:00:00',
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
 }
