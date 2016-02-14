@@ -346,11 +346,8 @@ class FilterBuilder
         }
 
         $fieldParts = $this->splitOnDot($field);
-        if (!isset($embeddedClasses[$fieldParts[0]])) {
-            return false;
-        }
 
-        return true;
+        return isset($embeddedClasses[$fieldParts[0]]);
     }
 
     /**
