@@ -3,24 +3,29 @@
 namespace Fludio\DoctrineFilter\OrderBy;
 
 use Fludio\DoctrineFilter\FilterBuilder;
+use Fludio\DoctrineFilter\Type\AbstractFilterType;
 
-class OrderByType
+class OrderByType extends AbstractFilterType
 {
+    protected $doesAlwaysRun = true;
+
     protected $field;
 
-    protected $ordering;
-
-    public function __construct($field, $ordering)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {
-        $this->field = $field;
-        $this->ordering = $ordering;
-    }
+        if (!empty($this->options['only_on_call'])) {
+            if (is_null($value)) {
+                return;
+            }
+        }
 
-    public function expand(FilterBuilder $filterBuilder)
-    {
+        if (!empty($this->options['sortOrder'])) {
+            $value = $this->options['sortOrder'];
+        }
+
         $qb = $filterBuilder->getQueryBuilder();
 
         return $qb
-            ->orderBy('x.' . $this->field, $this->ordering);
+            ->orderBy($table . '.' . $field, $value);
     }
 }

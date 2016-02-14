@@ -62,7 +62,6 @@ class FilterBuilder
     public function buildQuery($searchParams)
     {
         $this->addFiltersToQuery($searchParams);
-        $this->addOrderByToQuery();
         $this->setParametersToQuery();
 
         return $this->qb;
@@ -102,14 +101,18 @@ class FilterBuilder
     /**
      * Add a orderBy to the filter
      *
-     * @param $field
-     * @param $sortOrder
+     * @param $filterName
+     * @param null $sortOrder
+     * @param array $options
      * @return $this
      */
-    public function orderBy($field, $sortOrder)
+    public function orderBy($filterName, $sortOrder = null, $options = [])
     {
-        $filter = new OrderByType($field, $sortOrder);
-        $this->orderBy[] = $filter;
+        if (empty($options['sortOrder'])) {
+            $options['sortOrder'] = $sortOrder;
+        }
+
+        $this->add($filterName, OrderByType::class, $options);
 
         return $this;
     }
@@ -175,20 +178,12 @@ class FilterBuilder
      */
     protected function addFiltersToQuery($searchParams)
     {
-        foreach ($searchParams as $filterName => $value) {
-            if ($this->filters->containsKey($filterName)) {
+        foreach ($this->filters as $filterName => $filter) {
+            $isFilteredCalled = isset($searchParams[$filterName]);
+            if ($filter->doesAlwaysRun() || $isFilteredCalled) {
+                $value = $isFilteredCalled ? $searchParams[$filterName] : null;
                 $this->addFilterToQuery($filterName, $value);
             }
-        }
-    }
-
-    /**
-     * Add OrderBy statements
-     */
-    protected function addOrderByToQuery()
-    {
-        foreach ($this->orderBy as $orderBy) {
-            $orderBy->expand($this);
         }
     }
 

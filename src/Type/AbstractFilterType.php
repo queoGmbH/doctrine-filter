@@ -20,6 +20,12 @@ abstract class AbstractFilterType
      * @var array
      */
     protected $options;
+    /**
+     * Should the filter run even if not in search params?
+     *
+     * @var bool
+     */
+    protected $doesAlwaysRun = false;
 
     public function __construct($name, array $options)
     {
@@ -67,5 +73,13 @@ abstract class AbstractFilterType
     public function getField()
     {
         return $this->field;
+    }
+
+    /**
+     * @return bool
+     */
+    public function doesAlwaysRun()
+    {
+        return $this->doesAlwaysRun;
     }
 }
