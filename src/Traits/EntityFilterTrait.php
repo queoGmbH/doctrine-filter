@@ -15,7 +15,7 @@ trait EntityFilterTrait
      * @param $searchParams
      * @return array
      */
-    public function filter(FilterInterface $filter, $searchParams)
+    public function filter(FilterInterface $filter, $searchParams = [])
     {
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('x');
