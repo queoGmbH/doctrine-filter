@@ -201,17 +201,19 @@ class FilterBuilder
      */
     protected function addFilterToQuery($filterName, $value)
     {
-        $field = $this->getFieldFromFilterName($filterName);
+        $fields = $this->getFieldFromFilterName($filterName);
 
-        if ($this->isRelationship($field)) {
-            $table = $this->addAllJoins($field);
-            $field = $this->getRelationshipField($field, $table);
-        } else {
-            $table = $this->getRootAlias();
+        foreach ($fields as $field) {
+            if ($this->isRelationship($field)) {
+                $table = $this->addAllJoins($field);
+                $field = $this->getRelationshipField($field, $table);
+            } else {
+                $table = $this->getRootAlias();
+            }
+            /** @var AbstractFilterType $filter */
+            $filter = $this->filters->get($filterName);
+            $filter->expand($this, $value, $table, $field);
         }
-        /** @var AbstractFilterType $filter */
-        $filter = $this->filters->get($filterName);
-        $filter->expand($this, $value, $table, $field);
     }
 
     /**
@@ -307,11 +309,17 @@ class FilterBuilder
 
     /**
      * @param $searchFilter
-     * @return mixed
+     * @return array
      */
     protected function getFieldFromFilterName($searchFilter)
     {
-        return $this->filters->get($searchFilter)->getField();
+        $fields = $this->filters->get($searchFilter)->getField();
+
+        if (is_string($fields)) {
+            $fields = [$fields];
+        }
+
+        return $fields;
     }
 
     /**

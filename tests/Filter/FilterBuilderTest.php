@@ -74,7 +74,7 @@ class FilterBuilderTest extends TestCase
         ]);
 
         $this->assertCount(1, $posts);
-        $this->assertEquals('Post title', $posts[0]->getTitle());
+        $this->assertEquals('Post title with Tag 1', $posts[0]->getTitle());
     }
 
     /** @test */
@@ -196,5 +196,22 @@ class FilterBuilderTest extends TestCase
         ]);
 
         $this->assertCount(1, $res2);
+    }
+
+    /** @test */
+    public function it_is_possible_to_query_on_multiple_fields()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('title_and_tags', LikeFilterType::class, [
+                    'field' => ['title', 'tags.name']
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'title_and_tags' => 'Tag 1'
+        ]);
+
+        $this->assertCount(1, $posts);
     }
 }

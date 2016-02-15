@@ -26,11 +26,11 @@ class EqualFilterTypeTest extends TestCase
     public function it_returns_an_entity_if_the_search_value_is_exactly_the_same()
     {
         $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
-            'title' => 'Post title'
+            'title' => 'Post title with Tag 1'
         ]);
 
         $this->assertCount(1, $posts);
-        $this->assertEquals('Post title', $posts[0]->getTitle());
+        $this->assertEquals('Post title with Tag 1', $posts[0]->getTitle());
     }
 
     /** @test */
@@ -52,10 +52,10 @@ class EqualFilterTypeTest extends TestCase
         });
 
         $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
-            'title' => 'post title'
+            'title' => 'post title with TAG 1'
         ]);
 
         $this->assertCount(1, $posts);
-        $this->assertEquals('Post title', $posts[0]->getTitle());
+        $this->assertEquals('Post title with Tag 1', $posts[0]->getTitle());
     }
 }

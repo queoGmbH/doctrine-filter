@@ -6,9 +6,9 @@
   - [ ] Case sensititvity
   - [x] Like: Starts with/ ends with
   - [x] Between: LowerBound / UpperBound -> include bounds?
-  - [ ] Description
+  - [x] Description
 - [x] Query embeddables
 - [x] Metadata: count (via Pagerfanta)
-- [ ] Query on multiple fields
+- [x] Query on multiple fields
 - [ ] Distinct
 - [ ] CustomFilterType (pass in callback function)
