@@ -221,7 +221,7 @@ class FilterBuilderTest extends TestCase
     {
         $this->filter->defineFilter(function (FilterBuilder $builder) {
             $builder
-                ->add('max_horsepower', function (QueryBuilder $qb, $table, $field, $getValue) {
+                ->add('max_horsepower', function (QueryBuilder $qb, $table, $field, \Closure $getValue) {
                     $qb
                         ->orderBy($table . '.' . $field, 'DESC')
                         ->setMaxResults(1);
