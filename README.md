@@ -11,4 +11,4 @@
 - [x] Metadata: count (via Pagerfanta)
 - [x] Query on multiple fields
 - [ ] Distinct
-- [ ] CustomFilterType (pass in callback function)
+- [x] ClosureFilterType (pass in callback function)

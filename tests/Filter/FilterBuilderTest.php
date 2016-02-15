@@ -2,6 +2,7 @@
 
 namespace Fludio\DoctrineFilter\Tests;
 
+use Doctrine\ORM\QueryBuilder;
 use Fludio\DoctrineFilter\FilterBuilder;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Person;
@@ -162,13 +163,13 @@ class FilterBuilderTest extends TestCase
         });
 
         $res1 = $this->em->getRepository(Car::class)->filter($filter, [
-            'horsepower' => 230
+            'horsepower' => 290
         ]);
 
         $this->assertEmpty($res1);
 
         $res2 = $this->em->getRepository(Car::class)->filter($filter, [
-            'horsepower' => 210
+            'horsepower' => 240
         ]);
 
         $this->assertCount(1, $res2);
@@ -213,5 +214,25 @@ class FilterBuilderTest extends TestCase
         ]);
 
         $this->assertCount(1, $posts);
+    }
+
+    /** @test */
+    public function it_is_possible_to_pass_a_callback_to_the_add_function()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('max_horsepower', function (QueryBuilder $qb, $table, $field, $getValue) {
+                    $qb
+                        ->orderBy($table . '.' . $field, 'DESC')
+                        ->setMaxResults(1);
+                }, ['fields' => 'engine.horsepower']);
+        });
+
+        $cars = $this->em->getRepository(Car::class)->filter($this->filter, [
+            'max_horsepower' => true
+        ]);
+
+        $this->assertCount(1, $cars);
+        $this->assertEquals(280, $cars[0]->getEngine()->getHorsepower());
     }
 }

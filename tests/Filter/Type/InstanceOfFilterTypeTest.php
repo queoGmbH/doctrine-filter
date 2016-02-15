@@ -45,7 +45,7 @@ class InstanceOfFilterTypeTest extends TestCase
             'type' => 'car'
         ]);
 
-        $this->assertCount(1, $vehicles);
+        $this->assertCount(2, $vehicles);
         $this->assertInstanceOf(Car::class, $vehicles[0]);
     }
 }

@@ -4,6 +4,7 @@ namespace Fludio\DoctrineFilter;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
+use Fludio\DoctrineFilter\Type\ClosureFilterType;
 use Fludio\DoctrineFilter\Type\OrderByType;
 use Fludio\DoctrineFilter\Type\AbstractFilterType;
 
@@ -85,14 +86,19 @@ class FilterBuilder
      * Add a filter to the builder
      *
      * @param $filterName
-     * @param $filterClass
+     * @param $filter
      * @param $options
      * @return FilterBuilder $this
      */
-    public function add($filterName, $filterClass, $options = [])
+    public function add($filterName, $filter, $options = [])
     {
-        /** @var AbstractFilterType $filter */
-        $filter = new $filterClass($filterName, $options);
+        if (is_callable($filter)) {
+            $filter = new ClosureFilterType($filterName, $options, $filter);
+        } else {
+            /** @var AbstractFilterType $filter */
+            $filter = new $filter($filterName, $options);
+        }
+
         $filter->addToFilters($this->filters);
 
         return $this;
