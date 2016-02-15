@@ -14,8 +14,8 @@ class BetweenFilterType extends AbstractFilterType
 
     public function addToFilters(ArrayCollection $filters)
     {
-        $upperBound = $this->field . '_' . $this->options['upper_bound_suffix'];
-        $lowerBound = $this->field . '_' . $this->options['lower_bound_suffix'];
+        $upperBound = $this->fields . '_' . $this->options['upper_bound_suffix'];
+        $lowerBound = $this->fields . '_' . $this->options['lower_bound_suffix'];
 
         $filters->set($lowerBound, $this->getGreaterThanFilter());
         $filters->set($upperBound, $this->getLessThanFilter());
@@ -39,7 +39,7 @@ class BetweenFilterType extends AbstractFilterType
             ? GreaterThanEqualFilterType::class
             : GreaterThanFilterType::class;
 
-        return new $filterClass($this->field, $this->getCleanOptions());
+        return new $filterClass($this->fields, $this->getCleanOptions());
     }
 
     /**
@@ -51,7 +51,7 @@ class BetweenFilterType extends AbstractFilterType
             ? LessThanEqualFilterType::class
             : LessThanFilterType::class;
 
-        return new $filterClass($this->field, $this->getCleanOptions());
+        return new $filterClass($this->fields, $this->getCleanOptions());
     }
 
     protected function getCleanOptions()

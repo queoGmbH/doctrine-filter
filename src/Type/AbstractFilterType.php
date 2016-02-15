@@ -16,7 +16,7 @@ abstract class AbstractFilterType
     /**
      * @var string
      */
-    protected $field;
+    protected $fields;
     /**
      * @var array
      */
@@ -32,7 +32,7 @@ abstract class AbstractFilterType
     {
         $this->name = $name;
         $this->options = $this->getResolvedOptions($options);
-        $this->field = isset($options['field']) ? $options['field'] : $name;
+        $this->fields = isset($options['fields']) ? $options['fields'] : $name;
     }
 
     /**
@@ -71,9 +71,9 @@ abstract class AbstractFilterType
     /**
      * @return string
      */
-    public function getField()
+    public function getFields()
     {
-        return $this->field;
+        return $this->fields;
     }
 
     /**
@@ -87,7 +87,7 @@ abstract class AbstractFilterType
     protected function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'field' => null,
+            'fields' => null,
             'description' => ''
         ]);
     }

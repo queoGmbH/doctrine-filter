@@ -20,7 +20,7 @@ class ComparableFilterTypeTest extends TestCase
             $builder
                 ->add('title', ComparableFilterType::class)
                 ->add('createdAt', ComparableFilterType::class)
-                ->orderBy('title_sort', 'ASC', ['field' => 'title']);
+                ->orderBy('title_sort', 'ASC', ['fields' => 'title']);
         };
     }
 

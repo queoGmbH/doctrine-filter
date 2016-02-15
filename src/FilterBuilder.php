@@ -201,7 +201,7 @@ class FilterBuilder
      */
     protected function addFilterToQuery($filterName, $value)
     {
-        $fields = $this->getFieldFromFilterName($filterName);
+        $fields = $this->getFieldsFromFilterName($filterName);
 
         foreach ($fields as $field) {
             if ($this->isRelationship($field)) {
@@ -311,9 +311,9 @@ class FilterBuilder
      * @param $searchFilter
      * @return array
      */
-    protected function getFieldFromFilterName($searchFilter)
+    protected function getFieldsFromFilterName($searchFilter)
     {
-        $fields = $this->filters->get($searchFilter)->getField();
+        $fields = $this->filters->get($searchFilter)->getFields();
 
         if (is_string($fields)) {
             $fields = [$fields];

@@ -9,7 +9,7 @@ class OrderByType extends AbstractFilterType
 {
     protected $doesAlwaysRun = true;
 
-    protected $field;
+    protected $fields;
 
     public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {

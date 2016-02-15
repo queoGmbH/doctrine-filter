@@ -28,7 +28,7 @@ class NotInFilterTypeTest extends TestCase
         return function (FilterBuilder $builder) {
             $builder
                 ->add('tags', NotInFilterType::class, [
-                    'field' => 'tags.name'
+                    'fields' => 'tags.name'
                 ]);
         };
     }

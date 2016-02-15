@@ -16,8 +16,8 @@ class ComparableFilterType extends AbstractFilterType
      */
     public function addToFilters(ArrayCollection $filters)
     {
-        $filters->set($this->field . '<', new LessThanEqualFilterType($this->field, $this->options));
-        $filters->set($this->field . '>', new GreaterThanEqualFilterType($this->field, $this->options));
-        $filters->set($this->field . '!', new NotEqualFilterType($this->field, $this->options));
+        $filters->set($this->fields . '<', new LessThanEqualFilterType($this->fields, $this->options));
+        $filters->set($this->fields . '>', new GreaterThanEqualFilterType($this->fields, $this->options));
+        $filters->set($this->fields . '!', new NotEqualFilterType($this->fields, $this->options));
     }
 }

@@ -43,13 +43,13 @@ class FilterBuilderTest extends TestCase
                 ->add('title', LikeFilterType::class)
                 ->add('content', EqualFilterType::class)
                 ->add('tags', EqualFilterType::class, [
-                    'field' => 'tags.name'
+                    'fields' => 'tags.name'
                 ])
                 ->add('category', EqualFilterType::class, [
-                    'field' => 'tags.category.name'
+                    'fields' => 'tags.category.name'
                 ])
                 ->add('blog', EqualFilterType::class, [
-                    'field' => 'blog'
+                    'fields' => 'blog'
                 ]);
         };
     }
@@ -157,7 +157,7 @@ class FilterBuilderTest extends TestCase
         $filter->defineFilter(function (FilterBuilder $builder) {
             $builder
                 ->add('horsepower', GreaterThanEqualFilterType::class, [
-                    'field' => 'engine.horsepower'
+                    'fields' => 'engine.horsepower'
                 ]);
         });
 
@@ -181,7 +181,7 @@ class FilterBuilderTest extends TestCase
         $filter->defineFilter(function (FilterBuilder $builder) {
             $builder
                 ->add('horsepower', GreaterThanEqualFilterType::class, [
-                    'field' => 'cars.engine.horsepower'
+                    'fields' => 'cars.engine.horsepower'
                 ]);
         });
 
@@ -204,7 +204,7 @@ class FilterBuilderTest extends TestCase
         $this->filter->defineFilter(function (FilterBuilder $builder) {
             $builder
                 ->add('title_and_tags', LikeFilterType::class, [
-                    'field' => ['title', 'tags.name']
+                    'fields' => ['title', 'tags.name']
                 ]);
         });
 

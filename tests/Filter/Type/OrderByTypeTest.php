@@ -139,7 +139,7 @@ class OrderByTypeTest extends TestCase
         $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
             $filterBuilder
                 ->orderBy('date', null, [
-                    'field' => 'createdAt'
+                    'fields' => 'createdAt'
                 ]);
         });
 
@@ -159,7 +159,7 @@ class OrderByTypeTest extends TestCase
         $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
             $filterBuilder
                 ->orderBy('tagName', 'DESC', [
-                    'field' => 'tags.name'
+                    'fields' => 'tags.name'
                 ]);
         });
 
