@@ -5,7 +5,9 @@
 
 ## Installation
 
-...
+```
+composer require fludio/doctrine-filter
+```
 
 ## Useage
 
