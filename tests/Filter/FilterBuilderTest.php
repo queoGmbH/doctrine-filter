@@ -6,11 +6,13 @@ use Doctrine\ORM\QueryBuilder;
 use Fludio\DoctrineFilter\FilterBuilder;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Person;
+use Fludio\DoctrineFilter\Tests\Dummy\Entity\Transport;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
 use Fludio\DoctrineFilter\Type\EqualFilterType;
 use Fludio\DoctrineFilter\Type\GreaterThanEqualFilterType;
+use Fludio\DoctrineFilter\Type\InstanceOfFilterType;
 use Fludio\DoctrineFilter\Type\LikeFilterType;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
@@ -234,5 +236,20 @@ class FilterBuilderTest extends TestCase
 
         $this->assertCount(1, $cars);
         $this->assertEquals(280, $cars[0]->getEngine()->getHorsepower());
+    }
+
+    /** @test */
+    public function a_default_value_can_be_set()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('type', InstanceOfFilterType::class, [
+                    'default' => 'car',
+                ]);
+        });
+
+        $cars = $this->em->getRepository(Transport::class)->filter($this->filter);
+
+        $this->assertCount(2, $cars);
     }
 }

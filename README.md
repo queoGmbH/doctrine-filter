@@ -83,7 +83,7 @@ $builder
 	
 //...
 
-$em->getReposiitory(MyEntity::class)->filter(new MyFilter(), [
+$em->getRepository(MyEntity::class)->filter(new MyFilter(), [
 	'price_from' => 40,
 	'price_to' => 80
 ]); 

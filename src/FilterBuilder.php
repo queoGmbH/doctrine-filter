@@ -185,9 +185,20 @@ class FilterBuilder
     protected function addFiltersToQuery($searchParams)
     {
         foreach ($this->filters as $filterName => $filter) {
-            $isFilteredCalled = isset($searchParams[$filterName]);
-            if ($filter->doesAlwaysRun() || $isFilteredCalled) {
-                $value = $isFilteredCalled ? $searchParams[$filterName] : null;
+            $filterIsCalled = isset($searchParams[$filterName]);
+
+            if ($filter->doesAlwaysRun()
+                || $filter->hasDefault()
+                || $filterIsCalled
+            ) {
+                if ($filterIsCalled) {
+                    $value = $searchParams[$filterName];
+                } elseif ($filter->hasDefault()) {
+                    $value = $filter->getDefault();
+                } else {
+                    $value = null;
+                }
+
                 $this->addFilterToQuery($filterName, $value);
             }
         }

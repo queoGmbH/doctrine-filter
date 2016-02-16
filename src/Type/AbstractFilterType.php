@@ -18,6 +18,10 @@ abstract class AbstractFilterType
      */
     protected $fields;
     /**
+     * @var mixed
+     */
+    protected $default;
+    /**
      * @var array
      */
     protected $options;
@@ -32,7 +36,8 @@ abstract class AbstractFilterType
     {
         $this->name = $name;
         $this->options = $this->getResolvedOptions($options);
-        $this->fields = isset($options['fields']) ? $options['fields'] : $name;
+        $this->fields = isset($this->options['fields']) ? $this->options['fields'] : $name;
+        $this->default = $this->options['default'];
     }
 
     /**
@@ -84,11 +89,28 @@ abstract class AbstractFilterType
         return $this->doesAlwaysRun;
     }
 
+    /**
+     * @return bool
+     */
+    public function hasDefault()
+    {
+        return !is_null($this->default);
+    }
+
+    public function getDefault()
+    {
+        return $this->default;
+    }
+
+    /**
+     * @param OptionsResolver $resolver
+     */
     protected function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'fields' => null,
-            'description' => ''
+            'default' => null,
+            'description' => '',
+            'fields' => null
         ]);
     }
 
