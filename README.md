@@ -66,6 +66,11 @@ $result = $em->getRepository(MyEntity::class)->filter(new MyFilter(), [
 
 This method will return all entities with a category of 2 and a price that is less than or equal to 80.
 
+## Ordering results
+
+You also have the option to specify the order of the result by using the `orderBy` method. The first argument is the name of the filter, the second argument defines a possible default sorting. You can pass in `'ASC'` or `'DESC'`. Note that after setting the default values, you won't be able to pass a value to the filter. If you need the ability to define the ordering by the search params, pass in `null` as the second argument. 
+
+
 ## Filter Types
 
 ### BetweenFilterType
@@ -103,25 +108,43 @@ $em->getRepository(MyEntity::class)->filter(new MyFilter(), [
 
 ### EqualFilterType
 
+With this filter the database value has to be the same as the search value.
+
 ### GreaterThanEqualFilterType
+
+The database value has to be greater than or equal to the search value.
 
 ### GreaterThanFilterType
 
+The database value has to be greater than the search value.
+
 ### InFilterType
+
+The database value has to be in the given search values.
 
 ### InstanceOfFilterType
 
+If you use inheritance mapping, you can use this filter to return only specific entities. The search values has to be equal to the defined key in the DiscriminatorMap.
+
 ### LessThanEqualFilterType
+
+The database value has to be less than or equal to the search value.
 
 ### LessThanFilterType
 
+The database value has to be less than the search value.
+
 ### LikeFilterType
+
+Will perform a like query on the given field.
 
 ### NotEqualFilterType
 
+The database value has to be different to the search value.
+
 ### NotInFilterType
 
-### OrderByType
+The database value must not be in the given search values.
 
 ## Todo
 
@@ -129,3 +152,4 @@ $em->getRepository(MyEntity::class)->filter(new MyFilter(), [
   - [ ] Case sensititvity
   - [ ] Default value
 - [ ] Distinct
+- [ ] InstanceOf for multiple entities
