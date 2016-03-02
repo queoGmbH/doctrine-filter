@@ -4,7 +4,7 @@
     "doctrine/orm": "^2.3",
     "doctrine/data-fixtures": "^1.1",
     "satooshi/php-coveralls": "^1.0",
-    "symfony/options-resolver": "^2.*",
+    "symfony/options-resolver": "2.*",
     "pagerfanta/pagerfanta": "^1.0"
   },
   "authors": [
