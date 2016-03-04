@@ -15,9 +15,9 @@ class LoadPostCollectionData extends AbstractFixture implements OrderedFixtureIn
     {
         $this->manager = $manager;
 
-        $this->createNewPost('Post 2', 'Content 2', new \DateTime('2016-02-02 12:00:00'), 'tag3');
-        $this->createNewPost('Post 1', 'Content 1', new \DateTime('2016-01-01 12:00:00'), 'tag1');
-        $this->createNewPost('Post 3', 'Content 3', new \DateTime('2016-03-03 12:00:00'), 'tag2');
+        $this->createNewPost('Post 2', 'Some same content', new \DateTime('2016-02-02 12:00:00'), 'tag3');
+        $this->createNewPost('Post 1', 'Some same content', new \DateTime('2016-01-01 12:00:00'), 'tag1');
+        $this->createNewPost('Post 3', 'Other content', new \DateTime('2016-03-03 12:00:00'), 'tag2');
     }
 
     protected function createNewPost($title, $content, $createdAt, $tag = null)

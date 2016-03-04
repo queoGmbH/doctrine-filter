@@ -170,4 +170,21 @@ class OrderByTypeTest extends TestCase
         $this->assertEquals('Post 3', $result[1]->getTitle());
         $this->assertEquals('Post 1', $result[2]->getTitle());
     }
+
+    /** @test */
+    public function multiple_filters_can_be_used()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $filterBuilder) {
+            $filterBuilder
+                ->orderBy('content', 'ASC')
+                ->orderBy('title', 'ASC');
+        });
+
+        $result = $this->em->getRepository(Post::class)->filter($this->filter);
+
+        $this->assertCount(3, $result);
+        $this->assertEquals('Post 3', $result[0]->getTitle());
+        $this->assertEquals('Post 1', $result[1]->getTitle());
+        $this->assertEquals('Post 2', $result[2]->getTitle());
+    }
 }

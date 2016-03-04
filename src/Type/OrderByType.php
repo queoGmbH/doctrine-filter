@@ -22,7 +22,7 @@ class OrderByType extends AbstractFilterType
         $qb = $filterBuilder->getQueryBuilder();
 
         return $qb
-            ->orderBy($table . '.' . $field, $value);
+            ->addOrderBy($table . '.' . $field, $value);
     }
 
     protected function configureOptions(OptionsResolver $resolver)
