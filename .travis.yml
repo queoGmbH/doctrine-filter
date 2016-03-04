@@ -13,12 +13,12 @@ before_install:
 
 matrix:
   include:
-    - php: 5.5
-      env: COMPOSER_FLAGS="--prefer-lowest"
-    - php: 5.5
-      env: DOCTRINE_VERSION=2.3.*
-    - php: 5.5
-      env: DOCTRINE_VERSION=2.4.*
+#    - php: 5.5
+#      env: COMPOSER_FLAGS="--prefer-lowest"
+#    - php: 5.5
+#      env: DOCTRINE_VERSION=2.3.*
+#    - php: 5.5
+#      env: DOCTRINE_VERSION=2.4.*
     - php: 5.5
       env: DOCTRINE_VERSION=2.5.*
   allow_failures:
