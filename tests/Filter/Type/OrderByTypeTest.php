@@ -187,4 +187,17 @@ class OrderByTypeTest extends TestCase
         $this->assertEquals('Post 1', $result[1]->getTitle());
         $this->assertEquals('Post 2', $result[2]->getTitle());
     }
+
+    /** @test */
+    public function it_ignores_input_other_than_asc_or_desc()
+    {
+        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'createdAt' => 'nonsense'
+        ]);
+
+        $this->assertCount(3, $result);
+        $this->assertEquals('Post 1', $result[0]->getTitle());
+        $this->assertEquals('Post 2', $result[1]->getTitle());
+        $this->assertEquals('Post 3', $result[2]->getTitle());
+    }
 }

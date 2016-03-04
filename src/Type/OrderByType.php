@@ -13,6 +13,11 @@ class OrderByType extends AbstractFilterType
 
     public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {
+        // Ignore invalid inputs
+        if (!in_array(strtolower($value), ['asc', 'desc', null])) {
+            $value = null;
+        }
+
         if ($this->runOnlyWithParam($value)) {
             return;
         }
