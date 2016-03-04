@@ -20,11 +20,11 @@ class TestDb
     private $connectionOptions;
 
     /**
-     * @param string $annotationPath
+     * @param string $annotationPaths
      * @param string $proxyDir
      * @param string $proxyNamespace
      */
-    public function __construct($annotationPath, $proxyDir, $proxyNamespace)
+    public function __construct(array $annotationPaths, $proxyDir, $proxyNamespace)
     {
         $cache = new ArrayCache();
 
@@ -32,7 +32,7 @@ class TestDb
         $config->setMetadataCacheImpl($cache);
         $config->setQueryCacheImpl($cache);
         $config->setMetadataDriverImpl(
-            $config->newDefaultAnnotationDriver([$annotationPath], false)
+            $config->newDefaultAnnotationDriver($annotationPaths, false)
         );
         $config->setProxyDir($proxyDir);
         $config->setProxyNamespace($proxyNamespace);

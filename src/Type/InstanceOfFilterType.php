@@ -2,6 +2,8 @@
 
 namespace Fludio\DoctrineFilter\Type;
 
+use Doctrine\ORM\Query\Expr\Comparison;
+use Doctrine\ORM\Version;
 use Fludio\DoctrineFilter\FilterBuilder;
 
 class InstanceOfFilterType extends AbstractFilterType
@@ -10,7 +12,11 @@ class InstanceOfFilterType extends AbstractFilterType
     {
         $qb = $filterBuilder->getQueryBuilder();
 
+        if (Version::VERSION != '2.3.0' && !class_exists($value)) {
+            $value = $filterBuilder->placeValue($value);
+        }
+
         return $qb
-            ->andWhere($qb->expr()->isInstanceOf($table, $filterBuilder->placeValue($value)));
+            ->andWhere(new Comparison($table, 'INSTANCE OF', $value));
     }
 }

@@ -4,8 +4,8 @@ namespace Fludio\DoctrineFilter\Tests\Filter\Type;
 
 use Doctrine\ORM\QueryBuilder;
 use Fludio\DoctrineFilter\FilterBuilder;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
+use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
 use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use Fludio\DoctrineFilter\Tests\Dummy\TestCase;
 use Fludio\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
@@ -17,7 +17,7 @@ class ClosureFilterTypeTest extends TestCase
     public function loadFixtures()
     {
         return [
-            new LoadTransportData()
+            new LoadPostCollectionData()
         ];
     }
 
@@ -26,31 +26,31 @@ class ClosureFilterTypeTest extends TestCase
     {
         return function (FilterBuilder $builder) {
             $builder
-                ->add('engine', function (QueryBuilder $qb, $table, $field, \Closure $getValue) {
+                ->add('content', function (QueryBuilder $qb, $table, $field, \Closure $getValue) {
                     $qb
                         ->andWhere(
                             $qb->expr()->orX(
-                                $qb->expr()->eq($table . '.engine.horsepower', $getValue()),
-                                $qb->expr()->eq($table . '.engine.cylinder', $getValue())
+                                $qb->expr()->eq($table . '.title', $getValue()),
+                                $qb->expr()->eq($table . '.content', $getValue())
                             )
                         );
-                }, ['fields' => 'engine']);
+                });
         };
     }
 
     /** @test */
     public function it_includes_the_values_correctly_to_the_query()
     {
-        $cars = $this->em->getRepository(Car::class)->filter($this->filter, [
-            'engine' => 8
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'content' => 'Post 1'
         ]);
 
-        $this->assertCount(2, $cars);
+        $this->assertCount(1, $posts);
 
-        $cars = $this->em->getRepository(Car::class)->filter($this->filter, [
-            'engine' => 220
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'content' => 'Other content'
         ]);
 
-        $this->assertCount(1, $cars);
+        $this->assertCount(1, $posts);
     }
 }

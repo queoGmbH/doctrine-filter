@@ -2,11 +2,12 @@
   "name": "fludio/doctrine-filter",
   "require": {
     "doctrine/orm": "^2.3",
-    "doctrine/data-fixtures": "^1.1",
+    "doctrine/data-fixtures": "^1.0",
     "pagerfanta/pagerfanta": "^1.0",
     "symfony/options-resolver": "^2.7|^3.0"
   },
   "require-dev": {
+    "phpunit/phpunit": "^4.8",
     "satooshi/php-coveralls": "^1.0"
   },
   "authors": [
@@ -20,8 +21,5 @@
       "Fludio\\DoctrineFilter\\": "src/",
       "Fludio\\DoctrineFilter\\Tests\\": "tests/"
     }
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^4.8"
   }
 }

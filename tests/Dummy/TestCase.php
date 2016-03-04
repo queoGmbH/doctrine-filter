@@ -3,6 +3,8 @@
 namespace Fludio\DoctrineFilter\Tests\Dummy;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\ORM\Version;
 
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
@@ -22,14 +24,30 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
 
         $here = dirname(__FILE__);
 
+        $paths = [$here . '/Entity'];
+
+        if ($this->isDoctrineVersion('2.5.0')) {
+            $paths[] = $here . '/Entity25';
+        }
+
         $this->testDb = new TestDb(
-            $here . '/Entity',
+            $paths,
             $here . '/TestProxy',
             'Fludio\DoctrineFilter\Tests\Dummy\Entity'
         );
 
         $this->em = $this->testDb->createEntityManager();
     }
+
+    /**
+     * @param $version
+     * @return bool
+     */
+    public function isDoctrineVersion($version)
+    {
+        return Version::VERSION == $version;
+    }
+
 
     protected function seeInDatabase($entity, $criteria)
     {

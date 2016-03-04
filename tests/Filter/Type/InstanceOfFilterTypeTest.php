@@ -35,6 +35,28 @@ class InstanceOfFilterTypeTest extends TestCase
     public function it_returns_only_instances_of_the_given_type()
     {
         $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
+            'type' => Bike::class
+        ]);
+
+        $this->assertCount(1, $vehicles);
+        $this->assertInstanceOf(Bike::class, $vehicles[0]);
+
+        $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
+            'type' => Car::class
+        ]);
+
+        $this->assertCount(2, $vehicles);
+        $this->assertInstanceOf(Car::class, $vehicles[0]);
+    }
+
+    /** @test */
+    public function the_filter_accepts_the_discriminator_map_key()
+    {
+        if ($this->isDoctrineVersion('2.3.0')) {
+            $this->markTestSkipped('Doctrine can not handle discriminator maps for INSTANCE OF');
+        }
+
+        $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
             'type' => 'bike'
         ]);
 

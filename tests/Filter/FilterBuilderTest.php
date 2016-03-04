@@ -6,9 +6,13 @@ use Doctrine\ORM\QueryBuilder;
 use Fludio\DoctrineFilter\FilterBuilder;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Person;
+use Fludio\DoctrineFilter\Tests\Dummy\Entity\Tag;
 use Fludio\DoctrineFilter\Tests\Dummy\Entity\Transport;
+use Fludio\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
+use Fludio\DoctrineFilter\Tests\Dummy\Entity25\Ship;
 use Fludio\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
+use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadShipData;
 use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
 use Fludio\DoctrineFilter\Type\EqualFilterType;
 use Fludio\DoctrineFilter\Type\GreaterThanEqualFilterType;
@@ -29,13 +33,19 @@ class FilterBuilderTest extends TestCase
 
     public function loadFixtures()
     {
-        return [
+        $fixtures = [
             new LoadCategoryData(),
             new LoadTagData(),
             new LoadPostData(),
             new LoadTransportData(),
             new LoadPersonData()
         ];
+
+        if ($this->isDoctrineVersion('2.5.0')) {
+            $fixtures[] = new LoadShipData();
+        }
+
+        return $fixtures;
     }
 
 
@@ -156,6 +166,10 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_can_filter_on_embeddables()
     {
+        if (!$this->isDoctrineVersion('2.5.0')) {
+            $this->markTestSkipped('Embeddables not available prior to Doctrine 2.5');
+        }
+
         $filter = new TestFilter();
         $filter->defineFilter(function (FilterBuilder $builder) {
             $builder
@@ -164,14 +178,14 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $res1 = $this->em->getRepository(Car::class)->filter($filter, [
-            'horsepower' => 290
+        $res1 = $this->em->getRepository(Ship::class)->filter($filter, [
+            'horsepower' => 400
         ]);
 
         $this->assertEmpty($res1);
 
-        $res2 = $this->em->getRepository(Car::class)->filter($filter, [
-            'horsepower' => 240
+        $res2 = $this->em->getRepository(Ship::class)->filter($filter, [
+            'horsepower' => 300
         ]);
 
         $this->assertCount(1, $res2);
@@ -180,22 +194,26 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_can_filter_on_embeddables_on_relationships()
     {
+        if (!$this->isDoctrineVersion('2.5.0')) {
+            $this->markTestSkipped('Embeddables not available prior to Doctrine 2.5');
+        }
+
         $filter = new TestFilter();
         $filter->defineFilter(function (FilterBuilder $builder) {
             $builder
                 ->add('horsepower', GreaterThanEqualFilterType::class, [
-                    'fields' => 'cars.engine.horsepower'
+                    'fields' => 'ships.engine.horsepower'
                 ]);
         });
 
-        $res1 = $this->em->getRepository(Person::class)->filter($filter, [
-            'horsepower' => 230
+        $res1 = $this->em->getRepository(Harbour::class)->filter($filter, [
+            'horsepower' => 400
         ]);
 
         $this->assertEmpty($res1);
 
-        $res2 = $this->em->getRepository(Person::class)->filter($filter, [
-            'horsepower' => 210
+        $res2 = $this->em->getRepository(Harbour::class)->filter($filter, [
+            'horsepower' => 300
         ]);
 
         $this->assertCount(1, $res2);
@@ -223,19 +241,19 @@ class FilterBuilderTest extends TestCase
     {
         $this->filter->defineFilter(function (FilterBuilder $builder) {
             $builder
-                ->add('max_horsepower', function (QueryBuilder $qb, $table, $field, \Closure $getValue) {
+                ->add('limitToOne', function (QueryBuilder $qb, $table, $field, \Closure $getValue) {
                     $qb
-                        ->orderBy($table . '.' . $field, 'DESC')
+                        ->orderBy($table . '.name', 'DESC')
                         ->setMaxResults(1);
-                }, ['fields' => 'engine.horsepower']);
+                });
         });
 
-        $cars = $this->em->getRepository(Car::class)->filter($this->filter, [
-            'max_horsepower' => true
+        $tags = $this->em->getRepository(Tag::class)->filter($this->filter, [
+            'limitToOne' => true
         ]);
 
-        $this->assertCount(1, $cars);
-        $this->assertEquals(280, $cars[0]->getEngine()->getHorsepower());
+        $this->assertCount(1, $tags);
+        $this->assertEquals('Tag 3', $tags[0]->getName());
     }
 
     /** @test */
@@ -244,7 +262,7 @@ class FilterBuilderTest extends TestCase
         $this->filter->defineFilter(function (FilterBuilder $builder) {
             $builder
                 ->add('type', InstanceOfFilterType::class, [
-                    'default' => 'car',
+                    'default' => Car::class,
                 ]);
         });
 
