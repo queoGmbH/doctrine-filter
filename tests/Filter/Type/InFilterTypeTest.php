@@ -52,4 +52,28 @@ class InFilterTypeTest extends TestCase
 
         $this->assertCount(0, $posts);
     }
+
+    /** @test */
+    public function it_returns_only_entities_that_have_all_values()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('tags', InFilterType::class, [
+                    'fields' => 'tags.name',
+                    'match_all' => true
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'tags' => ['Tag 1', 'Tag 2']
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'tags' => ['Tag 1', 'Tag 2', 'Tag 3']
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
 }
