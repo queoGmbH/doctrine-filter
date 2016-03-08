@@ -6,6 +6,9 @@ use Fludio\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
 
 trait TestFilterTrait
 {
+    /**
+     * @var TestFilter
+     */
     protected $filter;
 
     /**
