@@ -54,6 +54,16 @@ class InFilterTypeTest extends TestCase
     }
 
     /** @test */
+    public function it_handles_empty_values()
+    {
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'tags' => []
+        ]);
+
+        $this->assertCount(1, $posts);
+    }
+
+    /** @test */
     public function it_returns_only_entities_that_have_all_values()
     {
         $this->filter->defineFilter(function (FilterBuilder $builder) {
@@ -75,5 +85,23 @@ class InFilterTypeTest extends TestCase
         ]);
 
         $this->assertCount(0, $posts);
+    }
+
+    /** @test */
+    public function for_match_all_it_handles_passing_in_the_same_value_multiple_times()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('tags', InFilterType::class, [
+                    'fields' => 'tags.name',
+                    'match_all' => true
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'tags' => ['Tag 1', 'Tag 1', 'Tag 2', 'Tag 2', 'Tag 2']
+        ]);
+
+        $this->assertCount(1, $posts);
     }
 }

@@ -9,6 +9,10 @@ class InFilterType extends AbstractFilterType
 {
     public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {
+        if (empty($value)) {
+            return $filterBuilder->getQueryBuilder();
+        }
+
         if ($this->options['match_all']) {
             $qb = $this->buildQueryToMatchAll($filterBuilder, $value, $table, $field);
         } else {
@@ -54,7 +58,7 @@ class InFilterType extends AbstractFilterType
     {
         $qb = $filterBuilder->getQueryBuilder();
 
-        $count = count($value);
+        $count = count(array_unique($value));
 
         return $qb
             ->andWhere(
