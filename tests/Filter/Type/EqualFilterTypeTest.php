@@ -18,7 +18,8 @@ class EqualFilterTypeTest extends TestCase
         return function (FilterBuilder $builder) {
             $builder
                 ->add('title', EqualFilterType::class)
-                ->add('content', EqualFilterType::class);
+                ->add('content', EqualFilterType::class)
+                ->add('isPublished', EqualFilterType::class);
         };
     }
 
@@ -38,6 +39,22 @@ class EqualFilterTypeTest extends TestCase
     {
         $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Another title'
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
+
+    /** @test */
+    public function it_works_with_boolean_values()
+    {
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'isPublished' => false
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'isPublished' => true
         ]);
 
         $this->assertCount(0, $posts);

@@ -30,6 +30,11 @@ class Post
     protected $content;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isPublished = false;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $createdAt;
@@ -83,6 +88,22 @@ class Post
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsPublished()
+    {
+        return $this->isPublished;
+    }
+
+    /**
+     * @param mixed $isPublished
+     */
+    public function setIsPublished($isPublished)
+    {
+        $this->isPublished = $isPublished;
     }
 
     /**
