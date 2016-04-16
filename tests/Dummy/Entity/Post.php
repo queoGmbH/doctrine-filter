@@ -1,6 +1,6 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy\Entity;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Post
  *
- * @ORM\Entity(repositoryClass="Fludio\DoctrineFilter\Tests\Dummy\Entity\PostRepo")
+ * @ORM\Entity(repositoryClass="BiteCodes\DoctrineFilter\Tests\Dummy\Entity\PostRepo")
  */
 class Post
 {

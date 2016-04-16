@@ -1,10 +1,10 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Type;
+namespace BiteCodes\DoctrineFilter\Type;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
-use Fludio\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\FilterBuilder;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 abstract class AbstractFilterType

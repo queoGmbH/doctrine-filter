@@ -1,9 +1,9 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy\Filter;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy\Filter;
 
-use Fludio\DoctrineFilter\FilterBuilder;
-use Fludio\DoctrineFilter\FilterInterface;
+use BiteCodes\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\FilterInterface;
 
 class TestFilter implements FilterInterface
 {

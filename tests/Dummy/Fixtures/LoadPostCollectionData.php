@@ -1,11 +1,11 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy\Fixtures;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
 
 class LoadPostCollectionData extends AbstractFixture implements OrderedFixtureInterface
 {

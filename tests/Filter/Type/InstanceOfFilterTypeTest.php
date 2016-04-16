@@ -1,16 +1,16 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Filter\Type;
+namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
 
-use Fludio\DoctrineFilter\FilterBuilder;
-use Fludio\DoctrineFilter\Type\InstanceOfFilterType;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Bike;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Transport;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
-use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use Fludio\DoctrineFilter\Tests\Dummy\TestCase;
-use Fludio\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use BiteCodes\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\Type\InstanceOfFilterType;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Bike;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Car;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Transport;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
+use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 
 class InstanceOfFilterTypeTest extends TestCase
 {

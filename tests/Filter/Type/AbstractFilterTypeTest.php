@@ -1,21 +1,21 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Filter\Type;
+namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
 
-use Fludio\DoctrineFilter\Type\AbstractFilterType;
-use Fludio\DoctrineFilter\Type\BetweenFilterType;
-use Fludio\DoctrineFilter\Type\ComparableFilterType;
-use Fludio\DoctrineFilter\Type\EqualFilterType;
-use Fludio\DoctrineFilter\Type\GreaterThanEqualFilterType;
-use Fludio\DoctrineFilter\Type\GreaterThanFilterType;
-use Fludio\DoctrineFilter\Type\InFilterType;
-use Fludio\DoctrineFilter\Type\InstanceOfFilterType;
-use Fludio\DoctrineFilter\Type\LessThanEqualFilterType;
-use Fludio\DoctrineFilter\Type\LessThanFilterType;
-use Fludio\DoctrineFilter\Type\LikeFilterType;
-use Fludio\DoctrineFilter\Type\NotEqualFilterType;
-use Fludio\DoctrineFilter\Type\NotInFilterType;
-use Fludio\DoctrineFilter\Type\OrderByType;
+use BiteCodes\DoctrineFilter\Type\AbstractFilterType;
+use BiteCodes\DoctrineFilter\Type\BetweenFilterType;
+use BiteCodes\DoctrineFilter\Type\ComparableFilterType;
+use BiteCodes\DoctrineFilter\Type\EqualFilterType;
+use BiteCodes\DoctrineFilter\Type\GreaterThanEqualFilterType;
+use BiteCodes\DoctrineFilter\Type\GreaterThanFilterType;
+use BiteCodes\DoctrineFilter\Type\InFilterType;
+use BiteCodes\DoctrineFilter\Type\InstanceOfFilterType;
+use BiteCodes\DoctrineFilter\Type\LessThanEqualFilterType;
+use BiteCodes\DoctrineFilter\Type\LessThanFilterType;
+use BiteCodes\DoctrineFilter\Type\LikeFilterType;
+use BiteCodes\DoctrineFilter\Type\NotEqualFilterType;
+use BiteCodes\DoctrineFilter\Type\NotInFilterType;
+use BiteCodes\DoctrineFilter\Type\OrderByType;
 
 class AbstractFilterTypeTest extends \PHPUnit_Framework_TestCase
 {

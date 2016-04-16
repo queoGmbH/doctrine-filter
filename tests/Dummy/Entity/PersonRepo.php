@@ -1,9 +1,9 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy\Entity;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity;
 
 use Doctrine\ORM\EntityRepository;
-use Fludio\DoctrineFilter\Traits\EntityFilterTrait;
+use BiteCodes\DoctrineFilter\Traits\EntityFilterTrait;
 
 class PersonRepo extends EntityRepository
 {

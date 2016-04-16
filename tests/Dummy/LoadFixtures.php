@@ -1,11 +1,11 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy;
 
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\Loader;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
 
 trait LoadFixtures
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Fludio\DoctrineFilter;
+namespace BiteCodes\DoctrineFilter;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\QueryBuilder;
-use Fludio\DoctrineFilter\Type\ClosureFilterType;
-use Fludio\DoctrineFilter\Type\OrderByType;
-use Fludio\DoctrineFilter\Type\AbstractFilterType;
+use BiteCodes\DoctrineFilter\Type\ClosureFilterType;
+use BiteCodes\DoctrineFilter\Type\OrderByType;
+use BiteCodes\DoctrineFilter\Type\AbstractFilterType;
 
 class FilterBuilder
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Filter\Type;
+namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
 
-use Fludio\DoctrineFilter\FilterBuilder;
-use Fludio\DoctrineFilter\Type\LikeFilterType;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
-use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
-use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use Fludio\DoctrineFilter\Tests\Dummy\TestCase;
-use Fludio\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use BiteCodes\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\Type\LikeFilterType;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
+use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 
 class LikeFilterTypeTest extends TestCase
 {

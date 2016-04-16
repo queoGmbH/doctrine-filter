@@ -1,9 +1,9 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy\Entity25;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity25;
 
 use Doctrine\ORM\EntityRepository;
-use Fludio\DoctrineFilter\Traits\EntityFilterTrait;
+use BiteCodes\DoctrineFilter\Traits\EntityFilterTrait;
 
 class ShipRepo extends EntityRepository
 {

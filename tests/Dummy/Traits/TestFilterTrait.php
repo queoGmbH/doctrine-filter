@@ -1,8 +1,8 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy\Traits;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy\Traits;
 
-use Fludio\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
 
 trait TestFilterTrait
 {

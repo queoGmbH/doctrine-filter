@@ -1,12 +1,12 @@
 # Doctrine-Filter
 
-[![Build Status](https://travis-ci.org/fludio/doctrine-filter.svg?branch=master)](https://travis-ci.org/fludio/doctrine-filter)
-[![Coverage Status](https://coveralls.io/repos/github/fludio/doctrine-filter/badge.svg?branch=master)](https://coveralls.io/github/fludio/doctrine-filter?branch=master)
+[![Build Status](https://travis-ci.org/bitecodes/doctrine-filter.svg?branch=master)](https://travis-ci.org/bitecodes/doctrine-filter)
+[![Coverage Status](https://coveralls.io/repos/github/bitecodes/doctrine-filter/badge.svg?branch=master)](https://coveralls.io/github/bitecodes/doctrine-filter?branch=master)
 
 ## Installation
 
 ```
-composer require fludio/doctrine-filter
+composer require bitecodes/doctrine-filter
 ```
 
 ## Useage
@@ -15,8 +15,8 @@ If you would like to use the filter, create a new class and implement the `Filte
 
 ``` php
 
-use Fludio\DoctrineFilter\FilterBuilder;
-use Fludio\DoctrineFilter\FilterInterface;
+use BiteCodes\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\FilterInterface;
 
 class MyFilter implements FilterInterface
 {
@@ -47,7 +47,7 @@ To use the filter on your entity, the easiest solution is to create a custom rep
 
 ``` php
 use Doctrine\ORM\EntityRepository;
-use Fludio\DoctrineFilter\Traits\EntityFilterTrait;
+use BiteCodes\DoctrineFilter\Traits\EntityFilterTrait;
 
 class MyRepository extends EntityRepository
 {
@@ -78,7 +78,7 @@ You also have the option to specify the order of the result by using the `orderB
 This filter can be used for ranges and will expose two search keys that you can use.
 
 ``` php
-use Fludio\DoctrineFilter\Type\BetweenFilterType;
+use BiteCodes\DoctrineFilter\Type\BetweenFilterType;
 
 $builder
 	->add('price', BetweenFilterType::class, [

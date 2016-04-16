@@ -1,13 +1,13 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy\Fixtures;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Bike;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Engine;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Bike;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Car;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Engine;
 
 class LoadTransportData extends AbstractFixture implements OrderedFixtureInterface
 {

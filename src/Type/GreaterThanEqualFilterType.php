@@ -1,8 +1,8 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Type;
+namespace BiteCodes\DoctrineFilter\Type;
 
-use Fludio\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\FilterBuilder;
 
 class GreaterThanEqualFilterType extends AbstractFilterType
 {

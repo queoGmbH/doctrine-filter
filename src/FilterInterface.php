@@ -1,6 +1,6 @@
 <?php
 
-namespace Fludio\DoctrineFilter;
+namespace BiteCodes\DoctrineFilter;
 
 interface FilterInterface
 {

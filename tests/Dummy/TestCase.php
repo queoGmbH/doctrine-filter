@@ -1,6 +1,6 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
@@ -33,7 +33,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
         $this->testDb = new TestDb(
             $paths,
             $here . '/TestProxy',
-            'Fludio\DoctrineFilter\Tests\Dummy\Entity'
+            'BiteCodes\DoctrineFilter\Tests\Dummy\Entity'
         );
 
         $this->em = $this->testDb->createEntityManager();

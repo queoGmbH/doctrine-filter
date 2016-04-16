@@ -1,10 +1,10 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Traits;
+namespace BiteCodes\DoctrineFilter\Traits;
 
 use Doctrine\ORM\QueryBuilder;
-use Fludio\DoctrineFilter\FilterBuilder;
-use Fludio\DoctrineFilter\FilterInterface;
+use BiteCodes\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\FilterInterface;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 

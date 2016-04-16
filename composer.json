@@ -1,5 +1,5 @@
 {
-  "name": "fludio/doctrine-filter",
+  "name": "bitecodes/doctrine-filter",
   "require": {
     "doctrine/orm": "^2.3",
     "doctrine/data-fixtures": "^1.0",
@@ -18,8 +18,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "Fludio\\DoctrineFilter\\": "src/",
-      "Fludio\\DoctrineFilter\\Tests\\": "tests/"
+      "BiteCodes\\DoctrineFilter\\": "src/",
+      "BiteCodes\\DoctrineFilter\\Tests\\": "tests/"
     }
   }
 }

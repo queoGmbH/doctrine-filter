@@ -1,31 +1,31 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests;
+namespace BiteCodes\DoctrineFilter\Tests;
 
 use Doctrine\ORM\QueryBuilder;
-use Fludio\DoctrineFilter\FilterBuilder;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Car;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Person;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Tag;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Transport;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity25\Ship;
-use Fludio\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadShipData;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
-use Fludio\DoctrineFilter\Type\EqualFilterType;
-use Fludio\DoctrineFilter\Type\GreaterThanEqualFilterType;
-use Fludio\DoctrineFilter\Type\InstanceOfFilterType;
-use Fludio\DoctrineFilter\Type\LikeFilterType;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Post;
-use Fludio\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
-use Fludio\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
-use Fludio\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use Fludio\DoctrineFilter\Tests\Dummy\TestCase;
-use Fludio\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use BiteCodes\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Car;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Person;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Tag;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Transport;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Ship;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadShipData;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
+use BiteCodes\DoctrineFilter\Type\EqualFilterType;
+use BiteCodes\DoctrineFilter\Type\GreaterThanEqualFilterType;
+use BiteCodes\DoctrineFilter\Type\InstanceOfFilterType;
+use BiteCodes\DoctrineFilter\Type\LikeFilterType;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
+use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 
 class FilterBuilderTest extends TestCase
 {

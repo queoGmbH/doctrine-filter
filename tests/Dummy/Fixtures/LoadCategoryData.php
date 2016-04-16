@@ -1,11 +1,11 @@
 <?php
 
-namespace Fludio\DoctrineFilter\Tests\Dummy\Fixtures;
+namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Fludio\DoctrineFilter\Tests\Dummy\Entity\Category;
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Category;
 
 class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterface
 {
