@@ -17,6 +17,11 @@ class EqualFilterType extends AbstractFilterType
             $value = strtolower($value);
         }
 
+        // Doctrine 2.3 can not handle boolean values
+        if (is_bool($value)) {
+            $value = $value ? 1 : 0;
+        }
+
         return $qb
             ->andWhere($qb->expr()->eq($tableField, $filterBuilder->placeValue($value)));
     }
