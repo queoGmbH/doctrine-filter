@@ -12,7 +12,8 @@ class InstanceOfFilterType extends AbstractFilterType
     {
         $qb = $filterBuilder->getQueryBuilder();
 
-        if (Version::compare('2.3') >= 0 && !class_exists($value)) {
+        // We assume that the discriminator map name was given and no the FQCN
+        if (!class_exists($value)) {
             $value = $filterBuilder->placeValue($value);
         }
 
