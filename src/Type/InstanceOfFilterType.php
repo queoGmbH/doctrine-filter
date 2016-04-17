@@ -12,7 +12,7 @@ class InstanceOfFilterType extends AbstractFilterType
     {
         $qb = $filterBuilder->getQueryBuilder();
 
-        if (Version::VERSION != '2.3.0' && !class_exists($value)) {
+        if (Version::compare('2.3') >= 0 && !class_exists($value)) {
             $value = $filterBuilder->placeValue($value);
         }
 
