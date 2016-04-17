@@ -52,7 +52,7 @@ class InstanceOfFilterTypeTest extends TestCase
     /** @test */
     public function the_filter_accepts_the_discriminator_map_key()
     {
-        if ($this->isDoctrineVersion('2.3.0')) {
+        if (!$this->isDoctrineVersion('2.3')) {
             $this->markTestSkipped('Doctrine can not handle discriminator maps for INSTANCE OF');
         }
 

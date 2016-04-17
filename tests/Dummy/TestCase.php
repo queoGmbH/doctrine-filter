@@ -26,7 +26,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
 
         $paths = [$here . '/Entity'];
 
-        if ($this->isDoctrineVersion('2.5.0')) {
+        if ($this->isDoctrineVersion('2.5')) {
             $paths[] = $here . '/Entity25';
         }
 
@@ -45,7 +45,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function isDoctrineVersion($version)
     {
-        return Version::VERSION == $version;
+        return Version::compare($version) <= 0;
     }
 
 

@@ -14,6 +14,7 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
         $post = new Post();
         $post->setTitle('Post title with Tag 1');
         $post->setContent('My post content!');
+        $post->setIsPublished(false);
         $post->setCreatedAt(new \DateTime('2016-01-01 12:00:00'));
         if ($this->hasReference('tag1')) {
             $post->addTag($this->getReference('tag1'));

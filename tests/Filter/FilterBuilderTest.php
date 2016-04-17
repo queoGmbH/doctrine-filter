@@ -26,6 +26,7 @@ use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
 use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
 use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Doctrine\ORM\Version;
 
 class FilterBuilderTest extends TestCase
 {
@@ -41,7 +42,7 @@ class FilterBuilderTest extends TestCase
             new LoadPersonData()
         ];
 
-        if ($this->isDoctrineVersion('2.5.0')) {
+        if ($this->isDoctrineVersion('2.5')) {
             $fixtures[] = new LoadShipData();
         }
 
@@ -166,7 +167,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_can_filter_on_embeddables()
     {
-        if (!$this->isDoctrineVersion('2.5.0')) {
+        if (!$this->isDoctrineVersion('2.5')) {
             $this->markTestSkipped('Embeddables not available prior to Doctrine 2.5');
         }
 
@@ -194,7 +195,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_can_filter_on_embeddables_on_relationships()
     {
-        if (!$this->isDoctrineVersion('2.5.0')) {
+        if (!$this->isDoctrineVersion('2.5')) {
             $this->markTestSkipped('Embeddables not available prior to Doctrine 2.5');
         }
 
