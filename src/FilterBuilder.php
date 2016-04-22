@@ -426,7 +426,7 @@ class FilterBuilder
 
         $fieldParts = $this->splitOnDot($joinRelationship);
         $fieldStart = array_pop($fieldParts);
-        return substr($field, strpos($field, $fieldStart) + strlen($fieldStart) + 1, strlen($field));
-
+        // Keep dot to ensure it only matches full names
+        return substr($field, strpos($field, $fieldStart . '.') + strlen($fieldStart) + 1, strlen($field));
     }
 }
