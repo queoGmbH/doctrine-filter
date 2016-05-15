@@ -29,6 +29,9 @@ class NotInFilterTypeTest extends TestCase
             $builder
                 ->add('tags', NotInFilterType::class, [
                     'fields' => 'tags.name'
+                ])
+                ->add('tagIds', NotInFilterType::class, [
+                    'fields' => 'tags.id'
                 ]);
         };
     }
@@ -48,6 +51,16 @@ class NotInFilterTypeTest extends TestCase
     {
         $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
             'tags' => ['Tag 1', 'Tag 2']
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
+
+    /** @test */
+    public function it_filters_by_id()
+    {
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'tagIds' => [1, 2]
         ]);
 
         $this->assertCount(0, $posts);
