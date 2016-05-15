@@ -21,6 +21,13 @@ class FilterBuilder
     protected $filters;
 
     /**
+     * Holds registered filters types
+     *
+     * @var FilterRegistry|null
+     */
+    private $filterRegistry;
+
+    /**
      * The registered orderBy statements
      *
      * @var array
@@ -33,7 +40,6 @@ class FilterBuilder
      * @var array
      */
     protected $parametersMap = [];
-
     /**
      * Keeps track of the registered joins
      *
@@ -43,10 +49,12 @@ class FilterBuilder
 
     /**
      * FilterBuilder constructor.
+     * @param FilterRegistry $filterRegistry
      */
-    public function __construct()
+    public function __construct(FilterRegistry $filterRegistry = null)
     {
         $this->filters = new ArrayCollection();
+        $this->filterRegistry = $filterRegistry;
     }
 
     public static function create()
@@ -153,11 +161,50 @@ class FilterBuilder
     }
 
     /**
-     * @param FilterInterface $filter
+     * @param FilterRegistry $registry
      * @return $this
      */
-    public function setFilter(FilterInterface $filter)
+    public function setRegistry(FilterRegistry $registry)
     {
+        $this->filterRegistry = $registry;
+
+        return $this;
+    }
+
+    /**
+     * @return FilterRegistry
+     */
+    public function getRegistry()
+    {
+        return $this->filterRegistry;
+    }
+
+    /**
+     * @param FilterInterface $filter
+     * @return $this
+     * @throws \Exception
+     */
+    public function setFilter($filter)
+    {
+        if (!$filter instanceof FilterInterface) {
+            if (!class_exists($filter)) {
+                throw new \Exception(sprintf('Filter class "%s" does not exist. Did you forget a "use" statement for another namespace?', $filter));
+            }
+
+            $refl = new \ReflectionClass($filter);
+
+            if (!$refl->implementsInterface(FilterInterface::class)) {
+                throw new \Exception(sprintf('Filter has to implement %s', FilterInterface::class));
+            }
+
+
+            if ($this->filterRegistry && $this->filterRegistry->has($filter)) {
+                $filter = $this->filterRegistry->get($filter);
+            } else {
+                $filter = new $filter;
+            }
+        }
+
         $filter->buildFilter($this);
 
         return $this;
@@ -393,7 +440,7 @@ class FilterBuilder
      * @param $alias
      * @return string
      */
-    protected function getEntityClassFromAlias($alias)
+    public function getEntityClassFromAlias($alias)
     {
         $meta = $this->getQueryBuilder()->getEntityManager()->getClassMetadata($this->getRootEntity());
 

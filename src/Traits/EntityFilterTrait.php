@@ -11,11 +11,11 @@ use Pagerfanta\Pagerfanta;
 trait EntityFilterTrait
 {
     /**
-     * @param FilterInterface $filter
+     * @param $filter
      * @param $searchParams
      * @return array
      */
-    public function filter(FilterInterface $filter, $searchParams = [])
+    public function filter($filter, $searchParams = [])
     {
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('x');
