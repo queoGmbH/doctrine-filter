@@ -42,9 +42,8 @@ class InFilterType extends AbstractFilterType
     {
         $qb = $filterBuilder->getQueryBuilder();
 
-        $qb->andWhere($qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value)));
-
-        return $qb;
+        return $qb
+            ->andWhere($qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value)));
     }
 
     /**
