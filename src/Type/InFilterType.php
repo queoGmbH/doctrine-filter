@@ -9,7 +9,7 @@ class InFilterType extends AbstractFilterType
 {
     public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
     {
-        if (empty($value)) {
+        if (empty($value) && ($value === [] && $this->options['allow_empty'])) {
             return $filterBuilder->getQueryBuilder();
         }
 
@@ -26,6 +26,7 @@ class InFilterType extends AbstractFilterType
     {
         parent::configureOptions($resolver);
         $resolver->setDefault('match_all', false);
+        $resolver->setDefault('allow_empty', true);
     }
 
     /**
@@ -41,8 +42,20 @@ class InFilterType extends AbstractFilterType
     {
         $qb = $filterBuilder->getQueryBuilder();
 
-        return $qb
-            ->andWhere($qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value)));
+        $qb->andWhere($qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value)));
+
+        if (!$this->options['allow_empty']) {
+            $qb
+                ->groupBy($qb->getRootAliases()[0])
+                ->andHaving(
+                    $qb->expr()->gt(
+                        $qb->expr()->countDistinct($table),
+                        0
+                    )
+                );
+        }
+
+        return $qb;
     }
 
     /**

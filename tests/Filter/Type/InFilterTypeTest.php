@@ -61,6 +61,20 @@ class InFilterTypeTest extends TestCase
         ]);
 
         $this->assertCount(1, $posts);
+
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('tags', InFilterType::class, [
+                    'fields' => 'tags.name',
+                    'allow_empty' => false
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'tags' => []
+        ]);
+
+        $this->assertCount(0, $posts);
     }
 
     /** @test */
