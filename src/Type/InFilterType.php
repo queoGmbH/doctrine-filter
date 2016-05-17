@@ -44,17 +44,6 @@ class InFilterType extends AbstractFilterType
 
         $qb->andWhere($qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value)));
 
-        if (!$this->options['allow_empty']) {
-            $qb
-                ->groupBy($qb->getRootAliases()[0])
-                ->andHaving(
-                    $qb->expr()->gt(
-                        $qb->expr()->countDistinct($table),
-                        0
-                    )
-                );
-        }
-
         return $qb;
     }
 
