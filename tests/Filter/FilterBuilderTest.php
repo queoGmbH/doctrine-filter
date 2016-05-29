@@ -292,4 +292,37 @@ class FilterBuilderTest extends TestCase
 
         $this->assertCount(1, $posts);
     }
+
+    /** @test */
+    public function the_filter_can_be_set_again()
+    {
+        $qb = $this->em->getRepository(Post::class)->createQueryBuilder('x');
+        $builder = new FilterBuilder();
+        $posts = $builder
+            ->setQueryBuilder($qb)
+            ->setFilter($this->filter)
+            ->getResult([
+                'title' => 'Post title'
+            ]);
+
+        $this->assertCount(1, $posts);
+
+        // Change filter
+
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('content', LikeFilterType::class);
+        });
+
+        // Query again with new filter
+
+        $posts = $builder
+            ->setFilter($this->filter)
+            ->getResult([
+                'title' => 'Should be ignored',
+                'content' => 'post content'
+            ]);
+
+        $this->assertCount(1, $posts);
+    }
 }

@@ -187,6 +187,8 @@ class FilterBuilder
      */
     public function setFilter($filter)
     {
+        $this->filters = new ArrayCollection();
+
         if (!$filter instanceof FilterInterface) {
             if (!class_exists($filter)) {
                 throw new \Exception(sprintf('Filter class "%s" does not exist. Did you forget a "use" statement for another namespace?', $filter));
