@@ -271,4 +271,25 @@ class FilterBuilderTest extends TestCase
 
         $this->assertCount(2, $cars);
     }
+
+    /** @test */
+    public function the_filter_builder_can_be_used_multiple_times()
+    {
+        $qb = $this->em->getRepository(Post::class)->createQueryBuilder('x');
+        $builder = new FilterBuilder();
+        $posts = $builder
+            ->setQueryBuilder($qb)
+            ->setFilter($this->filter)
+            ->getResult([
+                'tags' => 'Tag 3'
+            ]);
+
+        $this->assertCount(0, $posts);
+
+        $posts = $builder->getResult([
+            'category' => 'Category 1'
+        ]);
+
+        $this->assertCount(1, $posts);
+    }
 }

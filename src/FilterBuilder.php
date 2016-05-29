@@ -25,7 +25,7 @@ class FilterBuilder
      *
      * @var FilterRegistry|null
      */
-    private $filterRegistry;
+    protected $filterRegistry;
 
     /**
      * The registered orderBy statements
@@ -70,6 +70,7 @@ class FilterBuilder
      */
     public function buildQuery($searchParams)
     {
+        $this->resetBuilder();
         $this->addFiltersToQuery($searchParams);
         $this->setParametersToQuery();
 
@@ -224,6 +225,15 @@ class FilterBuilder
         $this->parametersMap[$nextNumericPlaceholder] = $value;
 
         return '?' . $nextNumericPlaceholder;
+    }
+
+    protected function resetBuilder()
+    {
+        $rootEntities = $this->qb->getRootEntities();
+        $this->qb = $this->qb->getEntityManager()->getRepository($rootEntities[0])->createQueryBuilder('x');
+        $this->joinAliases = [];
+        $this->parametersMap = [];
+        $this->orderBy = [];
     }
 
     /**
