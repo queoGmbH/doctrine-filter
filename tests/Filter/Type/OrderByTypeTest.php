@@ -33,7 +33,9 @@ class OrderByTypeTest extends TestCase
     /** @test */
     public function it_orders_results_by_a_column_ascending()
     {
-        $result = $this->em->getRepository(Post::class)->filter($this->filter);
+        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'createdAt' => 'ASC'
+        ]);
 
         $this->assertCount(3, $result);
         $this->assertEquals('Post 1', $result[0]->getTitle());

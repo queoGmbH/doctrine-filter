@@ -125,6 +125,7 @@ class FilterBuilder
     {
         if (empty($options['sort_order'])) {
             $options['sort_order'] = $sortOrder;
+            $options['default'] = $sortOrder;
         }
 
         $this->add($filterName, OrderByType::class, $options);
@@ -243,11 +244,12 @@ class FilterBuilder
      */
     protected function addFiltersToQuery($searchParams)
     {
+
+
         foreach ($this->filters as $filterName => $filter) {
             $filterIsCalled = isset($searchParams[$filterName]);
 
-            if ($filter->doesAlwaysRun()
-                || $filter->hasDefault()
+            if ($filter->hasDefault()
                 || $filterIsCalled
             ) {
                 if ($filterIsCalled) {

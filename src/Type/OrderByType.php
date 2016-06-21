@@ -7,8 +7,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class OrderByType extends AbstractFilterType
 {
-    protected $doesAlwaysRun = true;
-
     protected $fields;
 
     public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
