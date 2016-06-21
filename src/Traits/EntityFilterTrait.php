@@ -45,7 +45,7 @@ trait EntityFilterTrait
             ->buildQuery($searchParams)
             ->getQuery();
 
-        $adapter = new DoctrineORMAdapter($query);
+        $adapter = new DoctrineORMAdapter($query, true, false));
         $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta
             ->setAllowOutOfRangePages(true)
