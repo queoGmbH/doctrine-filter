@@ -1,17 +1,12 @@
 # Setup
 title:        Doctrine-Filter
 tagline:      A library to help filter Doctrine entities.
-baseurl:      "http://bitecodes.github.io/doctrine-filter"
-paginate:     1
+baseurl:      ""
 
 # About/contact
 author:
   name:       bitecodes
   url:        http://bite.codes
-
-# Gems
-gems:
-  - jekyll-paginate
 
 #Others
 markdown: kramdown

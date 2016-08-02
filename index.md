@@ -8,15 +8,22 @@ title: {{ site.name }}
 [![Build Status](https://travis-ci.org/bitecodes/doctrine-filter.svg?branch=master)](https://travis-ci.org/bitecodes/doctrine-filter)
 [![Coverage Status](https://coveralls.io/repos/github/bitecodes/doctrine-filter/badge.svg?branch=master)](https://coveralls.io/github/bitecodes/doctrine-filter?branch=master)
 
+## Content
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Ordering Results](#ordering-results)
+- [FilterTypes](#filter-types)
+
 ## Installation
 
 ```
 composer require bitecodes/doctrine-filter
 ```
 
-## Useage
+## Usage
 
-If you would like to use the filter, create a new class and implement the `FilterInterface`.
+If you would like to use the filter, the first thing you have to do is to create a new class for your filter and implement the `FilterInterface`.
 
 ``` php
 
@@ -44,11 +51,11 @@ public function buildFilter(FilterBuilder $builder)
 }
 ```
 
-The name is the key by which the filter will be used. So if you would like to query your entity on the category, you will have to make sure to provide an array that has a key of `category`.
+The first arguments is the key by which the filter will be activated. So if you would like to query your entity on the category, you will have to make sure to provide an array that has a key of `category` (see below).
 
-There are several different filter types that you can use. Have a look at the list below.
+There are several different filter types that you can use. [Have a look at the list below](#filter-types).
 
-To use the filter on your entity, the easiest solution is to create a custom repository and use the `EntityFilterTrait`.
+To use the filter on your entity, the easiest way is to create a custom repository and use the `EntityFilterTrait`.
 
 ``` php
 use Doctrine\ORM\EntityRepository;
@@ -60,7 +67,7 @@ class MyRepository extends EntityRepository
 }
 ```
 
-To perform the query, you can now call the newly added `filter` method.
+This repository should be used by your entity. To perform the query, you can now call the newly added `filter` method.
 
 ```
 $result = $em->getRepository(MyEntity::class)->filter(new MyFilter(), [
@@ -75,8 +82,20 @@ This method will return all entities with a category of 2 and a price that is le
 
 You also have the option to specify the order of the result by using the `orderBy` method. The first argument is the name of the filter, the second argument defines a possible default sorting. You can pass in `'ASC'` or `'DESC'`. Note that after setting the default values, you won't be able to pass a value to the filter. If you need the ability to define the ordering by the search params, pass in `null` as the second argument. 
 
-
 ## Filter Types
+
+- [BetweenFilterType](#betweenfiltertype)
+- [ComparableFilterType](#comparablefiltertype)
+- [EqualFilterType](#equalfiltertype)
+- [GreaterThanFilterType](#greaterthanfiltertype--greaterthanequalfiltertype)
+- [GreaterThanEqualFilterType](#greaterthanfiltertype--greaterthanequalfiltertype)
+- [InFilterType](#infiltertype)
+- [InstanceOfFilterType](#instanceoffiltertype)
+- [LessThanFilterType](#lessthanfiltertype--lessthanequalfiltertype)
+- [LessThanEqualFilterType](#lessthanfiltertype--lessthanequalfiltertype)
+- [LikeFilterType](#likefiltertype)
+- [NotEqualFilterType](#notequalfiltertype)
+- [NotInFilterType](#notinfiltertype)
 
 ### BetweenFilterType
 
@@ -106,7 +125,6 @@ $em->getRepository(MyEntity::class)->filter(new MyFilter(), [
 | include_lower_bound   | Should the lower bound be included? | true     |
 | include_upper_bound   | Should the upper bound be included? | true     |
 
-
 ### ClosureFilterType
 
 ### ComparableFilterType
@@ -115,13 +133,39 @@ $em->getRepository(MyEntity::class)->filter(new MyFilter(), [
 
 With this filter the database value has to be the same as the search value.
 
-### GreaterThanEqualFilterType
+``` php
+use BiteCodes\DoctrineFilter\Type\EqualFilterType;
 
-The database value has to be greater than or equal to the search value.
+$builder
+  ->add('category', EqualFilterType::class);
+  
+//...
 
-### GreaterThanFilterType
+$em->getRepository(MyEntity::class)->filter(new MyFilter(), [
+  'category' => 'health'
+]); 
+```
 
-The database value has to be greater than the search value.
+| Option                | Description                         | Default  |
+| --------------------- | ----------------------------------- | -------- |
+| case_sensitive        | Use case-sensitive search           | true     |
+
+### GreaterThanFilterType / GreaterThanEqualFilterType
+
+The database value has to be greater than (or equal) to the search value.
+
+``` php
+use BiteCodes\DoctrineFilter\Type\GreaterThanEqualFilterType;
+
+$builder
+  ->add('price', GreaterThanEqualFilterType::class);
+  
+//...
+
+$em->getRepository(MyEntity::class)->filter(new MyFilter(), [
+  'price' => 80
+]); 
+```
 
 ### InFilterType
 
@@ -131,30 +175,80 @@ The database value has to be in the given search values.
 
 If you use inheritance mapping, you can use this filter to return only specific entities. The search values has to be equal to the defined key in the DiscriminatorMap.
 
-### LessThanEqualFilterType
+``` php
+use BiteCodes\DoctrineFilter\Type\InstanceOfFilterType;
 
-The database value has to be less than or equal to the search value.
+$builder
+  ->add('type', InstanceOfFilterType::class);
+  
+//...
 
-### LessThanFilterType
+$em->getRepository(Vehicle::class)->filter(new MyFilter(), [
+  'type' => 'car'
+]);
+```
 
-The database value has to be less than the search value.
+### LessThanFilterType / LessThanEqualFilterType
+
+The database value has to be less than (or equal) to the search value.
+
+``` php
+use BiteCodes\DoctrineFilter\Type\LessThanEqualFilterType;
+
+$builder
+  ->add('price', LessThanEqualFilterType::class);
+  
+//...
+
+$em->getRepository(MyEntity::class)->filter(new MyFilter(), [
+  'price' => 80
+]); 
+```
 
 ### LikeFilterType
 
 Will perform a like query on the given field.
 
+``` php
+use BiteCodes\DoctrineFilter\Type\LikeFilterType;
+
+$builder
+  ->add('color', LikeFilterType::class);
+  
+//...
+
+$em->getRepository(Car::class)->filter(new MyFilter(), [
+  'color' => 'blue'
+]); 
+
+# will return cars with the color blue, navy blue, royal blue, etc...
+```
+
+| Option                | Description                                            | Default  |
+| --------------------- | ------------------------------------------------------ | -------- |
+| starts_with           | The string will have to start with the given value     | false    |
+| ends_with             | The string will have to end with the given value       | false    |
+
 ### NotEqualFilterType
 
 The database value has to be different to the search value.
+
+``` php
+use BiteCodes\DoctrineFilter\Type\NotEqualFilterType;
+
+$builder
+  ->add('category', NotEqualFilterType::class);
+  
+//...
+
+$em->getRepository(MyEntity::class)->filter(new MyFilter(), [
+  'category' => 'health'
+]); 
+
+# will return all entities that are NOT in the health category 
+```
 
 ### NotInFilterType
 
 The database value must not be in the given search values.
 
-## Todo
-
-- [ ] Options
-  - [ ] Case sensititvity
-  - [ ] Default value
-- [ ] Distinct
-- [ ] InstanceOf for multiple entities

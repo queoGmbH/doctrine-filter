@@ -27,15 +27,24 @@
 <p><a href="https://travis-ci.org/bitecodes/doctrine-filter"><img src="https://travis-ci.org/bitecodes/doctrine-filter.svg?branch=master" alt="Build Status" /></a>
 <a href="https://coveralls.io/github/bitecodes/doctrine-filter?branch=master"><img src="https://coveralls.io/repos/github/bitecodes/doctrine-filter/badge.svg?branch=master" alt="Coverage Status" /></a></p>
 
+<h2 id="content">Content</h2>
+
+<ul>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#ordering-results">Ordering Results</a></li>
+  <li><a href="#filter-types">FilterTypes</a></li>
+</ul>
+
 <h2 id="installation">Installation</h2>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>composer require bitecodes/doctrine-filter
 </code></pre>
 </div>
 
-<h2 id="useage">Useage</h2>
+<h2 id="usage">Usage</h2>
 
-<p>If you would like to use the filter, create a new class and implement the <code class="highlighter-rouge">FilterInterface</code>.</p>
+<p>If you would like to use the filter, the first thing you have to do is to create a new class for your filter and implement the <code class="highlighter-rouge">FilterInterface</code>.</p>
 
 <div class="language-php highlighter-rouge"><pre class="highlight"><code>
 use BiteCodes\DoctrineFilter\FilterBuilder;
@@ -63,11 +72,11 @@ class MyFilter implements FilterInterface
 </code></pre>
 </div>
 
-<p>The name is the key by which the filter will be used. So if you would like to query your entity on the category, you will have to make sure to provide an array that has a key of <code class="highlighter-rouge">category</code>.</p>
+<p>The first arguments is the key by which the filter will be activated. So if you would like to query your entity on the category, you will have to make sure to provide an array that has a key of <code class="highlighter-rouge">category</code> (see below).</p>
 
-<p>There are several different filter types that you can use. Have a look at the list below.</p>
+<p>There are several different filter types that you can use. <a href="#filter-types">Have a look at the list below</a>.</p>
 
-<p>To use the filter on your entity, the easiest solution is to create a custom repository and use the <code class="highlighter-rouge">EntityFilterTrait</code>.</p>
+<p>To use the filter on your entity, the easiest way is to create a custom repository and use the <code class="highlighter-rouge">EntityFilterTrait</code>.</p>
 
 <div class="language-php highlighter-rouge"><pre class="highlight"><code>use Doctrine\ORM\EntityRepository;
 use BiteCodes\DoctrineFilter\Traits\EntityFilterTrait;
@@ -79,7 +88,7 @@ class MyRepository extends EntityRepository
 </code></pre>
 </div>
 
-<p>To perform the query, you can now call the newly added <code class="highlighter-rouge">filter</code> method.</p>
+<p>This repository should be used by your entity. To perform the query, you can now call the newly added <code class="highlighter-rouge">filter</code> method.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$result = $em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
   'category' =&gt; 2,
@@ -95,6 +104,21 @@ class MyRepository extends EntityRepository
 <p>You also have the option to specify the order of the result by using the <code class="highlighter-rouge">orderBy</code> method. The first argument is the name of the filter, the second argument defines a possible default sorting. You can pass in <code class="highlighter-rouge">'ASC'</code> or <code class="highlighter-rouge">'DESC'</code>. Note that after setting the default values, you won’t be able to pass a value to the filter. If you need the ability to define the ordering by the search params, pass in <code class="highlighter-rouge">null</code> as the second argument.</p>
 
 <h2 id="filter-types">Filter Types</h2>
+
+<ul>
+  <li><a href="#betweenfiltertype">BetweenFilterType</a></li>
+  <li><a href="#comparablefiltertype">ComparableFilterType</a></li>
+  <li><a href="#equalfiltertype">EqualFilterType</a></li>
+  <li><a href="#greaterthanfiltertype--greaterthanequalfiltertype">GreaterThanFilterType</a></li>
+  <li><a href="#greaterthanfiltertype--greaterthanequalfiltertype">GreaterThanEqualFilterType</a></li>
+  <li><a href="#infiltertype">InFilterType</a></li>
+  <li><a href="#instanceoffiltertype">InstanceOfFilterType</a></li>
+  <li><a href="#lessthanfiltertype--lessthanequalfiltertype">LessThanFilterType</a></li>
+  <li><a href="#lessthanfiltertype--lessthanequalfiltertype">LessThanEqualFilterType</a></li>
+  <li><a href="#likefiltertype">LikeFilterType</a></li>
+  <li><a href="#notequalfiltertype">NotEqualFilterType</a></li>
+  <li><a href="#notinfiltertype">NotInFilterType</a></li>
+</ul>
 
 <h3 id="betweenfiltertype">BetweenFilterType</h3>
 
@@ -157,13 +181,52 @@ $em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
 
 <p>With this filter the database value has to be the same as the search value.</p>
 
-<h3 id="greaterthanequalfiltertype">GreaterThanEqualFilterType</h3>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>use BiteCodes\DoctrineFilter\Type\EqualFilterType;
 
-<p>The database value has to be greater than or equal to the search value.</p>
+$builder
+  -&gt;add('category', EqualFilterType::class);
+  
+//...
 
-<h3 id="greaterthanfiltertype">GreaterThanFilterType</h3>
+$em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
+  'category' =&gt; 'health'
+]); 
+</code></pre>
+</div>
 
-<p>The database value has to be greater than the search value.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>case_sensitive</td>
+      <td>Use case-sensitive search</td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="greaterthanfiltertype--greaterthanequalfiltertype">GreaterThanFilterType / GreaterThanEqualFilterType</h3>
+
+<p>The database value has to be greater than (or equal) to the search value.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>use BiteCodes\DoctrineFilter\Type\GreaterThanEqualFilterType;
+
+$builder
+  -&gt;add('price', GreaterThanEqualFilterType::class);
+  
+//...
+
+$em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
+  'price' =&gt; 80
+]); 
+</code></pre>
+</div>
 
 <h3 id="infiltertype">InFilterType</h3>
 
@@ -173,38 +236,100 @@ $em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
 
 <p>If you use inheritance mapping, you can use this filter to return only specific entities. The search values has to be equal to the defined key in the DiscriminatorMap.</p>
 
-<h3 id="lessthanequalfiltertype">LessThanEqualFilterType</h3>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>use BiteCodes\DoctrineFilter\Type\InstanceOfFilterType;
 
-<p>The database value has to be less than or equal to the search value.</p>
+$builder
+  -&gt;add('type', InstanceOfFilterType::class);
+  
+//...
 
-<h3 id="lessthanfiltertype">LessThanFilterType</h3>
+$em-&gt;getRepository(Vehicle::class)-&gt;filter(new MyFilter(), [
+  'type' =&gt; 'car'
+]);
+</code></pre>
+</div>
 
-<p>The database value has to be less than the search value.</p>
+<h3 id="lessthanfiltertype--lessthanequalfiltertype">LessThanFilterType / LessThanEqualFilterType</h3>
+
+<p>The database value has to be less than (or equal) to the search value.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>use BiteCodes\DoctrineFilter\Type\LessThanEqualFilterType;
+
+$builder
+  -&gt;add('price', LessThanEqualFilterType::class);
+  
+//...
+
+$em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
+  'price' =&gt; 80
+]); 
+</code></pre>
+</div>
 
 <h3 id="likefiltertype">LikeFilterType</h3>
 
 <p>Will perform a like query on the given field.</p>
 
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>use BiteCodes\DoctrineFilter\Type\LikeFilterType;
+
+$builder
+  -&gt;add('color', LikeFilterType::class);
+  
+//...
+
+$em-&gt;getRepository(Car::class)-&gt;filter(new MyFilter(), [
+  'color' =&gt; 'blue'
+]); 
+
+# will return cars with the color blue, navy blue, royal blue, etc...
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>starts_with</td>
+      <td>The string will have to start with the given value</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>ends_with</td>
+      <td>The string will have to end with the given value</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="notequalfiltertype">NotEqualFilterType</h3>
 
 <p>The database value has to be different to the search value.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>use BiteCodes\DoctrineFilter\Type\NotEqualFilterType;
+
+$builder
+  -&gt;add('category', NotEqualFilterType::class);
+  
+//...
+
+$em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
+  'category' =&gt; 'health'
+]); 
+
+# will return all entities that are NOT in the health category 
+</code></pre>
+</div>
 
 <h3 id="notinfiltertype">NotInFilterType</h3>
 
 <p>The database value must not be in the given search values.</p>
 
-<h2 id="todo">Todo</h2>
-
-<ul>
-  <li>[ ] Options
-    <ul>
-      <li>[ ] Case sensititvity</li>
-      <li>[ ] Default value</li>
-    </ul>
-  </li>
-  <li>[ ] Distinct</li>
-  <li>[ ] InstanceOf for multiple entities</li>
-</ul>
 
 
       <footer class="site-footer">
