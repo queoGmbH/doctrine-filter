@@ -117,15 +117,15 @@ class FilterBuilder
      * Add a orderBy to the filter
      *
      * @param $filterName
-     * @param null $sortOrder
+     * @param null $defaultSortOrder
      * @param array $options
      * @return $this
      */
-    public function orderBy($filterName, $sortOrder = null, $options = [])
+    public function orderBy($filterName, $defaultSortOrder = null, $options = [])
     {
         if (empty($options['sort_order'])) {
-            $options['sort_order'] = $sortOrder;
-            $options['default'] = $sortOrder;
+            $options['sort_order'] = $defaultSortOrder;
+            $options['default'] = $defaultSortOrder;
         }
 
         $this->add($filterName, OrderByType::class, $options);
