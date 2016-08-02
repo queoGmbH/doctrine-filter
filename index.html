@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Doctrine-filter by bitecodes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Doctrine-filter</h1>
+      <h2 class="project-tagline">A library to help filter Doctrine entities.</h2>
+      <a href="https://github.com/bitecodes/doctrine-filter" class="btn">View on GitHub</a>
+      <a href="https://github.com/bitecodes/doctrine-filter/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/bitecodes/doctrine-filter/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="doctrine-filter" class="anchor" href="#doctrine-filter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Doctrine-Filter</h1>
+
+<p><a href="https://travis-ci.org/bitecodes/doctrine-filter"><img src="https://travis-ci.org/bitecodes/doctrine-filter.svg?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/github/bitecodes/doctrine-filter?branch=master"><img src="https://coveralls.io/repos/github/bitecodes/doctrine-filter/badge.svg?branch=master" alt="Coverage Status"></a></p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<pre><code>composer require bitecodes/doctrine-filter
+</code></pre>
+
+<h2>
+<a id="useage" class="anchor" href="#useage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Useage</h2>
+
+<p>If you would like to use the filter, create a new class and implement the <code>FilterInterface</code>.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">BiteCodes\DoctrineFilter\FilterBuilder</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">BiteCodes\DoctrineFilter\FilterInterface</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">MyFilter</span> <span class="pl-k">implements</span> <span class="pl-e">FilterInterface</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">buildFilter</span>(<span class="pl-c1">FilterBuilder</span> <span class="pl-smi">$builder</span>)</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-c">// ...</span></span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span></pre></div>
+
+<p>Now you can start defining your filter, by calling <code>$builder-&gt;add($name, $type)</code>.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">buildFilter</span>(<span class="pl-c1">FilterBuilder</span> <span class="pl-smi">$builder</span>)</span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-smi">$builder</span></span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>add(<span class="pl-s"><span class="pl-pds">'</span>category<span class="pl-pds">'</span></span>, <span class="pl-c1">EqualFilterType</span><span class="pl-k">::</span><span class="pl-c1">class</span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>add(<span class="pl-s"><span class="pl-pds">'</span>price_max<span class="pl-pds">'</span></span>, <span class="pl-c1">LessThanEqualFilterType</span><span class="pl-k">::</span><span class="pl-c1">class</span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>orderBy(<span class="pl-s"><span class="pl-pds">'</span>price<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>DESC);</span></span>
+<span class="pl-s1"><span class="pl-s">}</span></span></pre></div>
+
+<p>The name is the key by which the filter will be used. So if you would like to query your entity on the category, you will have to make sure to provide an array that has a key of <code>category</code>.</p>
+
+<p>There are several different filter types that you can use. Have a look at the list below.</p>
+
+<p>To use the filter on your entity, the easiest solution is to create a custom repository and use the <code>EntityFilterTrait</code>.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">Doctrine\ORM\EntityRepository</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">BiteCodes\DoctrineFilter\Traits\EntityFilterTrait</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">MyRepository</span> <span class="pl-k">extends</span> <span class="pl-e">EntityRepository</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">use</span> <span class="pl-c1">EntityFilterTrait</span>;</span>
+<span class="pl-s1">}</span></pre></div>
+
+<p>To perform the query, you can now call the newly added <code>filter</code> method.</p>
+
+<pre><code>$result = $em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
+    'category' =&gt; 2,
+    'price_max' =&gt; 80
+]);
+</code></pre>
+
+<p>This method will return all entities with a category of 2 and a price that is less than or equal to 80.</p>
+
+<h2>
+<a id="ordering-results" class="anchor" href="#ordering-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ordering results</h2>
+
+<p>You also have the option to specify the order of the result by using the <code>orderBy</code> method. The first argument is the name of the filter, the second argument defines a possible default sorting. You can pass in <code>'ASC'</code> or <code>'DESC'</code>. Note that after setting the default values, you won't be able to pass a value to the filter. If you need the ability to define the ordering by the search params, pass in <code>null</code> as the second argument. </p>
+
+<h2>
+<a id="filter-types" class="anchor" href="#filter-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Filter Types</h2>
+
+<h3>
+<a id="betweenfiltertype" class="anchor" href="#betweenfiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BetweenFilterType</h3>
+
+<p>This filter can be used for ranges and will expose two search keys that you can use.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">BiteCodes\DoctrineFilter\Type\BetweenFilterType</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$builder</span></span>
+<span class="pl-s1">    <span class="pl-k">-&gt;</span>add(<span class="pl-s"><span class="pl-pds">'</span>price<span class="pl-pds">'</span></span>, <span class="pl-c1">BetweenFilterType</span><span class="pl-k">::</span><span class="pl-c1">class</span>, [</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>lower_bound_suffix<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>from<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>upper_bound_suffix<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>to<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    ]);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//...</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$em</span><span class="pl-k">-&gt;</span>getRepository(<span class="pl-c1">MyEntity</span><span class="pl-k">::</span><span class="pl-c1">class</span>)<span class="pl-k">-&gt;</span>filter(<span class="pl-k">new</span> <span class="pl-c1">MyFilter</span>(), [</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>price_from<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">40</span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>price_to<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">80</span></span>
+<span class="pl-s1">]); </span></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lower_bound_suffix</td>
+<td>The suffix of the lower bound</td>
+<td>'since'</td>
+</tr>
+<tr>
+<td>upper_bound_suffix</td>
+<td>The suffix of the upper bound</td>
+<td>'until'</td>
+</tr>
+<tr>
+<td>include_lower_bound</td>
+<td>Should the lower bound be included?</td>
+<td>true</td>
+</tr>
+<tr>
+<td>include_upper_bound</td>
+<td>Should the upper bound be included?</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="closurefiltertype" class="anchor" href="#closurefiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ClosureFilterType</h3>
+
+<h3>
+<a id="comparablefiltertype" class="anchor" href="#comparablefiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ComparableFilterType</h3>
+
+<h3>
+<a id="equalfiltertype" class="anchor" href="#equalfiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EqualFilterType</h3>
+
+<p>With this filter the database value has to be the same as the search value.</p>
+
+<h3>
+<a id="greaterthanequalfiltertype" class="anchor" href="#greaterthanequalfiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GreaterThanEqualFilterType</h3>
+
+<p>The database value has to be greater than or equal to the search value.</p>
+
+<h3>
+<a id="greaterthanfiltertype" class="anchor" href="#greaterthanfiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GreaterThanFilterType</h3>
+
+<p>The database value has to be greater than the search value.</p>
+
+<h3>
+<a id="infiltertype" class="anchor" href="#infiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>InFilterType</h3>
+
+<p>The database value has to be in the given search values.</p>
+
+<h3>
+<a id="instanceoffiltertype" class="anchor" href="#instanceoffiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>InstanceOfFilterType</h3>
+
+<p>If you use inheritance mapping, you can use this filter to return only specific entities. The search values has to be equal to the defined key in the DiscriminatorMap.</p>
+
+<h3>
+<a id="lessthanequalfiltertype" class="anchor" href="#lessthanequalfiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LessThanEqualFilterType</h3>
+
+<p>The database value has to be less than or equal to the search value.</p>
+
+<h3>
+<a id="lessthanfiltertype" class="anchor" href="#lessthanfiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LessThanFilterType</h3>
+
+<p>The database value has to be less than the search value.</p>
+
+<h3>
+<a id="likefiltertype" class="anchor" href="#likefiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LikeFilterType</h3>
+
+<p>Will perform a like query on the given field.</p>
+
+<h3>
+<a id="notequalfiltertype" class="anchor" href="#notequalfiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NotEqualFilterType</h3>
+
+<p>The database value has to be different to the search value.</p>
+
+<h3>
+<a id="notinfiltertype" class="anchor" href="#notinfiltertype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NotInFilterType</h3>
+
+<p>The database value must not be in the given search values.</p>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Todo</h2>
+
+<ul>
+<li>[ ] Options
+
+<ul>
+<li>[ ] Case sensititvity</li>
+<li>[ ] Default value</li>
+</ul>
+</li>
+<li>[ ] Distinct</li>
+<li>[ ] InstanceOf for multiple entities</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/bitecodes/doctrine-filter">Doctrine-filter</a> is maintained by <a href="https://github.com/bitecodes">bitecodes</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
