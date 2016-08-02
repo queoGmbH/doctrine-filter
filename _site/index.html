@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+  <head>
+  <meta charset="UTF-8">
+  <title>Doctrine-Filter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/cayman.css">
+</head>
+
+  <body>
+    <section class="page-header">
+  <h1 class="project-name">Doctrine-Filter</h1>
+  <h2 class="project-tagline">A library to help filter Doctrine entities.</h2>
+  <a href="https://github.com/bitecodes/doctrine-filter" class="btn">View on GitHub</a>
+  <a href="https://github.com/bitecodes/doctrine-filter/zipball/master" class="btn">Download .zip</a>
+  <a href="https://github.com/bitecodes/doctrine-filter/tarball/master" class="btn">Download .tar.gz</a>
+</section>
+
+    <section class="main-content">
+      
+      <h1 id="doctrine-filter">Doctrine-Filter</h1>
+
+<p><a href="https://travis-ci.org/bitecodes/doctrine-filter"><img src="https://travis-ci.org/bitecodes/doctrine-filter.svg?branch=master" alt="Build Status" /></a>
+<a href="https://coveralls.io/github/bitecodes/doctrine-filter?branch=master"><img src="https://coveralls.io/repos/github/bitecodes/doctrine-filter/badge.svg?branch=master" alt="Coverage Status" /></a></p>
+
+<h2 id="installation">Installation</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>composer require bitecodes/doctrine-filter
+</code></pre>
+</div>
+
+<h2 id="useage">Useage</h2>
+
+<p>If you would like to use the filter, create a new class and implement the <code class="highlighter-rouge">FilterInterface</code>.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>
+use BiteCodes\DoctrineFilter\FilterBuilder;
+use BiteCodes\DoctrineFilter\FilterInterface;
+
+class MyFilter implements FilterInterface
+{
+    public function buildFilter(FilterBuilder $builder)
+    {
+        // ...
+    }
+}
+</code></pre>
+</div>
+
+<p>Now you can start defining your filter, by calling <code class="highlighter-rouge">$builder-&gt;add($name, $type)</code>.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>public function buildFilter(FilterBuilder $builder)
+{
+    $builder
+        -&gt;add('category', EqualFilterType::class)
+        -&gt;add('price_max', LessThanEqualFilterType::class)
+        -&gt;orderBy('price', 'DESC);
+}
+</code></pre>
+</div>
+
+<p>The name is the key by which the filter will be used. So if you would like to query your entity on the category, you will have to make sure to provide an array that has a key of <code class="highlighter-rouge">category</code>.</p>
+
+<p>There are several different filter types that you can use. Have a look at the list below.</p>
+
+<p>To use the filter on your entity, the easiest solution is to create a custom repository and use the <code class="highlighter-rouge">EntityFilterTrait</code>.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>use Doctrine\ORM\EntityRepository;
+use BiteCodes\DoctrineFilter\Traits\EntityFilterTrait;
+
+class MyRepository extends EntityRepository
+{
+    use EntityFilterTrait;
+}
+</code></pre>
+</div>
+
+<p>To perform the query, you can now call the newly added <code class="highlighter-rouge">filter</code> method.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$result = $em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
+  'category' =&gt; 2,
+  'price_max' =&gt; 80
+]);
+</code></pre>
+</div>
+
+<p>This method will return all entities with a category of 2 and a price that is less than or equal to 80.</p>
+
+<h2 id="ordering-results">Ordering results</h2>
+
+<p>You also have the option to specify the order of the result by using the <code class="highlighter-rouge">orderBy</code> method. The first argument is the name of the filter, the second argument defines a possible default sorting. You can pass in <code class="highlighter-rouge">'ASC'</code> or <code class="highlighter-rouge">'DESC'</code>. Note that after setting the default values, you won’t be able to pass a value to the filter. If you need the ability to define the ordering by the search params, pass in <code class="highlighter-rouge">null</code> as the second argument.</p>
+
+<h2 id="filter-types">Filter Types</h2>
+
+<h3 id="betweenfiltertype">BetweenFilterType</h3>
+
+<p>This filter can be used for ranges and will expose two search keys that you can use.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>use BiteCodes\DoctrineFilter\Type\BetweenFilterType;
+
+$builder
+  -&gt;add('price', BetweenFilterType::class, [
+    'lower_bound_suffix' =&gt; 'from',
+    'upper_bound_suffix' =&gt; 'to',
+  ]);
+  
+//...
+
+$em-&gt;getRepository(MyEntity::class)-&gt;filter(new MyFilter(), [
+  'price_from' =&gt; 40,
+  'price_to' =&gt; 80
+]); 
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lower_bound_suffix</td>
+      <td>The suffix of the lower bound</td>
+      <td>‘since’</td>
+    </tr>
+    <tr>
+      <td>upper_bound_suffix</td>
+      <td>The suffix of the upper bound</td>
+      <td>‘until’</td>
+    </tr>
+    <tr>
+      <td>include_lower_bound</td>
+      <td>Should the lower bound be included?</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>include_upper_bound</td>
+      <td>Should the upper bound be included?</td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="closurefiltertype">ClosureFilterType</h3>
+
+<h3 id="comparablefiltertype">ComparableFilterType</h3>
+
+<h3 id="equalfiltertype">EqualFilterType</h3>
+
+<p>With this filter the database value has to be the same as the search value.</p>
+
+<h3 id="greaterthanequalfiltertype">GreaterThanEqualFilterType</h3>
+
+<p>The database value has to be greater than or equal to the search value.</p>
+
+<h3 id="greaterthanfiltertype">GreaterThanFilterType</h3>
+
+<p>The database value has to be greater than the search value.</p>
+
+<h3 id="infiltertype">InFilterType</h3>
+
+<p>The database value has to be in the given search values.</p>
+
+<h3 id="instanceoffiltertype">InstanceOfFilterType</h3>
+
+<p>If you use inheritance mapping, you can use this filter to return only specific entities. The search values has to be equal to the defined key in the DiscriminatorMap.</p>
+
+<h3 id="lessthanequalfiltertype">LessThanEqualFilterType</h3>
+
+<p>The database value has to be less than or equal to the search value.</p>
+
+<h3 id="lessthanfiltertype">LessThanFilterType</h3>
+
+<p>The database value has to be less than the search value.</p>
+
+<h3 id="likefiltertype">LikeFilterType</h3>
+
+<p>Will perform a like query on the given field.</p>
+
+<h3 id="notequalfiltertype">NotEqualFilterType</h3>
+
+<p>The database value has to be different to the search value.</p>
+
+<h3 id="notinfiltertype">NotInFilterType</h3>
+
+<p>The database value must not be in the given search values.</p>
+
+<h2 id="todo">Todo</h2>
+
+<ul>
+  <li>[ ] Options
+    <ul>
+      <li>[ ] Case sensititvity</li>
+      <li>[ ] Default value</li>
+    </ul>
+  </li>
+  <li>[ ] Distinct</li>
+  <li>[ ] InstanceOf for multiple entities</li>
+</ul>
+
+
+      <footer class="site-footer">
+  <span class="site-footer-owner"><a href="">Doctrine-Filter</a> is maintained by <a href="http://bite.codes">bitecodes</a>.</span>
+  <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/pietromenna/jekyll-cayman-theme">Cayman theme</a> by <a href="http://github.com/jasonlong">Jason Long</a>.</span>
+</footer>
+
+
+    </section>
+
+  </body>
+</html>
