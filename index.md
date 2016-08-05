@@ -84,6 +84,22 @@ You also have the option to specify the order of the result by using the `orderB
 
 ## Filter Types
 
+### Options
+
+Each filter comes with three standard options than can be set to define how the filter should work.
+
+| Option                | Description                         | Default  |
+| --------------------- | ----------------------------------- | -------- |
+| default               | Default value for the filter        | null     |
+| default_override      | Allow overriding the default value? | false    |
+| fields                | The fields that should be queried   | []       |
+
+Setting a default will provide a value that will be used on every query to filter your entity. The default can not be overridden except when the `default_override` is set to `true`.
+
+Futhermore, you can define which fields should be queried and you can also define multiple fields for the query. By default, the filter will look for a field with the same name as the filter. If the names are different, you can specify the property path here. You can also query on child entities (e.g. `address.street`). If you want to query on multiple fields, provide an array with the property paths. 
+
+### Filters
+
 - [BetweenFilterType](#betweenfiltertype)
 - [ComparableFilterType](#comparablefiltertype)
 - [EqualFilterType](#equalfiltertype)
