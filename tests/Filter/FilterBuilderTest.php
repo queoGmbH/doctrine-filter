@@ -2,6 +2,7 @@
 
 namespace BiteCodes\DoctrineFilter\Tests;
 
+use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Bike;
 use Doctrine\ORM\QueryBuilder;
 use BiteCodes\DoctrineFilter\FilterBuilder;
 use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Car;
@@ -270,6 +271,44 @@ class FilterBuilderTest extends TestCase
         $cars = $this->em->getRepository(Transport::class)->filter($this->filter);
 
         $this->assertCount(2, $cars);
+    }
+
+    /** @test */
+    public function the_default_value_does_not_get_overridden_by_default()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('type', InstanceOfFilterType::class, [
+                    'default' => Car::class,
+                ]);
+        });
+
+        $cars = $this->em->getRepository(Transport::class)->filter($this->filter, [
+            'type' => Bike::class
+        ]);
+
+        $this->assertCount(2, $cars);
+        $this->assertInstanceOf(Car::class, $cars[0]);
+        $this->assertInstanceOf(Car::class, $cars[1]);
+    }
+
+    /** @test */
+    public function the_default_value_can_be_overridden_when_allowed()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('type', InstanceOfFilterType::class, [
+                    'default' => Car::class,
+                    'default_override' => true
+                ]);
+        });
+
+        $bikes = $this->em->getRepository(Transport::class)->filter($this->filter, [
+            'type' => Bike::class
+        ]);
+
+        $this->assertCount(1, $bikes);
+        $this->assertInstanceOf(Bike::class, $bikes[0]);
     }
 
     /** @test */

@@ -22,6 +22,10 @@ abstract class AbstractFilterType
      */
     protected $default;
     /**
+     * @var boolean
+     */
+    protected $allowDefaultOverride;
+    /**
      * @var array
      */
     protected $options;
@@ -32,12 +36,14 @@ abstract class AbstractFilterType
      */
     protected $doesAlwaysRun = false;
 
+
     public function __construct($name, array $options)
     {
         $this->name = $name;
         $this->options = $this->getResolvedOptions($options);
         $this->fields = isset($this->options['fields']) ? $this->options['fields'] : $name;
         $this->default = $this->options['default'];
+        $this->allowDefaultOverride = $this->options['default_override'];
     }
 
     /**
@@ -97,6 +103,17 @@ abstract class AbstractFilterType
         return !is_null($this->default);
     }
 
+    /**
+     * @return bool|mixed
+     */
+    public function allowDefaultOverride()
+    {
+        return $this->allowDefaultOverride;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getDefault()
     {
         return $this->default;
@@ -109,7 +126,7 @@ abstract class AbstractFilterType
     {
         $resolver->setDefaults([
             'default' => null,
-            'description' => '',
+            'default_override' => false,
             'fields' => null
         ]);
     }

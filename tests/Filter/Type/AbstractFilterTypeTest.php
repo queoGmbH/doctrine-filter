@@ -25,7 +25,7 @@ class AbstractFilterTypeTest extends \PHPUnit_Framework_TestCase
         $name = 'height';
         $options = [
             'default' => null,
-            'description' => 'Search for the height of a person',
+            'default_override' => false,
             'fields' => 'person.height'
         ];
         /** @var AbstractFilterType $filterType */
@@ -40,11 +40,11 @@ class AbstractFilterTypeTest extends \PHPUnit_Framework_TestCase
      * @test
      * @dataProvider filters
      */
-    public function all_filters_have_field_description_and_default_option($filterClass)
+    public function all_filters_have_fields_default_and_default_override_option($filterClass)
     {
         $filter = new $filterClass('name', [
             'default' => 'some',
-            'description' => 'some',
+            'default_override' => false,
             'fields' => 'some'
         ]);
 

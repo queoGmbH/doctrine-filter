@@ -244,15 +244,19 @@ class FilterBuilder
      */
     protected function addFiltersToQuery($searchParams)
     {
-
-
+        /**
+         * @var string $filterName
+         * @var AbstractFilterType $filter
+         */
         foreach ($this->filters as $filterName => $filter) {
             $filterIsCalled = isset($searchParams[$filterName]);
 
             if ($filter->hasDefault()
                 || $filterIsCalled
             ) {
-                if ($filterIsCalled) {
+                if ($filter->hasDefault() && !$filter->allowDefaultOverride()) {
+                    $value = $filter->getDefault();
+                } elseif ($filterIsCalled) {
                     $value = $searchParams[$filterName];
                 } elseif ($filter->hasDefault()) {
                     $value = $filter->getDefault();
