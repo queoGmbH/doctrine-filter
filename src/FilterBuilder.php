@@ -3,6 +3,8 @@
 namespace BiteCodes\DoctrineFilter;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Query\Expr\Andx;
+use Doctrine\ORM\Query\Expr\Orx;
 use Doctrine\ORM\QueryBuilder;
 use BiteCodes\DoctrineFilter\Type\ClosureFilterType;
 use BiteCodes\DoctrineFilter\Type\OrderByType;
@@ -284,6 +286,11 @@ class FilterBuilder
     protected function addFilterToQuery($filterName, $value)
     {
         $fields = $this->getFieldsFromFilterName($filterName);
+        /** @var AbstractFilterType $filter */
+        $filter = $this->filters->get($filterName);
+        $buildOr = count($fields) > 1 && !$filter->doMatchAll();
+
+        $expressions = [];
 
         foreach ($fields as $field) {
             if ($this->isRelationship($field)) {
@@ -292,9 +299,20 @@ class FilterBuilder
             } else {
                 $table = $this->getRootAlias();
             }
-            /** @var AbstractFilterType $filter */
-            $filter = $this->filters->get($filterName);
-            $filter->expand($this, $value, $table, $field);
+
+            $whereExpr = $buildOr ? Orx::class : Andx::class;
+
+            $filter->expand($this, $value, $table, $field, $whereExpr);
+
+            if ($buildOr) {
+                $expressions[] = $filter->getExpr();
+            }
+        }
+
+        if ($buildOr) {
+            $this->qb->andWhere(
+                $this->qb->expr()->orX()->addMultiple($expressions)
+            );
         }
     }
 

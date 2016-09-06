@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BetweenFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
     }
 

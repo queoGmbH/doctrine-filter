@@ -7,16 +7,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class LikeFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
         $qb = $filterBuilder->getQueryBuilder();
 
         $likeString = $this->getLikeString($value);
 
-        return $qb
-            ->andWhere(
-                $qb->expr()->like($table . '.' . $field, $filterBuilder->placeValue($likeString))
-            );
+        return $this->add($qb, $where, $qb->expr()->like($table . '.' . $field, $filterBuilder->placeValue($likeString)));
     }
 
     protected function configureOptions(OptionsResolver $resolver)

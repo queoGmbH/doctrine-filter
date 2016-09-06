@@ -7,7 +7,7 @@ use BiteCodes\DoctrineFilter\FilterBuilder;
 
 class ComparableFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
     }
 

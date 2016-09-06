@@ -3,6 +3,11 @@
 namespace BiteCodes\DoctrineFilter\Type;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Expr\Comparison;
+use Doctrine\Common\Collections\Expr\Expression;
+use Doctrine\ORM\Query\Expr\Andx;
+use Doctrine\ORM\Query\Expr\Base;
+use Doctrine\ORM\Query\Expr\Orx;
 use Doctrine\ORM\QueryBuilder;
 use BiteCodes\DoctrineFilter\FilterBuilder;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -35,6 +40,10 @@ abstract class AbstractFilterType
      * @var bool
      */
     protected $doesAlwaysRun = false;
+    /**
+     * @var Expression|null
+     */
+    protected $expr;
 
 
     public function __construct($name, array $options)
@@ -51,9 +60,10 @@ abstract class AbstractFilterType
      * @param $value
      * @param $table
      * @param $field
+     * @param $where
      * @return QueryBuilder
      */
-    abstract public function expand(FilterBuilder $filterBuilder, $value, $table, $field);
+    abstract public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where);
 
     /**
      * @param ArrayCollection $filters
@@ -88,11 +98,27 @@ abstract class AbstractFilterType
     }
 
     /**
+     * @return Expression|null
+     */
+    public function getExpr()
+    {
+        return $this->expr;
+    }
+
+    /**
      * @return bool
      */
     public function doesAlwaysRun()
     {
         return $this->doesAlwaysRun;
+    }
+
+    /**
+     * @return bool
+     */
+    public function doMatchAll()
+    {
+        return $this->options['match_all_fields'];
     }
 
     /**
@@ -127,8 +153,33 @@ abstract class AbstractFilterType
         $resolver->setDefaults([
             'default' => null,
             'default_override' => false,
-            'fields' => null
+            'fields' => null,
+            'match_all_fields' => false
         ]);
+    }
+
+    /**
+     * @param QueryBuilder $qb
+     * @param $where
+     * @param $expr
+     * @return QueryBuilder
+     * @throws \Exception
+     */
+    protected function add(QueryBuilder $qb, $where, $expr)
+    {
+        switch ($where) {
+            case Andx::class:
+                $qb->andWhere($expr);
+                break;
+            case Orx::class:
+                $this->expr = $expr;
+//                $qb->orWhere($expr);
+                break;
+            default:
+                throw new \Exception('Invalid $where');
+        }
+
+        return $qb;
     }
 
     /**

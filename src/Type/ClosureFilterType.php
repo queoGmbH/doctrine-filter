@@ -18,7 +18,7 @@ class ClosureFilterType extends AbstractFilterType
         $this->closure = $closure;
     }
 
-    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
         $qb = $filterBuilder->getQueryBuilder();
 

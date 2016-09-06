@@ -7,16 +7,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class InFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
         if (empty($value) && ($value === [] && $this->options['allow_empty'])) {
             return $filterBuilder->getQueryBuilder();
         }
 
         if ($this->options['match_all']) {
-            $qb = $this->buildQueryToMatchAll($filterBuilder, $value, $table, $field);
+            $qb = $this->buildQueryToMatchAll($filterBuilder, $value, $table, $field, $where);
         } else {
-            $qb = $this->buildQuery($filterBuilder, $value, $table, $field);
+            $qb = $this->buildQuery($filterBuilder, $value, $table, $field, $where);
         }
 
         return $qb;
@@ -36,14 +36,14 @@ class InFilterType extends AbstractFilterType
      * @param $value
      * @param $table
      * @param $field
+     * @param $where
      * @return \Doctrine\ORM\QueryBuilder
      */
-    private function buildQuery(FilterBuilder $filterBuilder, $value, $table, $field)
+    private function buildQuery(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
         $qb = $filterBuilder->getQueryBuilder();
 
-        return $qb
-            ->andWhere($qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value)));
+        return $this->add($qb, $where, $qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value)));
     }
 
     /**
@@ -53,18 +53,16 @@ class InFilterType extends AbstractFilterType
      * @param $value
      * @param $table
      * @param $field
+     * @param $where
      * @return \Doctrine\ORM\QueryBuilder
      */
-    private function buildQueryToMatchAll(FilterBuilder $filterBuilder, $value, $table, $field)
+    private function buildQueryToMatchAll(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
         $qb = $filterBuilder->getQueryBuilder();
 
         $count = count(array_unique($value));
 
-        return $qb
-            ->andWhere(
-                $qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value))
-            )
+        return $this->add($qb, $where, $qb->expr()->in($table . '.' . $field, $filterBuilder->placeValue($value)))
             ->groupBy($qb->getRootAliases()[0])
             ->andHaving(
                 $qb->expr()->eq(

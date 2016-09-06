@@ -43,7 +43,7 @@ class FilterBuilderTest extends TestCase
             new LoadPersonData()
         ];
 
-        if ($this->isDoctrineVersion('2.5')) {
+        if ($this->isAtLeastDoctrineVersion('2.5')) {
             $fixtures[] = new LoadShipData();
         }
 
@@ -168,7 +168,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_can_filter_on_embeddables()
     {
-        if (!$this->isDoctrineVersion('2.5')) {
+        if (!$this->isAtLeastDoctrineVersion('2.5')) {
             $this->markTestSkipped('Embeddables not available prior to Doctrine 2.5');
         }
 
@@ -196,7 +196,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_can_filter_on_embeddables_on_relationships()
     {
-        if (!$this->isDoctrineVersion('2.5')) {
+        if (!$this->isAtLeastDoctrineVersion('2.5')) {
             $this->markTestSkipped('Embeddables not available prior to Doctrine 2.5');
         }
 
@@ -309,6 +309,47 @@ class FilterBuilderTest extends TestCase
 
         $this->assertCount(1, $bikes);
         $this->assertInstanceOf(Bike::class, $bikes[0]);
+    }
+
+    /** @test */
+    public function only_one_of_the_field_values_has_to_be_found_when_match_all_is_false()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('fullText', LikeFilterType::class, [
+                    'fields' => ['title', 'content']
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'fullText' => 'My post content'
+        ]);
+
+        $this->assertCount(1, $posts);
+    }
+
+    /** @test */
+    public function all_field_values_have_to_be_found_when_match_all_is_true()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('fullText', LikeFilterType::class, [
+                    'fields' => ['title', 'content'],
+                    'match_all_fields' => true
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'fullText' => 'ost'
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'fullText' => 'My post content'
+        ]);
+
+        $this->assertCount(0, $posts);
     }
 
     /** @test */

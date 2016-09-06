@@ -56,7 +56,7 @@ class InFilterTypeTest extends TestCase
     /** @test */
     public function it_handles_empty_values()
     {
-        if ($this->isDoctrineVersion(2.3)) {
+        if ($this->isAtLeastDoctrineVersion(2.3)) {
             $this->markTestSkipped('Doctrine 2.3 Bug: array_fill() can not be empty.');
         }
 

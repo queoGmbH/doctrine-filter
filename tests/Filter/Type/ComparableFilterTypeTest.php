@@ -9,6 +9,7 @@ use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
 use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 use BiteCodes\DoctrineFilter\Type\ComparableFilterType;
+use Doctrine\ORM\Query\Expr\Andx;
 
 class ComparableFilterTypeTest extends TestCase
 {
@@ -35,7 +36,7 @@ class ComparableFilterTypeTest extends TestCase
     public function it_expands()
     {
         $filter = new ComparableFilterType('horsepower', []);
-        $filter->expand(new FilterBuilder(), 'a', 'b', 'c');
+        $filter->expand(new FilterBuilder(), 'a', 'b', 'c', Andx::class);
     }
 
     /** @test */

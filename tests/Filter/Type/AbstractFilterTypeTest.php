@@ -26,7 +26,8 @@ class AbstractFilterTypeTest extends \PHPUnit_Framework_TestCase
         $options = [
             'default' => null,
             'default_override' => false,
-            'fields' => 'person.height'
+            'fields' => 'person.height',
+            'match_all_fields' => false
         ];
         /** @var AbstractFilterType $filterType */
         $filterType = $this->getMockForAbstractClass(AbstractFilterType::class, [$name, $options]);
@@ -45,7 +46,7 @@ class AbstractFilterTypeTest extends \PHPUnit_Framework_TestCase
         $filter = new $filterClass('name', [
             'default' => 'some',
             'default_override' => false,
-            'fields' => 'some'
+            'fields' => 'some',
         ]);
 
         $this->assertInstanceOf(AbstractFilterType::class, $filter);

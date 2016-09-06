@@ -8,7 +8,7 @@ use BiteCodes\DoctrineFilter\FilterBuilder;
 
 class InstanceOfFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
         $qb = $filterBuilder->getQueryBuilder();
 
@@ -17,7 +17,6 @@ class InstanceOfFilterType extends AbstractFilterType
             $value = $filterBuilder->placeValue($value);
         }
 
-        return $qb
-            ->andWhere(new Comparison($table, 'INSTANCE OF', $value));
+        return $this->add($qb, $where, new Comparison($table, 'INSTANCE OF', $value));
     }
 }

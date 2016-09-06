@@ -9,7 +9,7 @@ class OrderByType extends AbstractFilterType
 {
     protected $fields;
 
-    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
         // Ignore invalid inputs
         if (!in_array(strtolower($value), ['asc', 'desc', null])) {

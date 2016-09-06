@@ -9,6 +9,7 @@ use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
 use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
 use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
 use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Doctrine\ORM\Query\Expr\Andx;
 
 class BetweenFilterTypeTest extends TestCase
 {
@@ -25,7 +26,7 @@ class BetweenFilterTypeTest extends TestCase
     public function it_expands()
     {
         $filter = new BetweenFilterType('horsepower', []);
-        $filter->expand(new FilterBuilder(), 'a', 'b', 'c');
+        $filter->expand(new FilterBuilder(), 'a', 'b', 'c', Andx::class);
     }
 
     /** @test */

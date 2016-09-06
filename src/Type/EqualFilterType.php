@@ -7,7 +7,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EqualFilterType extends AbstractFilterType
 {
-    public function expand(FilterBuilder $filterBuilder, $value, $table, $field)
+    public function expand(FilterBuilder $filterBuilder, $value, $table, $field, $where)
     {
         $qb = $filterBuilder->getQueryBuilder();
         $tableField = $table . '.' . $field;
@@ -22,8 +22,7 @@ class EqualFilterType extends AbstractFilterType
             $value = $value ? 1 : 0;
         }
 
-        return $qb
-            ->andWhere($qb->expr()->eq($tableField, $filterBuilder->placeValue($value)));
+        return $this->add($qb, $where, $qb->expr()->eq($tableField, $filterBuilder->placeValue($value)));
     }
 
     protected function configureOptions(OptionsResolver $resolver)
