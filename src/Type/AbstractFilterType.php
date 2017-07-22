@@ -146,6 +146,14 @@ abstract class AbstractFilterType
     }
 
     /**
+     * @return mixed
+     */
+    public function isPartialMatch()
+    {
+        return $this->options['partial_match'];
+    }
+
+    /**
      * @param OptionsResolver $resolver
      */
     protected function configureOptions(OptionsResolver $resolver)
@@ -154,7 +162,8 @@ abstract class AbstractFilterType
             'default' => null,
             'default_override' => false,
             'fields' => null,
-            'match_all_fields' => false
+            'match_all_fields' => false,
+            'partial_match' => false
         ]);
     }
 
@@ -173,7 +182,6 @@ abstract class AbstractFilterType
                 break;
             case Orx::class:
                 $this->expr = $expr;
-//                $qb->orWhere($expr);
                 break;
             default:
                 throw new \Exception('Invalid $where');

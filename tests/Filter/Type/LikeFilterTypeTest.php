@@ -88,4 +88,52 @@ class LikeFilterTypeTest extends TestCase
 
         $this->assertCount(0, $posts);
     }
+
+    /** @test */
+    public function it_finds_values_in_multiple_fields_but_it_only_requires_a_partial_match()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('post_content', LikeFilterType::class, [
+                    'fields' => ['title', 'content'],
+                    'partial_match' => true
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'post_content' => 'title content'
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'post_content' => 'content'
+        ]);
+
+        $this->assertCount(1, $posts);
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'post_content' => 'unknown content'
+        ]);
+
+        $this->assertCount(0, $posts);
+    }
+
+    /** @test */
+    public function it_accepts_partial_matching_with_multiple_spaces()
+    {
+        $this->filter->defineFilter(function (FilterBuilder $builder) {
+            $builder
+                ->add('post_content', LikeFilterType::class, [
+                    'fields' => ['title', 'content'],
+                    'partial_match' => true
+                ]);
+        });
+
+        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+            'post_content' => '  title   content  '
+        ]);
+
+        $this->assertCount(1, $posts);
+    }
 }

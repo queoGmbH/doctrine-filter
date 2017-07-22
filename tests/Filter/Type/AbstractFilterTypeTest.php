@@ -27,7 +27,8 @@ class AbstractFilterTypeTest extends \PHPUnit_Framework_TestCase
             'default' => null,
             'default_override' => false,
             'fields' => 'person.height',
-            'match_all_fields' => false
+            'match_all_fields' => false,
+            'partial_match' => false
         ];
         /** @var AbstractFilterType $filterType */
         $filterType = $this->getMockForAbstractClass(AbstractFilterType::class, [$name, $options]);

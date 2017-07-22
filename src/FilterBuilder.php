@@ -292,24 +292,45 @@ class FilterBuilder
 
         $expressions = [];
 
-        foreach ($fields as $field) {
-            if ($this->isRelationship($field)) {
-                $table = $this->addAllJoins($field);
-                $field = $this->getRelationshipField($field, $table);
-            } else {
-                $table = $this->getRootAlias();
+        if($filter->isPartialMatch()) {
+            $values = explode(' ', $value);
+            $values = array_filter(array_map('trim', $values));
+        } else {
+            $values = [$value];
+        }
+
+        $buildMultiple = count($values) > 1;
+
+        foreach ($values as $value) {
+            $expressions = [];
+
+            foreach ($fields as $field) {
+                if ($this->isRelationship($field)) {
+                    $table = $this->addAllJoins($field);
+                    $field = $this->getRelationshipField($field, $table);
+                } else {
+                    $table = $this->getRootAlias();
+                }
+
+                $whereExpr = $buildOr ? Orx::class : Andx::class;
+
+                $filter->expand($this, $value, $table, $field, $whereExpr);
+
+                if ($buildOr || $buildMultiple) {
+                    $expressions[] = $filter->getExpr();
+                }
             }
 
-            $whereExpr = $buildOr ? Orx::class : Andx::class;
-
-            $filter->expand($this, $value, $table, $field, $whereExpr);
-
-            if ($buildOr) {
-                $expressions[] = $filter->getExpr();
+            if($buildMultiple) {
+                $orExpressions[] = $this->qb->expr()->orX()->addMultiple($expressions);
             }
         }
 
-        if ($buildOr) {
+        if($buildMultiple) {
+            $this->qb->andWhere(
+                $this->qb->expr()->andX()->addMultiple($orExpressions)
+            );
+        } else if ($buildOr) {
             $this->qb->andWhere(
                 $this->qb->expr()->orX()->addMultiple($expressions)
             );
