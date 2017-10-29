@@ -2,7 +2,7 @@
   "name": "bitecodes/doctrine-filter",
   "license": "MIT",
   "require": {
-    "doctrine/orm": "^2.4",
+    "doctrine/orm": ">=2.4.5",
     "pagerfanta/pagerfanta": "^1.0",
     "symfony/options-resolver": "^2.7|^3.0"
   },
