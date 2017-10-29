@@ -16,13 +16,11 @@ matrix:
     - php: 7.0
       env: COMPOSER_FLAGS="--prefer-lowest"
     - php: 7.0
-      env: DOCTRINE_VERSION=2.3.*
-    - php: 7.0
       env: DOCTRINE_VERSION=2.4.*
     - php: 7.0
-      env: DOCTRINE_VERSION=2.5.* TARGET=cover
+      env: DOCTRINE_VERSION=2.5.*
 
 install: composer update --prefer-dist $COMPOSER_FLAGS
 
 after_script:
-  - if [ "$TARGET" == "cover" ]; then travis_retry php vendor/bin/coveralls -v; fi
+  - travis_retry php vendor/bin/coveralls -v
