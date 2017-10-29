@@ -4,7 +4,7 @@ php:
   - 5.5
   - 5.6
   - 7.0
-  - hhvm
+  - 7.1
 
 before_install:
   - composer self-update
@@ -13,18 +13,16 @@ before_install:
 
 matrix:
   include:
-    - php: 5.5
+    - php: 7.0
       env: COMPOSER_FLAGS="--prefer-lowest"
-    - php: 5.5
+    - php: 7.0
       env: DOCTRINE_VERSION=2.3.*
-    - php: 5.5
+    - php: 7.0
       env: DOCTRINE_VERSION=2.4.*
-    - php: 5.5
-      env: DOCTRINE_VERSION=2.5.*
-  allow_failures:
-    - php: hhvm
+    - php: 7.0
+      env: DOCTRINE_VERSION=2.5.* TARGET=cover
 
 install: composer update --prefer-dist $COMPOSER_FLAGS
 
 after_script:
-  - travis_retry php vendor/bin/coveralls -v
+  - if [ "$TARGET" == "cover" ]; then travis_retry php vendor/bin/coveralls -v; fi
