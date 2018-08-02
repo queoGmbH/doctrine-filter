@@ -1,6 +1,13 @@
 {
   "name": "bitecodes/doctrine-filter",
+  "description": "Easy filter for Doctrine ORM",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Uhlmann",
+      "email": "tho.uhlmann@gmail.com"
+    }
+  ],
   "require": {
     "doctrine/orm": ">=2.4.5",
     "pagerfanta/pagerfanta": "^1.0",
@@ -11,15 +18,13 @@
     "doctrine/data-fixtures": "^1.0",
     "satooshi/php-coveralls": "^1.0"
   },
-  "authors": [
-    {
-      "name": "Thomas Uhlmann",
-      "email": "tho.uhlmann@gmail.com"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "BiteCodes\\DoctrineFilter\\": "src/",
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "BiteCodes\\DoctrineFilter\\Tests\\": "tests/"
     }
   }
