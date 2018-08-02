@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "BiteCodes\\DoctrineFilter\\": "src/",
+      "BiteCodes\\DoctrineFilter\\": "src/"
     }
   },
   "autoload-dev": {
