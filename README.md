@@ -6,12 +6,11 @@
 composer require queo/doctrine-filter
 ```
 
-## Useage
+## Usage
 
 If you would like to use the filter, create a new class and implement the `FilterInterface`.
 
 ```php
-
 use Queo\DoctrineFilter\FilterBuilder;
 use Queo\DoctrineFilter\FilterInterface;
 
@@ -91,12 +90,12 @@ $em->getRepository(MyEntity::class)->filter(new MyFilter(), [
 ]); 
 ```
 
-| Option                | Description                         | Default  |
-| --------------------- | ----------------------------------- | -------- |
-| lower_bound_suffix    | The suffix of the lower bound       | 'since'  |
-| upper_bound_suffix    | The suffix of the upper bound       | 'until'  |
-| include_lower_bound   | Should the lower bound be included? | true     |
-| include_upper_bound   | Should the upper bound be included? | true     |
+| Option              | Description                         | Default |
+|---------------------|-------------------------------------|---------|
+| lower_bound_suffix  | The suffix of the lower bound       | 'since' |
+| upper_bound_suffix  | The suffix of the upper bound       | 'until' |
+| include_lower_bound | Should the lower bound be included? | true    |
+| include_upper_bound | Should the upper bound be included? | true    |
 
 
 ### ClosureFilterType
