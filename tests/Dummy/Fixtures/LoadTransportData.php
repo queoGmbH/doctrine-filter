@@ -1,12 +1,12 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
+namespace Queo\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Bike;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Car;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Engine;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Bike;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Car;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Engine;
 use Doctrine\Persistence\ObjectManager;
 
 class LoadTransportData extends AbstractFixture implements OrderedFixtureInterface

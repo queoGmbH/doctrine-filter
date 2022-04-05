@@ -22,12 +22,12 @@
   },
   "autoload": {
     "psr-4": {
-      "BiteCodes\\DoctrineFilter\\": "src/"
+      "Queo\\DoctrineFilter\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "BiteCodes\\DoctrineFilter\\Tests\\": "tests/"
+      "Queo\\DoctrineFilter\\Tests\\": "tests/"
     }
   },
   "scripts": {

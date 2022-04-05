@@ -1,21 +1,21 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
-use BiteCodes\DoctrineFilter\Type\AbstractFilterType;
-use BiteCodes\DoctrineFilter\Type\BetweenFilterType;
-use BiteCodes\DoctrineFilter\Type\ComparableFilterType;
-use BiteCodes\DoctrineFilter\Type\EqualFilterType;
-use BiteCodes\DoctrineFilter\Type\GreaterThanEqualFilterType;
-use BiteCodes\DoctrineFilter\Type\GreaterThanFilterType;
-use BiteCodes\DoctrineFilter\Type\InFilterType;
-use BiteCodes\DoctrineFilter\Type\InstanceOfFilterType;
-use BiteCodes\DoctrineFilter\Type\LessThanEqualFilterType;
-use BiteCodes\DoctrineFilter\Type\LessThanFilterType;
-use BiteCodes\DoctrineFilter\Type\LikeFilterType;
-use BiteCodes\DoctrineFilter\Type\NotEqualFilterType;
-use BiteCodes\DoctrineFilter\Type\NotInFilterType;
-use BiteCodes\DoctrineFilter\Type\OrderByType;
+use Queo\DoctrineFilter\Type\AbstractFilterType;
+use Queo\DoctrineFilter\Type\BetweenFilterType;
+use Queo\DoctrineFilter\Type\ComparableFilterType;
+use Queo\DoctrineFilter\Type\EqualFilterType;
+use Queo\DoctrineFilter\Type\GreaterThanEqualFilterType;
+use Queo\DoctrineFilter\Type\GreaterThanFilterType;
+use Queo\DoctrineFilter\Type\InFilterType;
+use Queo\DoctrineFilter\Type\InstanceOfFilterType;
+use Queo\DoctrineFilter\Type\LessThanEqualFilterType;
+use Queo\DoctrineFilter\Type\LessThanFilterType;
+use Queo\DoctrineFilter\Type\LikeFilterType;
+use Queo\DoctrineFilter\Type\NotEqualFilterType;
+use Queo\DoctrineFilter\Type\NotInFilterType;
+use Queo\DoctrineFilter\Type\OrderByType;
 use PHPUnit\Framework\TestCase;
 
 class AbstractFilterTypeTest extends TestCase

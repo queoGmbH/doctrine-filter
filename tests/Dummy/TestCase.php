@@ -1,6 +1,6 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy;
+namespace Queo\DoctrineFilter\Tests\Dummy;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Version;
@@ -32,7 +32,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         self::$testDb = new TestDb(
             $paths,
             $here . '/TestProxy',
-            'BiteCodes\DoctrineFilter\Tests\Dummy\Entity'
+            'Queo\DoctrineFilter\Tests\Dummy\Entity'
         );
 
         self::$em = self::$testDb->createEntityManager();

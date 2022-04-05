@@ -1,14 +1,14 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter;
+namespace Queo\DoctrineFilter;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Query\Expr\Andx;
 use Doctrine\ORM\Query\Expr\Orx;
 use Doctrine\ORM\QueryBuilder;
-use BiteCodes\DoctrineFilter\Type\ClosureFilterType;
-use BiteCodes\DoctrineFilter\Type\OrderByType;
-use BiteCodes\DoctrineFilter\Type\AbstractFilterType;
+use Queo\DoctrineFilter\Type\ClosureFilterType;
+use Queo\DoctrineFilter\Type\OrderByType;
+use Queo\DoctrineFilter\Type\AbstractFilterType;
 
 class FilterBuilder
 {

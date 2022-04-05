@@ -1,8 +1,8 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Type;
+namespace Queo\DoctrineFilter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\FilterBuilder;
 
 class NotInFilterType extends AbstractFilterType
 {

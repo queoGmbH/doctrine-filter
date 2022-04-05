@@ -1,10 +1,10 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Traits;
+namespace Queo\DoctrineFilter\Traits;
 
 use Doctrine\ORM\QueryBuilder;
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\FilterInterface;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\FilterInterface;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 

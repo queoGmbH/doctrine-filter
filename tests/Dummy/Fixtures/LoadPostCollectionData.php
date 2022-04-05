@@ -1,10 +1,10 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
+namespace Queo\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
 use Doctrine\Persistence\ObjectManager;
 
 class LoadPostCollectionData extends AbstractFixture implements OrderedFixtureInterface

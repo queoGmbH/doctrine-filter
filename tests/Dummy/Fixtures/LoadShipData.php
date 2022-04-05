@@ -1,12 +1,12 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
+namespace Queo\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Engine;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Ship;
+use Queo\DoctrineFilter\Tests\Dummy\Entity25\Engine;
+use Queo\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
+use Queo\DoctrineFilter\Tests\Dummy\Entity25\Ship;
 use Doctrine\Persistence\ObjectManager;
 
 class LoadShipData extends AbstractFixture implements OrderedFixtureInterface

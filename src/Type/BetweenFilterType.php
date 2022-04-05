@@ -1,9 +1,9 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Type;
+namespace Queo\DoctrineFilter\Type;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use BiteCodes\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\FilterBuilder;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BetweenFilterType extends AbstractFilterType

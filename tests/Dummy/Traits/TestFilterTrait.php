@@ -1,8 +1,8 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Traits;
+namespace Queo\DoctrineFilter\Tests\Dummy\Traits;
 
-use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
+use Queo\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
 
 trait TestFilterTrait
 {

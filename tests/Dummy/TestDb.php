@@ -1,6 +1,6 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy;
+namespace Queo\DoctrineFilter\Tests\Dummy;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;

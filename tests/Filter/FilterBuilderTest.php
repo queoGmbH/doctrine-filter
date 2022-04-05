@@ -1,32 +1,32 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests;
+namespace Queo\DoctrineFilter\Tests;
 
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Bike;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Bike;
 use Doctrine\ORM\QueryBuilder;
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Car;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Person;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Tag;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Transport;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Ship;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadShipData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
-use BiteCodes\DoctrineFilter\Type\EqualFilterType;
-use BiteCodes\DoctrineFilter\Type\GreaterThanEqualFilterType;
-use BiteCodes\DoctrineFilter\Type\InstanceOfFilterType;
-use BiteCodes\DoctrineFilter\Type\LikeFilterType;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Car;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Person;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Tag;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Transport;
+use Queo\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
+use Queo\DoctrineFilter\Tests\Dummy\Entity25\Ship;
+use Queo\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadShipData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
+use Queo\DoctrineFilter\Type\EqualFilterType;
+use Queo\DoctrineFilter\Type\GreaterThanEqualFilterType;
+use Queo\DoctrineFilter\Type\InstanceOfFilterType;
+use Queo\DoctrineFilter\Type\LikeFilterType;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 use Doctrine\ORM\Version;
 
 class FilterBuilderTest extends TestCase

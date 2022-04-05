@@ -1,12 +1,12 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity25;
+namespace Queo\DoctrineFilter\Tests\Dummy\Entity25;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\HarbourRepo")
+ * @ORM\Entity(repositoryClass="Queo\DoctrineFilter\Tests\Dummy\Entity25\HarbourRepo")
  */
 class Harbour
 {

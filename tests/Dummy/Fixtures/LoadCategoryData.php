@@ -1,10 +1,10 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
+namespace Queo\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Category;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Category;
 use Doctrine\Persistence\ObjectManager;
 
 class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterface

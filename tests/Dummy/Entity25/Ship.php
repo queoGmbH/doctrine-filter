@@ -1,13 +1,13 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity25;
+namespace Queo\DoctrineFilter\Tests\Dummy\Entity25;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Ship
  *
- * @ORM\Entity(repositoryClass="BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\ShipRepo")
+ * @ORM\Entity(repositoryClass="Queo\DoctrineFilter\Tests\Dummy\Entity25\ShipRepo")
  */
 class Ship
 {
