@@ -18,7 +18,7 @@ trait LoadFixtures
         }
 
         $purger = new ORMPurger();
-        $executor = new ORMExecutor($this->em, $purger);
+        $executor = new ORMExecutor(self::$em, $purger);
         $executor->execute($loader->getFixtures());
     }
 

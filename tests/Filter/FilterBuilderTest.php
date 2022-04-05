@@ -69,7 +69,10 @@ class FilterBuilderTest extends TestCase
         };
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group now
+     */
     public function it_returns_the_added_filters()
     {
         $builder = new FilterBuilder();
@@ -83,7 +86,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_tracks_parameters_by_their_own_value()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post title',
             'content' => 'My post content!'
         ]);
@@ -95,7 +98,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_queries_relationships()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => 'Tag 1',
         ]);
 
@@ -106,7 +109,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_returns_no_results_if_relation_ship_query_is_not_fullfilled()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => 'Tag 4',
         ]);
 
@@ -116,7 +119,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_queries_deeply_nested_relationships()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'category' => 'Category 1',
         ]);
 
@@ -127,7 +130,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_returns_no_result_if_deeply_nested_relationship_query_is_not_fullfilled()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'category' => 'Category 2000',
         ]);
 
@@ -137,7 +140,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_can_handle_multiple_relationship_queries()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post title',
             'tags' => 'Tag 2',
             'category' => 'Category 1'
@@ -145,7 +148,7 @@ class FilterBuilderTest extends TestCase
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post title',
             'tags' => 'Tag 2',
             'category' => 'Category 2'
@@ -156,11 +159,12 @@ class FilterBuilderTest extends TestCase
 
     /**
      * @test
-     * @expectedException Doctrine\ORM\Query\QueryException
      */
     public function it_does_throw_an_exception_if_field_does_not_exist()
     {
-        $this->em->getRepository(Post::class)->filter($this->filter, [
+        self::expectException(\Doctrine\ORM\Query\QueryException::class);
+
+        self::$em->getRepository(Post::class)->filter($this->filter, [
             'blog' => 'Blog A'
         ]);
     }
@@ -180,13 +184,13 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $res1 = $this->em->getRepository(Ship::class)->filter($filter, [
+        $res1 = self::$em->getRepository(Ship::class)->filter($filter, [
             'horsepower' => 400
         ]);
 
         $this->assertEmpty($res1);
 
-        $res2 = $this->em->getRepository(Ship::class)->filter($filter, [
+        $res2 = self::$em->getRepository(Ship::class)->filter($filter, [
             'horsepower' => 300
         ]);
 
@@ -208,13 +212,13 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $res1 = $this->em->getRepository(Harbour::class)->filter($filter, [
+        $res1 = self::$em->getRepository(Harbour::class)->filter($filter, [
             'horsepower' => 400
         ]);
 
         $this->assertEmpty($res1);
 
-        $res2 = $this->em->getRepository(Harbour::class)->filter($filter, [
+        $res2 = self::$em->getRepository(Harbour::class)->filter($filter, [
             'horsepower' => 300
         ]);
 
@@ -231,7 +235,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title_and_tags' => 'Tag 1'
         ]);
 
@@ -250,7 +254,7 @@ class FilterBuilderTest extends TestCase
                 });
         });
 
-        $tags = $this->em->getRepository(Tag::class)->filter($this->filter, [
+        $tags = self::$em->getRepository(Tag::class)->filter($this->filter, [
             'limitToOne' => true
         ]);
 
@@ -268,7 +272,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $cars = $this->em->getRepository(Transport::class)->filter($this->filter);
+        $cars = self::$em->getRepository(Transport::class)->filter($this->filter);
 
         $this->assertCount(2, $cars);
     }
@@ -283,7 +287,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $cars = $this->em->getRepository(Transport::class)->filter($this->filter, [
+        $cars = self::$em->getRepository(Transport::class)->filter($this->filter, [
             'type' => Bike::class
         ]);
 
@@ -303,7 +307,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $bikes = $this->em->getRepository(Transport::class)->filter($this->filter, [
+        $bikes = self::$em->getRepository(Transport::class)->filter($this->filter, [
             'type' => Bike::class
         ]);
 
@@ -321,7 +325,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'fullText' => 'My post content'
         ]);
 
@@ -339,13 +343,13 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'fullText' => 'ost'
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'fullText' => 'My post content'
         ]);
 
@@ -355,7 +359,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function the_filter_builder_can_be_used_multiple_times()
     {
-        $qb = $this->em->getRepository(Post::class)->createQueryBuilder('x');
+        $qb = self::$em->getRepository(Post::class)->createQueryBuilder('x');
         $builder = new FilterBuilder();
         $posts = $builder
             ->setQueryBuilder($qb)
@@ -376,7 +380,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function the_filter_can_be_set_again()
     {
-        $qb = $this->em->getRepository(Post::class)->createQueryBuilder('x');
+        $qb = self::$em->getRepository(Post::class)->createQueryBuilder('x');
         $builder = new FilterBuilder();
         $posts = $builder
             ->setQueryBuilder($qb)

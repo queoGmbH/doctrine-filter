@@ -33,7 +33,7 @@ class NotEqualFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_entities_if_the_search_value_is_not_exactly_the_same()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post 1'
         ]);
 

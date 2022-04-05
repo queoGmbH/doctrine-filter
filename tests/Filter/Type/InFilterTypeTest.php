@@ -36,7 +36,7 @@ class InFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_entites_when_value_is_in_search_query()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => ['Tag 1', 'Unknown Tag']
         ]);
 
@@ -46,7 +46,7 @@ class InFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_no_result_when_value_is_not_in_search_query()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => ['Unknown Tag', 'Another Tag']
         ]);
 
@@ -56,7 +56,7 @@ class InFilterTypeTest extends TestCase
     /** @test */
     public function it_handles_empty_values()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => []
         ]);
 
@@ -70,7 +70,7 @@ class InFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => []
         ]);
 
@@ -88,13 +88,13 @@ class InFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => ['Tag 1', 'Tag 2']
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => ['Tag 1', 'Tag 2', 'Tag 3']
         ]);
 
@@ -112,7 +112,7 @@ class InFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => ['Tag 1', 'Tag 1', 'Tag 2', 'Tag 2', 'Tag 2']
         ]);
 

@@ -16,8 +16,9 @@ use BiteCodes\DoctrineFilter\Type\LikeFilterType;
 use BiteCodes\DoctrineFilter\Type\NotEqualFilterType;
 use BiteCodes\DoctrineFilter\Type\NotInFilterType;
 use BiteCodes\DoctrineFilter\Type\OrderByType;
+use PHPUnit\Framework\TestCase;
 
-class AbstractFilterTypeTest extends \PHPUnit_Framework_TestCase
+class AbstractFilterTypeTest extends TestCase
 {
     /** @test */
     public function it_sets_the_correct_values()

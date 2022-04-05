@@ -33,18 +33,18 @@ class EntityFilterTraitTest extends TestCase
     /** @test */
     public function it_paginates_results()
     {
-        $results = $this->em->getRepository(Post::class)->paginate($this->filter, [], 1, 2);
+        $results = self::$em->getRepository(Post::class)->paginate($this->filter, [], 1, 2);
 
         $this->assertCount(2, $results);
         $this->assertEquals('Post 3', $results[0]->getTitle());
         $this->assertEquals('Post 2', $results[1]->getTitle());
 
-        $results = $this->em->getRepository(Post::class)->paginate($this->filter, [], 2, 2);
+        $results = self::$em->getRepository(Post::class)->paginate($this->filter, [], 2, 2);
 
         $this->assertCount(1, $results);
         $this->assertEquals('Post 1', $results[0]->getTitle());
 
-        $results = $this->em->getRepository(Post::class)->paginate($this->filter, [], 3, 2);
+        $results = self::$em->getRepository(Post::class)->paginate($this->filter, [], 3, 2);
 
         $this->assertCount(0, $results);
     }
@@ -53,7 +53,7 @@ class EntityFilterTraitTest extends TestCase
     public function it_exposes_the_paginator()
     {
         /** @var Pagerfanta $paginator */
-        $this->em->getRepository(Post::class)->paginate($this->filter, [], 1, 2, $paginator);
+        self::$em->getRepository(Post::class)->paginate($this->filter, [], 1, 2, $paginator);
 
         $this->assertInstanceOf(Pagerfanta::class, $paginator);
         $this->assertCount(2, $paginator->getCurrentPageResults());

@@ -24,16 +24,16 @@ class BooleanFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_entities_for_truthy_values()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => '0',
         ]);
 
         $this->assertCount(1, $posts);
 
         $posts[0]->setIsPublished(true);
-        $this->em->flush();
+        self::$em->flush();
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => '1',
         ]);
 
@@ -44,14 +44,14 @@ class BooleanFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_entities_for_falsy_values()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => '0',
         ]);
 
         $this->assertCount(1, $posts);
         $this->assertEquals('Post title with Tag 1', $posts[0]->getTitle());
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => '1',
         ]);
 
@@ -69,26 +69,26 @@ class BooleanFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => 'false',
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => 'true',
         ]);
 
         $this->assertCount(0, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => '0',
         ]);
 
         // Still be 1, because filter gets skipped if value not defined
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => '1',
         ]);
 

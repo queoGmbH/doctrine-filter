@@ -34,14 +34,14 @@ class InstanceOfFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_only_instances_of_the_given_type()
     {
-        $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
+        $vehicles = self::$em->getRepository(Transport::class)->filter($this->filter, [
             'type' => Bike::class
         ]);
 
         $this->assertCount(1, $vehicles);
         $this->assertInstanceOf(Bike::class, $vehicles[0]);
 
-        $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
+        $vehicles = self::$em->getRepository(Transport::class)->filter($this->filter, [
             'type' => Car::class
         ]);
 
@@ -52,14 +52,14 @@ class InstanceOfFilterTypeTest extends TestCase
     /** @test */
     public function the_filter_accepts_the_discriminator_map_key()
     {
-        $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
+        $vehicles = self::$em->getRepository(Transport::class)->filter($this->filter, [
             'type' => 'bike'
         ]);
 
         $this->assertCount(1, $vehicles);
         $this->assertInstanceOf(Bike::class, $vehicles[0]);
 
-        $vehicles = $this->em->getRepository(Transport::class)->filter($this->filter, [
+        $vehicles = self::$em->getRepository(Transport::class)->filter($this->filter, [
             'type' => 'car'
         ]);
 

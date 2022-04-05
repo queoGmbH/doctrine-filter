@@ -41,13 +41,13 @@ class ClosureFilterTypeTest extends TestCase
     /** @test */
     public function it_includes_the_values_correctly_to_the_query()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'Post 1'
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'Other content'
         ]);
 

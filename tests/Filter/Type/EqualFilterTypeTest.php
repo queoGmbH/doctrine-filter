@@ -26,7 +26,7 @@ class EqualFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_an_entity_if_the_search_value_is_exactly_the_same()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post title with Tag 1'
         ]);
 
@@ -37,7 +37,7 @@ class EqualFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_no_results_if_there_is_no_entity_with_the_exact_value()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Another title'
         ]);
 
@@ -47,13 +47,13 @@ class EqualFilterTypeTest extends TestCase
     /** @test */
     public function it_works_with_boolean_values()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => false
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => true
         ]);
 
@@ -68,7 +68,7 @@ class EqualFilterTypeTest extends TestCase
                 ->add('title', EqualFilterType::class, ['case_sensitive' => false]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'post title with TAG 1'
         ]);
 

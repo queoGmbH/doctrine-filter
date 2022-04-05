@@ -2,3 +2,6 @@
 /tests/Dummy/TestProxy
 /vendor
 composer.lock
+
+build/cache/*
+!build/cache/gitkeep

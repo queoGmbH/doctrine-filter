@@ -33,16 +33,9 @@ class ComparableFilterTypeTest extends TestCase
     }
 
     /** @test */
-    public function it_expands()
-    {
-        $filter = new ComparableFilterType('horsepower', []);
-        $filter->expand(new FilterBuilder(), 'a', 'b', 'c', Andx::class);
-    }
-
-    /** @test */
     public function it_works_for_not_equal()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title!' => 'Post 1'
         ]);
 
@@ -54,7 +47,7 @@ class ComparableFilterTypeTest extends TestCase
     /** @test */
     public function it_works_for_less_than_or_equal()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt<' => '2016-02-02 12:00:00'
         ]);
 
@@ -66,7 +59,7 @@ class ComparableFilterTypeTest extends TestCase
     /** @test */
     public function it_works_for_greater_than_or_equal()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt>' => '2016-02-02 12:00:00'
         ]);
 
