@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ ubuntu-latest ]
-        php-version: [ '8.0' ]
+        php-version: [ '7.4' ]
         coverage-driver: [ xdebug ]
         include:
           - { operating-system: 'ubuntu-latest', php-version: '7.4', coverage-driver: 'xdebug'}
@@ -37,6 +37,12 @@ jobs:
       - name: "Install requirements"
         run: |
           make install
+      - name: "Static analysis"
+        run: |
+          make static-analysis
       - name: "Unit Testing"
         run: |
           make unit
+      - name: "Mutation Testing"
+        run: |
+          make mutation-testing
