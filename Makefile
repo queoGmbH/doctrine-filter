@@ -5,6 +5,7 @@ install:
 .PHONY: static-analysis
 static-analysis:
 	rm -rf tests/Dummy/TestProxy
+	php link_phpstan_baseline.php
 	composer phpstan
 
 .PHONY: unit
