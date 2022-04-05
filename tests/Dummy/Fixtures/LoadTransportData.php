@@ -4,10 +4,10 @@ namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
 use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Bike;
 use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Car;
 use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Engine;
+use Doctrine\Persistence\ObjectManager;
 
 class LoadTransportData extends AbstractFixture implements OrderedFixtureInterface
 {

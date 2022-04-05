@@ -4,8 +4,8 @@ namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
 use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Category;
+use Doctrine\Persistence\ObjectManager;
 
 class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterface
 {
