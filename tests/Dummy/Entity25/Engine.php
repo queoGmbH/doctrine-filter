@@ -1,6 +1,6 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity25;
+namespace Queo\DoctrineFilter\Tests\Dummy\Entity25;
 
 use Doctrine\ORM\Mapping as ORM;
 

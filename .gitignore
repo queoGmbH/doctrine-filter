@@ -2,3 +2,15 @@
 /tests/Dummy/TestProxy
 /vendor
 composer.lock
+
+#
+# Test Output
+#
+/build/cache/*
+!build/cache/.gitkeep
+/build/config/base/*
+!build/config/base/.gitkeep
+/build/coverage/
+/build/logs/*
+/build/metrics/
+.phpunit.result.cache

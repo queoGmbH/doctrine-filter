@@ -1,32 +1,32 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests;
+namespace Queo\DoctrineFilter\Tests;
 
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Bike;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Bike;
 use Doctrine\ORM\QueryBuilder;
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Car;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Person;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Tag;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Transport;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity25\Ship;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadShipData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
-use BiteCodes\DoctrineFilter\Type\EqualFilterType;
-use BiteCodes\DoctrineFilter\Type\GreaterThanEqualFilterType;
-use BiteCodes\DoctrineFilter\Type\InstanceOfFilterType;
-use BiteCodes\DoctrineFilter\Type\LikeFilterType;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Car;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Person;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Tag;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Transport;
+use Queo\DoctrineFilter\Tests\Dummy\Entity25\Harbour;
+use Queo\DoctrineFilter\Tests\Dummy\Entity25\Ship;
+use Queo\DoctrineFilter\Tests\Dummy\Filter\TestFilter;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPersonData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadShipData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadTransportData;
+use Queo\DoctrineFilter\Type\EqualFilterType;
+use Queo\DoctrineFilter\Type\GreaterThanEqualFilterType;
+use Queo\DoctrineFilter\Type\InstanceOfFilterType;
+use Queo\DoctrineFilter\Type\LikeFilterType;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadCategoryData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 use Doctrine\ORM\Version;
 
 class FilterBuilderTest extends TestCase
@@ -69,7 +69,10 @@ class FilterBuilderTest extends TestCase
         };
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group now
+     */
     public function it_returns_the_added_filters()
     {
         $builder = new FilterBuilder();
@@ -83,7 +86,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_tracks_parameters_by_their_own_value()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post title',
             'content' => 'My post content!'
         ]);
@@ -95,7 +98,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_queries_relationships()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => 'Tag 1',
         ]);
 
@@ -106,7 +109,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_returns_no_results_if_relation_ship_query_is_not_fullfilled()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => 'Tag 4',
         ]);
 
@@ -116,7 +119,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_queries_deeply_nested_relationships()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'category' => 'Category 1',
         ]);
 
@@ -127,7 +130,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_returns_no_result_if_deeply_nested_relationship_query_is_not_fullfilled()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'category' => 'Category 2000',
         ]);
 
@@ -137,7 +140,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function it_can_handle_multiple_relationship_queries()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post title',
             'tags' => 'Tag 2',
             'category' => 'Category 1'
@@ -145,7 +148,7 @@ class FilterBuilderTest extends TestCase
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post title',
             'tags' => 'Tag 2',
             'category' => 'Category 2'
@@ -156,11 +159,12 @@ class FilterBuilderTest extends TestCase
 
     /**
      * @test
-     * @expectedException Doctrine\ORM\Query\QueryException
      */
     public function it_does_throw_an_exception_if_field_does_not_exist()
     {
-        $this->em->getRepository(Post::class)->filter($this->filter, [
+        self::expectException(\Doctrine\ORM\Query\QueryException::class);
+
+        self::$em->getRepository(Post::class)->filter($this->filter, [
             'blog' => 'Blog A'
         ]);
     }
@@ -180,13 +184,13 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $res1 = $this->em->getRepository(Ship::class)->filter($filter, [
+        $res1 = self::$em->getRepository(Ship::class)->filter($filter, [
             'horsepower' => 400
         ]);
 
         $this->assertEmpty($res1);
 
-        $res2 = $this->em->getRepository(Ship::class)->filter($filter, [
+        $res2 = self::$em->getRepository(Ship::class)->filter($filter, [
             'horsepower' => 300
         ]);
 
@@ -208,13 +212,13 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $res1 = $this->em->getRepository(Harbour::class)->filter($filter, [
+        $res1 = self::$em->getRepository(Harbour::class)->filter($filter, [
             'horsepower' => 400
         ]);
 
         $this->assertEmpty($res1);
 
-        $res2 = $this->em->getRepository(Harbour::class)->filter($filter, [
+        $res2 = self::$em->getRepository(Harbour::class)->filter($filter, [
             'horsepower' => 300
         ]);
 
@@ -231,7 +235,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title_and_tags' => 'Tag 1'
         ]);
 
@@ -250,7 +254,7 @@ class FilterBuilderTest extends TestCase
                 });
         });
 
-        $tags = $this->em->getRepository(Tag::class)->filter($this->filter, [
+        $tags = self::$em->getRepository(Tag::class)->filter($this->filter, [
             'limitToOne' => true
         ]);
 
@@ -268,7 +272,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $cars = $this->em->getRepository(Transport::class)->filter($this->filter);
+        $cars = self::$em->getRepository(Transport::class)->filter($this->filter);
 
         $this->assertCount(2, $cars);
     }
@@ -283,7 +287,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $cars = $this->em->getRepository(Transport::class)->filter($this->filter, [
+        $cars = self::$em->getRepository(Transport::class)->filter($this->filter, [
             'type' => Bike::class
         ]);
 
@@ -303,7 +307,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $bikes = $this->em->getRepository(Transport::class)->filter($this->filter, [
+        $bikes = self::$em->getRepository(Transport::class)->filter($this->filter, [
             'type' => Bike::class
         ]);
 
@@ -321,7 +325,7 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'fullText' => 'My post content'
         ]);
 
@@ -339,13 +343,13 @@ class FilterBuilderTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'fullText' => 'ost'
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'fullText' => 'My post content'
         ]);
 
@@ -355,7 +359,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function the_filter_builder_can_be_used_multiple_times()
     {
-        $qb = $this->em->getRepository(Post::class)->createQueryBuilder('x');
+        $qb = self::$em->getRepository(Post::class)->createQueryBuilder('x');
         $builder = new FilterBuilder();
         $posts = $builder
             ->setQueryBuilder($qb)
@@ -376,7 +380,7 @@ class FilterBuilderTest extends TestCase
     /** @test */
     public function the_filter_can_be_set_again()
     {
-        $qb = $this->em->getRepository(Post::class)->createQueryBuilder('x');
+        $qb = self::$em->getRepository(Post::class)->createQueryBuilder('x');
         $builder = new FilterBuilder();
         $posts = $builder
             ->setQueryBuilder($qb)

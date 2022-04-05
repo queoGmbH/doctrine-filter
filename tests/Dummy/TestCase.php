@@ -1,49 +1,49 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy;
+namespace Queo\DoctrineFilter\Tests\Dummy;
 
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Version;
 
-abstract class TestCase extends \PHPUnit_Framework_TestCase
+abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var TestDb
      */
-    protected $testDb;
+    protected static $testDb;
 
     /**
      * @var EntityManager
      */
-    protected $em;
+    protected static $em;
 
-    public function setUp()
+
+    /** @beforeClass */
+    public static function init(): void
     {
-        parent::setUp();
-
         $here = dirname(__FILE__);
 
         $paths = [$here . '/Entity'];
 
-        if ($this->isAtLeastDoctrineVersion('2.5')) {
+        if (self::isAtLeastDoctrineVersion('2.5')) {
             $paths[] = $here . '/Entity25';
         }
 
-        $this->testDb = new TestDb(
+        self::$testDb = new TestDb(
             $paths,
             $here . '/TestProxy',
-            'BiteCodes\DoctrineFilter\Tests\Dummy\Entity'
+            'Queo\DoctrineFilter\Tests\Dummy\Entity'
         );
 
-        $this->em = $this->testDb->createEntityManager();
+        self::$em = self::$testDb->createEntityManager();
     }
+
 
     /**
      * @param $version
      * @return bool
      */
-    public function isAtLeastDoctrineVersion($version)
+    public static function isAtLeastDoctrineVersion($version)
     {
         return Version::compare($version) <= 0;
     }
@@ -73,7 +73,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
 
     protected function getDatabaseCount($entity, $criteria)
     {
-        $qb = $this->em
+        $qb = self::$em
             ->createQueryBuilder()
             ->select('COUNT(e)')
             ->from($entity, 'e');

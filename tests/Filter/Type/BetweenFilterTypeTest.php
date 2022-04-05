@@ -1,14 +1,14 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Type\BetweenFilterType;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Type\BetweenFilterType;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 use Doctrine\ORM\Query\Expr\Andx;
 
 class BetweenFilterTypeTest extends TestCase
@@ -23,16 +23,9 @@ class BetweenFilterTypeTest extends TestCase
     }
 
     /** @test */
-    public function it_expands()
-    {
-        $filter = new BetweenFilterType('horsepower', []);
-        $filter->expand(new FilterBuilder(), 'a', 'b', 'c', Andx::class);
-    }
-
-    /** @test */
     public function it_returns_a_result_if_the_value_is_within_the_range()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt_since' => '2015-12-01 12:00:00',
             'createdAt_until' => '2016-01-31 12:00:00'
         ]);
@@ -44,7 +37,7 @@ class BetweenFilterTypeTest extends TestCase
     /** @test */
     public function it_does_not_return_a_result_if_the_value_if_not_within_the_range()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt_since' => '2016-02-01 12:00:00',
             'createdAt_until' => '2016-03-31 12:00:00'
         ]);
@@ -62,13 +55,13 @@ class BetweenFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt_until' => '2016-01-01 13:00:00',
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt_until' => '2016-01-01 12:00:00',
         ]);
 
@@ -85,13 +78,13 @@ class BetweenFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt_since' => '2016-01-01 11:00:00',
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt_since' => '2016-01-01 12:00:00',
         ]);
 
@@ -109,14 +102,14 @@ class BetweenFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt_from' => '2016-01-01 11:00:00',
             'createdAt_to' => '2016-01-01 13:00:00',
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt_from' => '2016-01-01 13:00:00',
             'createdAt_to' => '2016-01-01 14:00:00',
         ]);

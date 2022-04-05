@@ -1,14 +1,14 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Type\LikeFilterType;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Type\LikeFilterType;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Filter\PostFilter;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 
 class LikeFilterTypeTest extends TestCase
 {
@@ -25,7 +25,7 @@ class LikeFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_an_entity_if_the_database_value_contains_the_search_value()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'post'
         ]);
 
@@ -36,7 +36,7 @@ class LikeFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_no_results_if_the_database_value_does_not_contain_the_search_value()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'quark'
         ]);
 
@@ -53,13 +53,13 @@ class LikeFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'My post'
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'post'
         ]);
 
@@ -76,13 +76,13 @@ class LikeFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'content!'
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'My post'
         ]);
 
@@ -100,19 +100,19 @@ class LikeFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'post_content' => 'title content'
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'post_content' => 'content'
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'post_content' => 'unknown content'
         ]);
 
@@ -130,7 +130,7 @@ class LikeFilterTypeTest extends TestCase
                 ]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'post_content' => '  title   content  '
         ]);
 

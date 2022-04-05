@@ -1,0 +1,2737 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method getFields\\(\\) on mixed\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:add\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:add\\(\\) has parameter \\$filterName with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:add\\(\\) has parameter \\$options with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addAllJoins\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addAllJoins\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addFilterToQuery\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addFilterToQuery\\(\\) has parameter \\$filterName with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addFilterToQuery\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addFiltersToQuery\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addFiltersToQuery\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addJoin\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:buildQuery\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:create\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getEntityClassFromAlias\\(\\) has parameter \\$alias with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getEntityClassFromAlias\\(\\) should return string but returns false\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getEntityClassFromAlias\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getFieldsFromFilterName\\(\\) has parameter \\$searchFilter with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getFieldsFromFilterName\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getFilters\\(\\) should return array\\<Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\> but returns array\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getRegistry\\(\\) should return Queo\\\\DoctrineFilter\\\\FilterRegistry but returns Queo\\\\DoctrineFilter\\\\FilterRegistry\\|null\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getRelationshipField\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getRelationshipField\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getResult\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getResult\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getResult\\(\\) should return array but returns mixed\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:getRootAlias\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:isEmbeddable\\(\\) has parameter \\$entity with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:isEmbeddable\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:isRelationship\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:orderBy\\(\\) has parameter \\$filterName with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:orderBy\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:placeValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:resetBuilder\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:setParametersToQuery\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:splitOnDot\\(\\) has parameter \\$string with no type specified\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:splitOnDot\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$alias\\)\\: Unexpected token \"\\$alias\", expected type at offset 65$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$entity\\)\\: Unexpected token \"\\$entity\", expected type at offset 39$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$field\\)\\: Unexpected token \"\\$field\", expected type at offset 115$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$field\\)\\: Unexpected token \"\\$field\", expected type at offset 145$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$field\\)\\: Unexpected token \"\\$field\", expected type at offset 18$#"
+			count: 3
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filter\\)\\: Unexpected token \"\\$filter\", expected type at offset 86$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filterName\\)\\: Unexpected token \"\\$filterName\", expected type at offset 18$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filterName\\)\\: Unexpected token \"\\$filterName\", expected type at offset 60$#"
+			count: 2
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$options\\)\\: Unexpected token \"\\$options\", expected type at offset 108$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchFilter\\)\\: Unexpected token \"\\$searchFilter\", expected type at offset 18$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 18$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 57$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 92$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$string\\)\\: Unexpected token \"\\$string\", expected type at offset 18$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$table\\)\\: Unexpected token \"\\$table\", expected type at offset 136$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$value\\)\\: Unexpected token \"\\$value\", expected type at offset 127$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$value\\)\\: Unexpected token \"\\$value\", expected type at offset 44$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$args of method Doctrine\\\\ORM\\\\Query\\\\Expr\\\\Base\\:\\:addMultiple\\(\\) expects array\\<int, object\\|string\\>\\|object\\|string, array\\<int, Doctrine\\\\Common\\\\Collections\\\\Expr\\\\Expression\\|null\\> given\\.$#"
+			count: 2
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_splice expects array, array\\<int, string\\>\\|false given\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$className of method Doctrine\\\\ORM\\\\EntityManagerInterface\\:\\:getClassMetadata\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$className of method Doctrine\\\\ORM\\\\EntityManagerInterface\\:\\:getRepository\\(\\) expects class\\-string\\<mixed\\>, string given\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Parameter \\#2 \\$alias of method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:addJoin\\(\\) expects null, mixed given\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Parameter \\#3 \\$closure of class Queo\\\\DoctrineFilter\\\\Type\\\\ClosureFilterType constructor expects Closure, callable\\(\\)\\: mixed given\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:\\$filters has unknown class Queo\\\\DoctrineFilter\\\\AbstractType as its type\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:\\$filters with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:\\$joinAliases type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:\\$orderBy type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:\\$parametersMap type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Unable to resolve the template type T in call to method Doctrine\\\\ORM\\\\EntityManagerInterface\\:\\:getRepository\\(\\)$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Variable \\$orExpressions might not be defined\\.$#"
+			count: 1
+			path: ../../src/FilterBuilder.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterInterface\\:\\:buildFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/FilterInterface.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterRegistry\\:\\:__construct\\(\\) has parameter \\$filters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/FilterRegistry.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\FilterRegistry\\:\\:add\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/FilterRegistry.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:__construct\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:add\\(\\) has parameter \\$expr with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:add\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:addToFilters\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:addToFilters\\(\\) has parameter \\$filters with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection but does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:getResolvedOptions\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:getResolvedOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$expr\\)\\: Unexpected token \"\\$expr\", expected type at offset 70$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$field\\)\\: Unexpected token \"\\$field\", expected type at offset 103$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$table\\)\\: Unexpected token \"\\$table\", expected type at offset 82$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$value\\)\\: Unexpected token \"\\$value\", expected type at offset 61$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$where\\)\\: Unexpected token \"\\$where\", expected type at offset 124$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$where\\)\\: Unexpected token \"\\$where\", expected type at offset 49$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Type\\\\AbstractFilterType\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../src/Type/AbstractFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:addToFilters\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:addToFilters\\(\\) has parameter \\$filters with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection but does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:expand\\(\\) should return Doctrine\\\\ORM\\\\QueryBuilder but return statement is missing\\.$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BetweenFilterType\\:\\:getCleanOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BetweenFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BooleanFilterType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BooleanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BooleanFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BooleanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BooleanFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BooleanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BooleanFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BooleanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BooleanFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/BooleanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\BooleanFilterType\\:\\:expand\\(\\) should return Doctrine\\\\ORM\\\\QueryBuilder but empty return statement found\\.$#"
+			count: 1
+			path: ../../src/Type/BooleanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ClosureFilterType\\:\\:__construct\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ClosureFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ClosureFilterType\\:\\:__construct\\(\\) has parameter \\$options with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ClosureFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ClosureFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ClosureFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ClosureFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ClosureFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ClosureFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ClosureFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ClosureFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ClosureFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ClosureFilterType\\:\\:expand\\(\\) should return Doctrine\\\\ORM\\\\QueryBuilder but return statement is missing\\.$#"
+			count: 1
+			path: ../../src/Type/ClosureFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ComparableFilterType\\:\\:addToFilters\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ComparableFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ComparableFilterType\\:\\:addToFilters\\(\\) has parameter \\$filters with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection but does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../src/Type/ComparableFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ComparableFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ComparableFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ComparableFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ComparableFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ComparableFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ComparableFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ComparableFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/ComparableFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\ComparableFilterType\\:\\:expand\\(\\) should return Doctrine\\\\ORM\\\\QueryBuilder but return statement is missing\\.$#"
+			count: 1
+			path: ../../src/Type/ComparableFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\EqualFilterType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/EqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\EqualFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/EqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\EqualFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/EqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\EqualFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/EqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\EqualFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/EqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\GreaterThanEqualFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/GreaterThanEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\GreaterThanEqualFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/GreaterThanEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\GreaterThanEqualFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/GreaterThanEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\GreaterThanEqualFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/GreaterThanEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\GreaterThanFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/GreaterThanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\GreaterThanFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/GreaterThanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\GreaterThanFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/GreaterThanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\GreaterThanFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/GreaterThanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:buildQuery\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:buildQuery\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:buildQuery\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:buildQuery\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:buildQueryToMatchAll\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:buildQueryToMatchAll\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:buildQueryToMatchAll\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:buildQueryToMatchAll\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$field\\)\\: Unexpected token \"\\$field\", expected type at offset 142$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$field\\)\\: Unexpected token \"\\$field\", expected type at offset 164$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$table\\)\\: Unexpected token \"\\$table\", expected type at offset 121$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$table\\)\\: Unexpected token \"\\$table\", expected type at offset 143$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$value\\)\\: Unexpected token \"\\$value\", expected type at offset 100$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$value\\)\\: Unexpected token \"\\$value\", expected type at offset 122$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$where\\)\\: Unexpected token \"\\$where\", expected type at offset 163$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$where\\)\\: Unexpected token \"\\$where\", expected type at offset 185$#"
+			count: 1
+			path: ../../src/Type/InFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InstanceOfFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InstanceOfFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InstanceOfFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InstanceOfFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InstanceOfFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InstanceOfFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\InstanceOfFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/InstanceOfFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LessThanEqualFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LessThanEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LessThanEqualFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LessThanEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LessThanEqualFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LessThanEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LessThanEqualFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LessThanEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LessThanFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LessThanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LessThanFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LessThanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LessThanFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LessThanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LessThanFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LessThanFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LikeFilterType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LikeFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LikeFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LikeFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LikeFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LikeFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LikeFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LikeFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LikeFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LikeFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\LikeFilterType\\:\\:getLikeString\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/LikeFilterType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$value\\)\\: Unexpected token \"\\$value\", expected type at offset 18$#"
+			count: 1
+			path: ../../src/Type/LikeFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\NotEqualFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/NotEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\NotEqualFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/NotEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\NotEqualFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/NotEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\NotEqualFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/NotEqualFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\NotInFilterType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/NotInFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\NotInFilterType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/NotInFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\NotInFilterType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/NotInFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\NotInFilterType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/NotInFilterType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\OrderByType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../src/Type/OrderByType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\OrderByType\\:\\:expand\\(\\) has parameter \\$field with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/OrderByType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\OrderByType\\:\\:expand\\(\\) has parameter \\$table with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/OrderByType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\OrderByType\\:\\:expand\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/OrderByType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\OrderByType\\:\\:expand\\(\\) has parameter \\$where with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/OrderByType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\OrderByType\\:\\:expand\\(\\) should return Doctrine\\\\ORM\\\\QueryBuilder but empty return statement found\\.$#"
+			count: 1
+			path: ../../src/Type/OrderByType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Type\\\\OrderByType\\:\\:runOnlyWithParam\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: ../../src/Type/OrderByType.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$value\\)\\: Unexpected token \"\\$value\", expected type at offset 18$#"
+			count: 1
+			path: ../../src/Type/OrderByType.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Car\\:\\:setOwner\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Car.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Car\\:\\:\\$owner has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Car.php
+
+		-
+			message: "#^Class Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\CarRepo extends generic class Doctrine\\\\ORM\\\\EntityRepository but does not specify its types\\: T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\CarRepo\\:\\:filter\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\CarRepo\\:\\:filter\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\CarRepo\\:\\:filter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\CarRepo\\:\\:paginate\\(\\) has parameter \\$maxPerPage with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\CarRepo\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\CarRepo\\:\\:paginate\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\CarRepo\\:\\:paginate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filter\\)\\: Unexpected token \"\\$filter\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$maxPerPage\\)\\: Unexpected token \"\\$maxPerPage\", expected type at offset 104$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$page\\)\\: Unexpected token \"\\$page\", expected type at offset 84$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 40$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 56$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, array\\|Traversable given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/CarRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Category\\:\\:getTags\\(\\) has invalid return type Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tags\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Category.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Category\\:\\:getTags\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Category.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Category\\:\\:setName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Category.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Category\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Category.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Category\\:\\:\\$name has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Category.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Category\\:\\:\\$tags has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Category.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Person\\:\\:addCar\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Person.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Person\\:\\:removeCar\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Person.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Person\\:\\:removeCar\\(\\) has parameter \\$car with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Person.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$car with type mixed is not subtype of native type Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Car\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Person.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$car\\)\\: Unexpected token \"\\$car\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Person.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Person\\:\\:\\$cars with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Person.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Person\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Person.php
+
+		-
+			message: "#^Class Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PersonRepo extends generic class Doctrine\\\\ORM\\\\EntityRepository but does not specify its types\\: T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PersonRepo\\:\\:filter\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PersonRepo\\:\\:filter\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PersonRepo\\:\\:filter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PersonRepo\\:\\:paginate\\(\\) has parameter \\$maxPerPage with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PersonRepo\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PersonRepo\\:\\:paginate\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PersonRepo\\:\\:paginate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filter\\)\\: Unexpected token \"\\$filter\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$maxPerPage\\)\\: Unexpected token \"\\$maxPerPage\", expected type at offset 104$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$page\\)\\: Unexpected token \"\\$page\", expected type at offset 84$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 40$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 56$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, array\\|Traversable given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PersonRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:getTags\\(\\) has invalid return type Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tags\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:getTags\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:setContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:setCreatedAt\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:setIsPublished\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:setTitle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:\\$content has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:\\$createdAt has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:\\$isPublished has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:\\$tags has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:\\$title has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Post.php
+
+		-
+			message: "#^Class Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PostRepo extends generic class Doctrine\\\\ORM\\\\EntityRepository but does not specify its types\\: T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PostRepo\\:\\:filter\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PostRepo\\:\\:filter\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PostRepo\\:\\:filter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PostRepo\\:\\:paginate\\(\\) has parameter \\$maxPerPage with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PostRepo\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PostRepo\\:\\:paginate\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\PostRepo\\:\\:paginate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filter\\)\\: Unexpected token \"\\$filter\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$maxPerPage\\)\\: Unexpected token \"\\$maxPerPage\", expected type at offset 104$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$page\\)\\: Unexpected token \"\\$page\", expected type at offset 84$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 40$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 56$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, array\\|Traversable given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/PostRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\:\\:getPosts\\(\\) has invalid return type Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Posts\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Tag.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\:\\:getPosts\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Tag.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\:\\:setCategory\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Tag.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\:\\:setName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Tag.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\:\\:\\$category has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Tag.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Tag.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\:\\:\\$name has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Tag.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\:\\:\\$posts has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Tag.php
+
+		-
+			message: "#^Class Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TagRepo extends generic class Doctrine\\\\ORM\\\\EntityRepository but does not specify its types\\: T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TagRepo\\:\\:filter\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TagRepo\\:\\:filter\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TagRepo\\:\\:filter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TagRepo\\:\\:paginate\\(\\) has parameter \\$maxPerPage with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TagRepo\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TagRepo\\:\\:paginate\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TagRepo\\:\\:paginate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filter\\)\\: Unexpected token \"\\$filter\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$maxPerPage\\)\\: Unexpected token \"\\$maxPerPage\", expected type at offset 104$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$page\\)\\: Unexpected token \"\\$page\", expected type at offset 84$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 40$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 56$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, array\\|Traversable given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TagRepo.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Transport\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/Transport.php
+
+		-
+			message: "#^Class Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TransportRepo extends generic class Doctrine\\\\ORM\\\\EntityRepository but does not specify its types\\: T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TransportRepo\\:\\:filter\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TransportRepo\\:\\:filter\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TransportRepo\\:\\:filter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TransportRepo\\:\\:paginate\\(\\) has parameter \\$maxPerPage with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TransportRepo\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TransportRepo\\:\\:paginate\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\TransportRepo\\:\\:paginate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filter\\)\\: Unexpected token \"\\$filter\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$maxPerPage\\)\\: Unexpected token \"\\$maxPerPage\", expected type at offset 104$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$page\\)\\: Unexpected token \"\\$page\", expected type at offset 84$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 40$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 56$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, array\\|Traversable given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity/TransportRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Engine\\:\\:setCylinder\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Engine.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Engine\\:\\:setHorsepower\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Engine.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Engine\\:\\:\\$cylinder has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Engine.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Harbour\\:\\:addShip\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Harbour.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Harbour\\:\\:removeShip\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Harbour.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Harbour\\:\\:removeShip\\(\\) has parameter \\$ship with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Harbour.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$ship with type mixed is not subtype of native type Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Ship\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Harbour.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$ship\\)\\: Unexpected token \"\\$ship\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Harbour.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Harbour\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Harbour.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Harbour\\:\\:\\$ships has unknown class Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Car as its type\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Harbour.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Harbour\\:\\:\\$ships with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Harbour.php
+
+		-
+			message: "#^Class Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\HarbourRepo extends generic class Doctrine\\\\ORM\\\\EntityRepository but does not specify its types\\: T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\HarbourRepo\\:\\:filter\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\HarbourRepo\\:\\:filter\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\HarbourRepo\\:\\:filter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\HarbourRepo\\:\\:paginate\\(\\) has parameter \\$maxPerPage with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\HarbourRepo\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\HarbourRepo\\:\\:paginate\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\HarbourRepo\\:\\:paginate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filter\\)\\: Unexpected token \"\\$filter\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$maxPerPage\\)\\: Unexpected token \"\\$maxPerPage\", expected type at offset 104$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$page\\)\\: Unexpected token \"\\$page\", expected type at offset 84$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 40$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 56$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, array\\|Traversable given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/HarbourRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Ship\\:\\:setEngine\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Ship.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Ship\\:\\:setOwner\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Ship.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Ship\\:\\:\\$engine \\(Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Engine\\) does not accept mixed\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Ship.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Ship\\:\\:\\$harbour has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Ship.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Ship\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/Ship.php
+
+		-
+			message: "#^Class Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\ShipRepo extends generic class Doctrine\\\\ORM\\\\EntityRepository but does not specify its types\\: T$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\ShipRepo\\:\\:filter\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\ShipRepo\\:\\:filter\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\ShipRepo\\:\\:filter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\ShipRepo\\:\\:paginate\\(\\) has parameter \\$maxPerPage with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\ShipRepo\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\ShipRepo\\:\\:paginate\\(\\) has parameter \\$searchParams with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\ShipRepo\\:\\:paginate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$filter\\)\\: Unexpected token \"\\$filter\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$maxPerPage\\)\\: Unexpected token \"\\$maxPerPage\", expected type at offset 104$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$page\\)\\: Unexpected token \"\\$page\", expected type at offset 84$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 40$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$searchParams\\)\\: Unexpected token \"\\$searchParams\", expected type at offset 56$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, array\\|Traversable given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Entity25/ShipRepo.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Filter\\\\TestFilter\\:\\:buildFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Filter/TestFilter.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Filter\\\\TestFilter\\:\\:defineFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Filter/TestFilter.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadCategoryData\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadCategoryData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPersonData\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPersonData.php
+
+		-
+			message: "#^Parameter \\#1 \\$car of method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Person\\:\\:addCar\\(\\) expects Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Car, object given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPersonData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPostCollectionData\\:\\:createNewPost\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostCollectionData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPostCollectionData\\:\\:createNewPost\\(\\) has parameter \\$content with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostCollectionData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPostCollectionData\\:\\:createNewPost\\(\\) has parameter \\$createdAt with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostCollectionData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPostCollectionData\\:\\:createNewPost\\(\\) has parameter \\$tag with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostCollectionData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPostCollectionData\\:\\:createNewPost\\(\\) has parameter \\$title with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostCollectionData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPostCollectionData\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostCollectionData.php
+
+		-
+			message: "#^Parameter \\#1 \\$tag of method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:addTag\\(\\) expects Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag, object given\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostCollectionData.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPostCollectionData\\:\\:\\$manager has no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostCollectionData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadPostData\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadPostData.php
+
+		-
+			message: "#^Parameter \\#1 \\$tag of method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\:\\:addTag\\(\\) expects Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag, object given\\.$#"
+			count: 2
+			path: ../../tests/Dummy/Fixtures/LoadPostData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadShipData\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadShipData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadTagData\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadTagData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Fixtures\\\\LoadTransportData\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/Fixtures/LoadTransportData.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:getDatabaseCount\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:getDatabaseCount\\(\\) has parameter \\$criteria with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:getDatabaseCount\\(\\) has parameter \\$entity with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:isAtLeastDoctrineVersion\\(\\) has parameter \\$version with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:seeInDatabase\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:seeInDatabase\\(\\) has parameter \\$criteria with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:seeInDatabase\\(\\) has parameter \\$entity with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:seeNotInDatabase\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:seeNotInDatabase\\(\\) has parameter \\$criteria with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestCase\\:\\:seeNotInDatabase\\(\\) has parameter \\$entity with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$version\\)\\: Unexpected token \"\\$version\", expected type at offset 18$#"
+			count: 1
+			path: ../../tests/Dummy/TestCase.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestDb\\:\\:__construct\\(\\) has parameter \\$annotationPaths with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestDb.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestDb\\:\\:createSchema\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestDb.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$annotationPaths with type string is incompatible with native type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestDb.php
+
+		-
+			message: "#^Property Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\TestDb\\:\\:\\$connectionOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Dummy/TestDb.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Harbour\\>\\:\\:filter\\(\\)\\.$#"
+			count: 2
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity25\\\\Ship\\>\\:\\:filter\\(\\)\\.$#"
+			count: 2
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 12
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Tag\\>\\:\\:filter\\(\\)\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Transport\\>\\:\\:filter\\(\\)\\.$#"
+			count: 3
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:a_default_value_can_be_set\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:all_field_values_have_to_be_found_when_match_all_is_true\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_can_filter_on_embeddables\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_can_filter_on_embeddables_on_relationships\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_can_handle_multiple_relationship_queries\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_does_throw_an_exception_if_field_does_not_exist\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_is_possible_to_pass_a_callback_to_the_add_function\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_is_possible_to_query_on_multiple_fields\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_queries_deeply_nested_relationships\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_queries_relationships\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_returns_no_result_if_deeply_nested_relationship_query_is_not_fullfilled\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_returns_no_results_if_relation_ship_query_is_not_fullfilled\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_returns_the_added_filters\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:it_tracks_parameters_by_their_own_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:only_one_of_the_field_values_has_to_be_found_when_match_all_is_false\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:the_default_value_can_be_overridden_when_allowed\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:the_default_value_does_not_get_overridden_by_default\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:the_filter_builder_can_be_used_multiple_times\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\FilterBuilderTest\\:\\:the_filter_can_be_set_again\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/FilterBuilderTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:paginate\\(\\)\\.$#"
+			count: 4
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Traits\\\\EntityFilterTraitTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Traits\\\\EntityFilterTraitTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Traits\\\\EntityFilterTraitTest\\:\\:it_exposes_the_paginator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Traits\\\\EntityFilterTraitTest\\:\\:it_paginates_results\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Traits\\\\EntityFilterTraitTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Traits\\\\EntityFilterTraitTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$defaultSortOrder of method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:orderBy\\(\\) expects null, string given\\.$#"
+			count: 1
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Undefined variable\\: \\$paginator$#"
+			count: 8
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Variable \\$paginator in PHPDoc tag @var does not exist\\.$#"
+			count: 1
+			path: ../../tests/Filter/Traits/EntityFilterTraitTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\AbstractFilterTypeTest\\:\\:all_filters_have_fields_default_and_default_override_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/AbstractFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\AbstractFilterTypeTest\\:\\:all_filters_have_fields_default_and_default_override_option\\(\\) has parameter \\$filterClass with no type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/AbstractFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\AbstractFilterTypeTest\\:\\:filters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/AbstractFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\AbstractFilterTypeTest\\:\\:it_sets_the_correct_values\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/AbstractFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 8
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:it_does_not_include_lower_bound_if_option_is_set\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:it_does_not_include_upper_bound_if_option_is_set\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:it_does_not_return_a_result_if_the_value_if_not_within_the_range\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:it_returns_a_result_if_the_value_is_within_the_range\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BetweenFilterTypeTest\\:\\:suffixes_can_be_changed\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BetweenFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 8
+			path: ../../tests/Filter/Type/BooleanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BooleanFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BooleanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BooleanFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BooleanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BooleanFilterTypeTest\\:\\:it_returns_entities_for_falsy_values\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BooleanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BooleanFilterTypeTest\\:\\:it_returns_entities_for_truthy_values\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BooleanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BooleanFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BooleanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BooleanFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BooleanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\BooleanFilterTypeTest\\:\\:truthy_and_falsy_values_can_be_set\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/BooleanFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 2
+			path: ../../tests/Filter/Type/ClosureFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ClosureFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ClosureFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ClosureFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ClosureFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ClosureFilterTypeTest\\:\\:it_includes_the_values_correctly_to_the_query\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ClosureFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ClosureFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ClosureFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ClosureFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ClosureFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 3
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ComparableFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ComparableFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ComparableFilterTypeTest\\:\\:it_works_for_greater_than_or_equal\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ComparableFilterTypeTest\\:\\:it_works_for_less_than_or_equal\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ComparableFilterTypeTest\\:\\:it_works_for_not_equal\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ComparableFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\ComparableFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$defaultSortOrder of method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:orderBy\\(\\) expects null, string given\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/ComparableFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 5
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\EqualFilterTypeTest\\:\\:case_sensitivity_can_be_turned_off\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\EqualFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\EqualFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\EqualFilterTypeTest\\:\\:it_returns_an_entity_if_the_search_value_is_exactly_the_same\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\EqualFilterTypeTest\\:\\:it_returns_no_results_if_there_is_no_entity_with_the_exact_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\EqualFilterTypeTest\\:\\:it_works_with_boolean_values\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\EqualFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\EqualFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/EqualFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 3
+			path: ../../tests/Filter/Type/GreaterThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanEqualFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanEqualFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanEqualFilterTypeTest\\:\\:it_returns_an_entity_if_the_search_value_is_equal_to_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanEqualFilterTypeTest\\:\\:it_returns_an_entity_if_the_search_value_is_less_than_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanEqualFilterTypeTest\\:\\:it_returns_no_results_if_the_search_value_is_greater_than_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanEqualFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanEqualFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 3
+			path: ../../tests/Filter/Type/GreaterThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanFilterTypeTest\\:\\:it_returns_an_entity_if_the_search_value_is_less_than_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanFilterTypeTest\\:\\:it_returns_no_result_if_the_search_value_is_equal_to_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanFilterTypeTest\\:\\:it_returns_no_results_if_the_search_value_is_greater_than_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\GreaterThanFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/GreaterThanFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 7
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:for_match_all_it_handles_passing_in_the_same_value_multiple_times\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:it_handles_empty_values\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:it_returns_entites_when_value_is_in_search_query\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:it_returns_no_result_when_value_is_not_in_search_query\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:it_returns_only_entities_that_have_all_values\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Transport\\>\\:\\:filter\\(\\)\\.$#"
+			count: 4
+			path: ../../tests/Filter/Type/InstanceOfFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InstanceOfFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InstanceOfFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InstanceOfFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InstanceOfFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InstanceOfFilterTypeTest\\:\\:it_returns_only_instances_of_the_given_type\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InstanceOfFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InstanceOfFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InstanceOfFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InstanceOfFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InstanceOfFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\InstanceOfFilterTypeTest\\:\\:the_filter_accepts_the_discriminator_map_key\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/InstanceOfFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 3
+			path: ../../tests/Filter/Type/LessThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanEqualFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanEqualFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanEqualFilterTypeTest\\:\\:it_returns_an_entity_if_the_search_value_is_equal_to_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanEqualFilterTypeTest\\:\\:it_returns_an_entity_if_the_search_value_is_greater_than_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanEqualFilterTypeTest\\:\\:it_returns_no_results_if_the_search_value_is_less_than_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanEqualFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanEqualFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanEqualFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 3
+			path: ../../tests/Filter/Type/LessThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanFilterTypeTest\\:\\:it_returns_an_entity_if_the_search_value_is_greater_than_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanFilterTypeTest\\:\\:it_returns_no_result_if_the_search_value_is_equal_to_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanFilterTypeTest\\:\\:it_returns_no_results_if_the_search_value_is_less_than_the_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LessThanFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LessThanFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 10
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:it_accepts_partial_matching_with_multiple_spaces\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:it_allows_for_like_query_that_end_with_a_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:it_allows_for_like_query_that_start_with_a_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:it_finds_values_in_multiple_fields_but_it_only_requires_a_partial_match\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:it_returns_an_entity_if_the_database_value_contains_the_search_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:it_returns_no_results_if_the_database_value_does_not_contain_the_search_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\LikeFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/LikeFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotEqualFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotEqualFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotEqualFilterTypeTest\\:\\:it_returns_entities_if_the_search_value_is_not_exactly_the_same\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotEqualFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotEqualFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotEqualFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotEqualFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 3
+			path: ../../tests/Filter/Type/NotInFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotInFilterTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotInFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotInFilterTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotInFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotInFilterTypeTest\\:\\:it_filters_by_id\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotInFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotInFilterTypeTest\\:\\:it_returns_entites_when_value_is_not_in_search_query\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotInFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotInFilterTypeTest\\:\\:it_returns_no_result_when_value_is_in_search_query\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotInFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotInFilterTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotInFilterTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\NotInFilterTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/NotInFilterTypeTest.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\EntityRepository\\<Queo\\\\DoctrineFilter\\\\Tests\\\\Dummy\\\\Entity\\\\Post\\>\\:\\:filter\\(\\)\\.$#"
+			count: 10
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:doLoadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:filter_will_not_run_if_option_only_with_param_is_true_and_param_is_not_given\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:filter_will_run_if_option_only_with_param_is_true_and_param_is_given\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:getFilterDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:it_ignores_input_other_than_asc_or_desc\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:it_ignores_param_value_if_default_sort_order_is_given\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:it_orders_by_fields_of_relationsships\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:it_orders_results_by_a_column_ascending\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:it_orders_results_by_default_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:it_orders_results_by_value_of_parameter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:loadFixtures\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:multiple_filters_can_be_used\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:order_by_can_have_a_different_name\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Method Queo\\\\DoctrineFilter\\\\Tests\\\\Filter\\\\Type\\\\OrderByTypeTest\\:\\:setUpTestFilter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$defaultSortOrder of method Queo\\\\DoctrineFilter\\\\FilterBuilder\\:\\:orderBy\\(\\) expects null, string given\\.$#"
+			count: 5
+			path: ../../tests/Filter/Type/OrderByTypeTest.php
+

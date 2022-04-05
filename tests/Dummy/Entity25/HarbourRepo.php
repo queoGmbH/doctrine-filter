@@ -1,9 +1,9 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity25;
+namespace Queo\DoctrineFilter\Tests\Dummy\Entity25;
 
 use Doctrine\ORM\EntityRepository;
-use BiteCodes\DoctrineFilter\Traits\EntityFilterTrait;
+use Queo\DoctrineFilter\Traits\EntityFilterTrait;
 
 class HarbourRepo extends EntityRepository
 {

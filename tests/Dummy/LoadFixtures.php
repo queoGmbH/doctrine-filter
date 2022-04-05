@@ -1,11 +1,11 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy;
+namespace Queo\DoctrineFilter\Tests\Dummy;
 
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\Loader;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
 
 trait LoadFixtures
 {
@@ -18,7 +18,7 @@ trait LoadFixtures
         }
 
         $purger = new ORMPurger();
-        $executor = new ORMExecutor($this->em, $purger);
+        $executor = new ORMExecutor(self::$em, $purger);
         $executor->execute($loader->getFixtures());
     }
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Traits;
+namespace Queo\DoctrineFilter\Tests\Filter\Traits;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 use Pagerfanta\Pagerfanta;
 
 class EntityFilterTraitTest extends TestCase
@@ -33,18 +33,18 @@ class EntityFilterTraitTest extends TestCase
     /** @test */
     public function it_paginates_results()
     {
-        $results = $this->em->getRepository(Post::class)->paginate($this->filter, [], 1, 2);
+        $results = self::$em->getRepository(Post::class)->paginate($this->filter, [], 1, 2);
 
         $this->assertCount(2, $results);
         $this->assertEquals('Post 3', $results[0]->getTitle());
         $this->assertEquals('Post 2', $results[1]->getTitle());
 
-        $results = $this->em->getRepository(Post::class)->paginate($this->filter, [], 2, 2);
+        $results = self::$em->getRepository(Post::class)->paginate($this->filter, [], 2, 2);
 
         $this->assertCount(1, $results);
         $this->assertEquals('Post 1', $results[0]->getTitle());
 
-        $results = $this->em->getRepository(Post::class)->paginate($this->filter, [], 3, 2);
+        $results = self::$em->getRepository(Post::class)->paginate($this->filter, [], 3, 2);
 
         $this->assertCount(0, $results);
     }
@@ -53,7 +53,7 @@ class EntityFilterTraitTest extends TestCase
     public function it_exposes_the_paginator()
     {
         /** @var Pagerfanta $paginator */
-        $this->em->getRepository(Post::class)->paginate($this->filter, [], 1, 2, $paginator);
+        self::$em->getRepository(Post::class)->paginate($this->filter, [], 1, 2, $paginator);
 
         $this->assertInstanceOf(Pagerfanta::class, $paginator);
         $this->assertCount(2, $paginator->getCurrentPageResults());

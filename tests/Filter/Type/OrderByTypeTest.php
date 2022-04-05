@@ -1,14 +1,14 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 
 class OrderByTypeTest extends TestCase
 {
@@ -33,7 +33,7 @@ class OrderByTypeTest extends TestCase
     /** @test */
     public function it_orders_results_by_a_column_ascending()
     {
-        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $result = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt' => 'ASC'
         ]);
 
@@ -51,7 +51,7 @@ class OrderByTypeTest extends TestCase
                 ->orderBy('createdAt', 'DESC');
         });
 
-        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $result = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt' => 'ASC' // Will be ignored as default is set
         ]);
 
@@ -69,7 +69,7 @@ class OrderByTypeTest extends TestCase
                 ->orderBy('createdAt');
         });
 
-        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $result = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt' => 'DESC'
         ]);
 
@@ -87,7 +87,7 @@ class OrderByTypeTest extends TestCase
                 ->orderBy('createdAt', 'DESC');
         });
 
-        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $result = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt' => 'ASC'
         ]);
 
@@ -107,7 +107,7 @@ class OrderByTypeTest extends TestCase
                 ]);
         });
 
-        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $result = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt' => 'DESC'
         ]);
 
@@ -127,7 +127,7 @@ class OrderByTypeTest extends TestCase
                 ]);
         });
 
-        $result = $this->em->getRepository(Post::class)->filter($this->filter);
+        $result = self::$em->getRepository(Post::class)->filter($this->filter);
 
         $this->assertCount(3, $result);
         $this->assertEquals('Post 2', $result[0]->getTitle());
@@ -145,7 +145,7 @@ class OrderByTypeTest extends TestCase
                 ]);
         });
 
-        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $result = self::$em->getRepository(Post::class)->filter($this->filter, [
             'date' => 'DESC'
         ]);
 
@@ -165,7 +165,7 @@ class OrderByTypeTest extends TestCase
                 ]);
         });
 
-        $result = $this->em->getRepository(Post::class)->filter($this->filter);
+        $result = self::$em->getRepository(Post::class)->filter($this->filter);
 
         $this->assertCount(3, $result);
         $this->assertEquals('Post 2', $result[0]->getTitle());
@@ -182,7 +182,7 @@ class OrderByTypeTest extends TestCase
                 ->orderBy('title', 'ASC');
         });
 
-        $result = $this->em->getRepository(Post::class)->filter($this->filter);
+        $result = self::$em->getRepository(Post::class)->filter($this->filter);
 
         $this->assertCount(3, $result);
         $this->assertEquals('Post 3', $result[0]->getTitle());
@@ -193,7 +193,7 @@ class OrderByTypeTest extends TestCase
     /** @test */
     public function it_ignores_input_other_than_asc_or_desc()
     {
-        $result = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $result = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt' => 'nonsense'
         ]);
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
 use Doctrine\ORM\QueryBuilder;
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 
 class ClosureFilterTypeTest extends TestCase
 {
@@ -41,13 +41,13 @@ class ClosureFilterTypeTest extends TestCase
     /** @test */
     public function it_includes_the_values_correctly_to_the_query()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'Post 1'
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'content' => 'Other content'
         ]);
 

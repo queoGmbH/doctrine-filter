@@ -1,11 +1,11 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures;
+namespace Queo\DoctrineFilter\Tests\Dummy\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Person;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Person;
+use Doctrine\Persistence\ObjectManager;
 
 class LoadPersonData extends AbstractFixture implements OrderedFixtureInterface
 {

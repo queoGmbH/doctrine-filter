@@ -1,14 +1,14 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
-use BiteCodes\DoctrineFilter\Type\NotEqualFilterType;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\Type\NotEqualFilterType;
 
 class NotEqualFilterTypeTest extends TestCase
 {
@@ -33,7 +33,7 @@ class NotEqualFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_entities_if_the_search_value_is_not_exactly_the_same()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post 1'
         ]);
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity;
+namespace Queo\DoctrineFilter\Tests\Dummy\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Car
  *
- * @ORM\Entity(repositoryClass="BiteCodes\DoctrineFilter\Tests\Dummy\Entity\CarRepo")
+ * @ORM\Entity(repositoryClass="Queo\DoctrineFilter\Tests\Dummy\Entity\CarRepo")
  */
 class Car extends Transport
 {

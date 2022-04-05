@@ -1,8 +1,8 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Type;
+namespace Queo\DoctrineFilter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\FilterBuilder;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class LikeFilterType extends AbstractFilterType

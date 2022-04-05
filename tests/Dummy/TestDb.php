@@ -1,10 +1,9 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy;
+namespace Queo\DoctrineFilter\Tests\Dummy;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
-use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\ORM\Configuration;
 
 class TestDb
@@ -26,11 +25,8 @@ class TestDb
      */
     public function __construct(array $annotationPaths, $proxyDir, $proxyNamespace)
     {
-        $cache = new ArrayCache();
 
         $config = new Configuration();
-        $config->setMetadataCacheImpl($cache);
-        $config->setQueryCacheImpl($cache);
         $config->setMetadataDriverImpl(
             $config->newDefaultAnnotationDriver($annotationPaths, false)
         );

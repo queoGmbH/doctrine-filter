@@ -1,9 +1,9 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Dummy\Entity;
+namespace Queo\DoctrineFilter\Tests\Dummy\Entity;
 
 use Doctrine\ORM\EntityRepository;
-use BiteCodes\DoctrineFilter\Traits\EntityFilterTrait;
+use Queo\DoctrineFilter\Traits\EntityFilterTrait;
 
 class PersonRepo extends EntityRepository
 {

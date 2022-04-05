@@ -1,6 +1,6 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Type;
+namespace Queo\DoctrineFilter\Type;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Expr\Comparison;
@@ -9,7 +9,7 @@ use Doctrine\ORM\Query\Expr\Andx;
 use Doctrine\ORM\Query\Expr\Base;
 use Doctrine\ORM\Query\Expr\Orx;
 use Doctrine\ORM\QueryBuilder;
-use BiteCodes\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\FilterBuilder;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 abstract class AbstractFilterType

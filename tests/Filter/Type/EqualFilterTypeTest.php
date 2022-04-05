@@ -1,13 +1,13 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Type\EqualFilterType;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Type\EqualFilterType;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
 
 class EqualFilterTypeTest extends TestCase
 {
@@ -26,7 +26,7 @@ class EqualFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_an_entity_if_the_search_value_is_exactly_the_same()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Post title with Tag 1'
         ]);
 
@@ -37,7 +37,7 @@ class EqualFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_no_results_if_there_is_no_entity_with_the_exact_value()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'Another title'
         ]);
 
@@ -47,13 +47,13 @@ class EqualFilterTypeTest extends TestCase
     /** @test */
     public function it_works_with_boolean_values()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => false
         ]);
 
         $this->assertCount(1, $posts);
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'isPublished' => true
         ]);
 
@@ -68,7 +68,7 @@ class EqualFilterTypeTest extends TestCase
                 ->add('title', EqualFilterType::class, ['case_sensitive' => false]);
         });
 
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title' => 'post title with TAG 1'
         ]);
 

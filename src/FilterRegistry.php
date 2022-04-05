@@ -1,6 +1,6 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter;
+namespace Queo\DoctrineFilter;
 
 class FilterRegistry
 {

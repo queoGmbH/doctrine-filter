@@ -1,15 +1,15 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
-use BiteCodes\DoctrineFilter\Type\NotInFilterType;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostData;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadTagData;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\Type\NotInFilterType;
 
 class NotInFilterTypeTest extends TestCase
 {
@@ -39,7 +39,7 @@ class NotInFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_entites_when_value_is_not_in_search_query()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => ['Tag 1', 'Another Tag']
         ]);
 
@@ -49,7 +49,7 @@ class NotInFilterTypeTest extends TestCase
     /** @test */
     public function it_returns_no_result_when_value_is_in_search_query()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tags' => ['Tag 1', 'Tag 2']
         ]);
 
@@ -59,10 +59,10 @@ class NotInFilterTypeTest extends TestCase
     /** @test */
     public function it_filters_by_id()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'tagIds' => [1, 2]
         ]);
 
-        $this->assertCount(0, $posts);
+        $this->assertCount(1, $posts);
     }
 }

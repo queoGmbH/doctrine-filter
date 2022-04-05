@@ -1,10 +1,10 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Type;
+namespace Queo\DoctrineFilter\Type;
 
 use Doctrine\ORM\Query\Expr\Comparison;
 use Doctrine\ORM\Version;
-use BiteCodes\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\FilterBuilder;
 
 class InstanceOfFilterType extends AbstractFilterType
 {

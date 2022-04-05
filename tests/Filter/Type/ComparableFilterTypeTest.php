@@ -1,14 +1,14 @@
 <?php
 
-namespace BiteCodes\DoctrineFilter\Tests\Filter\Type;
+namespace Queo\DoctrineFilter\Tests\Filter\Type;
 
-use BiteCodes\DoctrineFilter\FilterBuilder;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Entity\Post;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
-use BiteCodes\DoctrineFilter\Tests\Dummy\LoadFixtures;
-use BiteCodes\DoctrineFilter\Tests\Dummy\TestCase;
-use BiteCodes\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
-use BiteCodes\DoctrineFilter\Type\ComparableFilterType;
+use Queo\DoctrineFilter\FilterBuilder;
+use Queo\DoctrineFilter\Tests\Dummy\Entity\Post;
+use Queo\DoctrineFilter\Tests\Dummy\Fixtures\LoadPostCollectionData;
+use Queo\DoctrineFilter\Tests\Dummy\LoadFixtures;
+use Queo\DoctrineFilter\Tests\Dummy\TestCase;
+use Queo\DoctrineFilter\Tests\Dummy\Traits\TestFilterTrait;
+use Queo\DoctrineFilter\Type\ComparableFilterType;
 use Doctrine\ORM\Query\Expr\Andx;
 
 class ComparableFilterTypeTest extends TestCase
@@ -33,16 +33,9 @@ class ComparableFilterTypeTest extends TestCase
     }
 
     /** @test */
-    public function it_expands()
-    {
-        $filter = new ComparableFilterType('horsepower', []);
-        $filter->expand(new FilterBuilder(), 'a', 'b', 'c', Andx::class);
-    }
-
-    /** @test */
     public function it_works_for_not_equal()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'title!' => 'Post 1'
         ]);
 
@@ -54,7 +47,7 @@ class ComparableFilterTypeTest extends TestCase
     /** @test */
     public function it_works_for_less_than_or_equal()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt<' => '2016-02-02 12:00:00'
         ]);
 
@@ -66,7 +59,7 @@ class ComparableFilterTypeTest extends TestCase
     /** @test */
     public function it_works_for_greater_than_or_equal()
     {
-        $posts = $this->em->getRepository(Post::class)->filter($this->filter, [
+        $posts = self::$em->getRepository(Post::class)->filter($this->filter, [
             'createdAt>' => '2016-02-02 12:00:00'
         ]);
 
