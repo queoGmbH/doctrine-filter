@@ -1,5 +1,5 @@
 {
-  "name": "bitecodes/doctrine-filter",
+  "name": "queo/doctrine-filter",
   "description": "Easy filter for Doctrine ORM",
   "license": "MIT",
   "authors": [
