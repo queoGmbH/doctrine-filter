@@ -10,7 +10,7 @@
   "require": {
     "php": ">=7.4",
     "doctrine/orm": "^2.4",
-    "pagerfanta/pagerfanta": "^1.0",
+    "pagerfanta/pagerfanta": "^3.7",
     "symfony/options-resolver": "^2.7|^3.0|^4.0|^5.4|^6.0",
     "doctrine/annotations": "^1.13"
   },
