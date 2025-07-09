@@ -3,9 +3,9 @@
 namespace Queo\DoctrineFilter\Traits;
 
 use Doctrine\ORM\QueryBuilder;
+use Pagerfanta\Doctrine\ORM\QueryAdapter;
 use Queo\DoctrineFilter\FilterBuilder;
 use Queo\DoctrineFilter\FilterInterface;
-use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 
 trait EntityFilterTrait
@@ -45,7 +45,7 @@ trait EntityFilterTrait
             ->buildQuery($searchParams)
             ->getQuery();
 
-        $adapter = new DoctrineORMAdapter($query, true, false);
+        $adapter = new QueryAdapter($query, true, false);
         $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta
             ->setAllowOutOfRangePages(true)
